@@ -38,17 +38,16 @@ function MarqueComponent({faculty , isVisible}) {
         loop={true}
       >
         {faculty.map((faculty, index) => (
-            <SwiperSlide key={faculty.name}>
-                <div
+            <SwiperSlide key={faculty.name}
                 className={cn(
-                  `text-center transition-all duration-500 hover:scale-105 hover:shadow-lg cursor-pointer  py-4 rounded-md`,
+                  `text-center transition-all duration-500 cursor-pointer  py-4 rounded-md`,
                   isVisible.faculty
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
                 )}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-amber-600 to-amber-800 mb-4 overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-amber-600 to-amber-800 mb-4 overflow-hidden transition-transform duration-300">
                   <img
                     src="/professional-faculty-member-in-office-with-books.jpg"
                     alt={faculty.name}
@@ -59,7 +58,7 @@ function MarqueComponent({faculty , isVisible}) {
                   {faculty.name}
                 </h3>
                 <p className="text-slate-600 text-sm">{faculty.title}</p>
-              </div>
+              {/* </div> */}
             </SwiperSlide>
               
             ))}

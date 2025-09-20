@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
-
+import { ChevronRight } from "lucide-react";
 export default function CardComponent({
   title,
   description,
@@ -31,6 +31,7 @@ export default function CardComponent({
           <Link
             href={redirectionLink}
             target="_blank"
+            title={`visit website of ${title}`}
             className={cn(
               "text-sm hover:underline transition-colors duration-300 ",
               theme === "red" ? "text-red-400" : "text-blue-400"
@@ -51,11 +52,12 @@ export default function CardComponent({
           href={link}
           target={linkTarget}
           className={cn(
-            "text-sm hover:underline transition-colors duration-300" ,
-            theme === "red" ? "text-red-400" : "text-blue-500"
+            "flex justify-center items-center gap-0.5 text-sm hover:underline transition-colors duration-300 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded",
+            theme === "red" ? "bg-red-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600" 
           )}
         >
-          {linkText}
+          <span >{linkText}</span>
+          <ChevronRight className="inline-block ml-1" size={16} />
         </Link>)}
       </div>
     </div>

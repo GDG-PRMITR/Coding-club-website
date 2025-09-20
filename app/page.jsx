@@ -92,22 +92,31 @@ const statistics = [
   },
 ];
 
-const leads =   [{
-    name: "Vedant Mali",
-    position: "GDG Lead",
-    description:
-      "Passionate about Google technologies and community building. Leading innovative workshops and tech talks.",
-    image: "/professional-young-man-in-business-attire-presenti.jpg",
-  },
+const leads =   [
+ 
   {
     name: "Sneha Giri",
     position: "Coding Club Lead",
     description:
       "Dedicated to fostering a collaborative learning environment and organizing impactful coding events.",
     image: "/professional-young-woman-in-business-attire-in-off.jpg",
-  }]
+  },
+  {
+    name: "Lavannya Deshmukh",
+    position: "Coding Club Co-Lead",
+    description:
+      "Dedicated to fostering a collaborative learning environment and organizing impactful coding events.",
+    image: "/professional-young-woman-in-business-attire-in-off.jpg",
+  },
+]
 const organisers = [
-
+ {
+    name: "Vedant Mali",
+    position: "GDG Lead",
+    description:
+      "Passionate about Google technologies and community building. Leading innovative workshops and tech talks.",
+    image: "/professional-young-man-in-business-attire-presenti.jpg",
+  },
   {
     name: "Adnan Qureshi",
     position: "GSA Lead",
@@ -120,7 +129,7 @@ const faculty = [
   { name: "Roshan Karwa Sir", title: "Professor, Computer Science" },
   { name: "Bamnote Sir", title: "Associate Professor, IT" },
   { name: "Dr. Sharma", title: "Head of Department" },
-  { name: "Prof. Gupta", title: "Senior Lecturer" },
+  { name: "Prof. Gupta", title: "Senior Lecturer" }
 ];
 const Page = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -248,7 +257,7 @@ const Page = () => {
             Organisers
           </h2>
 
-          <div className="mx-auto flex flex-col md:flex-row justify-center items-center max-w-4xl space-y-2">
+          <div className="mx-auto flex flex-col md:flex-row justify-center items-center max-w-4xl max-md:space-y-2 md:space-x-2 my-2">
             {leads.map((lead, index) => (
                  <div
                       key={lead.name}
@@ -298,7 +307,7 @@ const Page = () => {
                     </div>
             ))}
           </div>
-          <div className="max-w-4xl mx-auto space-y-12 my-2">
+          <div className="max-w-4xl mx-auto space-y-2  my-0">
             {organisers.map((organiser ,index) => (
               <div
                       key={organiser.name}
