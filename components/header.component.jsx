@@ -22,7 +22,7 @@ const links = [
     },
     {
         title : "GSA",
-        href : "/"
+        href : "/gsa-coding-club"
     },
     {
         title : "Events",
