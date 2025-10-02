@@ -75,6 +75,33 @@ const GoogleSansCode = localFont({
   fallback: ['ui-sans-serif', 'system-ui']
 })
 
+const GoogleSans = localFont({
+  src: [
+    {
+      path: '../public/font/ProductSans/Product Sans Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/ProductSans/Product Sans Italic.ttf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../public/font/ProductSans/Product Sans Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/ProductSans/Product Sans Bold Italic.ttf',
+      weight: '700',
+      style: 'italic',
+    }
+  ],
+  variable: '--font-google-sans',
+  display: 'swap',
+  fallback: ['ui-sans-serif', 'system-ui']
+})
 
 
 export const metadata: Metadata = {
@@ -91,7 +118,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${GoogleSansCode.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={` ${GoogleSansCode.variable} ${GoogleSans.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
         <HeaderComponent />
         {children}
         <FooterComponent />

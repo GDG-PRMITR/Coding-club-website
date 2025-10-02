@@ -15,7 +15,7 @@ export default function CardComponent({
   return (
     <div
       className={cn(
-        "relative border-2 z-10 hover-neon-border rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 group"
+        "border-2 z-10 hover-neon-border p-6 transition-all duration-300 hover:-translate-y-2 group flex flex-col justify-start"
       )}
     >
       <div className="text-center mb-6">
@@ -23,7 +23,7 @@ export default function CardComponent({
           <span className="text-white font-bold text-lg">{title}</span>
         </div>
       </div>
-      <p className="text-gray-600 text-center text-pretty mb-6 text-sm leading-relaxed">
+      <p className="text-gray-600 text-center text-pretty mb-6 text-sm leading-relaxed flex-grow">
         {description}
       </p>
       <div className="flex justify-end items-center">

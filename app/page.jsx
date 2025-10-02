@@ -34,6 +34,13 @@ const cardDetails = [
     isRedirectionExist: true,
     redirectionLink: "https://cisco.prmitr.in/"
   },
+  {
+    title: "Nvidia",
+    description:
+      "Nvidia - Pioneering the future of AI and graphics processing.",
+    isRedirectionExist: true,
+    redirectionLink: "https://www.nvidia.com/"
+  },
 ];
 
 const socialDetails = [
@@ -184,7 +191,7 @@ const Page = () => {
               </div>
             </div>
             {/* Partnership Cards */}
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-4 gap-6">
               {cardDetails.map((cardDetail) => (
                 <CardComponent
                   key={cardDetail.title}

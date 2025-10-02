@@ -76,7 +76,9 @@
 
 @theme inline {
   --font-google-sans-code: var(--font-google-sans-code);
-  --font-sans: var(--font-google-sans-code), ui-sans-serif, system-ui, sans-serif;
+  --font-google-sans: var(--font-google-sans);
+  --font-sans: var(--font-google-sans), var(--font-google-sans-code),
+    ui-sans-serif, system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -115,9 +117,14 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Custom font utility class */
+/* Custom font utility classes */
 .font-google-sans-code {
   font-family: var(--font-google-sans-code);
+}
+
+.font-google-sans,
+.font-product-sans {
+  font-family: var(--font-google-sans);
 }
 
 @layer base {
@@ -129,43 +136,54 @@
   }
 }
 @layer components {
-  .bottom-line{
+  .bottom-line {
     @apply relative overflow-hidden after:content-[''] after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-4 rounded-4xl hover:after:w-full after:transition-all after:duration-300;
   }
-
 }
 @layer utilities {
-    .hover-neon-border:hover::after,
+  .hover-neon-border{
+    --border-radius : 16px;
+    --border-thickness: 3px;
+    position: relative;
+    border-radius: var(--border-radius);
+  }
+  .hover-neon-border:hover::after,
   .hover-neon-border:hover:before {
     display: block;
   }
   .hover-neon-border::after {
-    content: '';
+    content: "";
     position: absolute;
     display: block;
-    inset: -3px;
-    background: conic-gradient(from var(--angle), #EA4335, #FBBC04, #34A853, #4285F4);
+    inset: calc(-1 * var(--border-thickness));
+    background: conic-gradient(
+      from var(--angle),
+      transparent,
+      rgba(59, 130, 246, 0.1) 40%,
+      rgba(59, 130, 246, 0.6) 60%,
+      rgba(59, 130, 246, 1) 80%
+    );
     z-index: -2;
-    filter: blur(4px);
+    /* filter: blur(4px); */
     opacity: 0.7;
-    border-radius: inherit;
-    animation: autoRotate 20s linear alternate infinite;
+    border-radius: calc(var(--border-radius) + 3px);
+    animation: autoRotate 10s linear infinite;
     display: none;
   }
   .hover-neon-border:before {
-    content: '';
+    content: "";
     position: absolute;
     display: block;
     inset: 0px;
     z-index: -1;
-    border-radius: inherit;
+    border-radius: calc(var(--border-radius) + 3px);
     display: none;
-    @apply bg-gray-100
+    @apply bg-gray-100;
   }
 }
 /* variables */
 @property --angle {
-  syntax: '<angle>';
+  syntax: "<angle>";
   inherits: false;
   initial-value: 0deg;
 }
@@ -179,7 +197,6 @@
     --angle: 360deg;
   }
 }
-
 
 @keyframes float {
   0%,
