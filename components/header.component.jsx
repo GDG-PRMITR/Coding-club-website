@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import useScrollChange from '@/hooks/use-scroll-change';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 
 export default function HeaderComponent() {
@@ -45,9 +46,9 @@ const scrollingDown = useScrollChange(50);
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo and Brand */}
-            <div className="flex items-center space-x-3">
-              {/* <Image src="placeholder-logo.svg" alt="Logo" width={120} height={120} /> */}
-              <span className="text-2xl font-bold text-slate-800 font-google-sans-code">Coding Club</span>
+            <div className="flex flex-col justify-center items-center space-x-3">
+              <Image src="/logo/logo-coding-club.png" alt="Logo" width={50} height={50} />
+              <span className="text-sm font-bold text-slate-800 font-google-sans-code">Coding Club</span>
             </div>
 
             {/* Navigation */}

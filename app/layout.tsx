@@ -4,6 +4,9 @@ import { GeistMono } from 'geist/font/mono'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import { SiteShell } from '@/components/site-shell'
+import HeaderComponent from '@/components/header.component'
+import FooterComponent from '@/components/footer.component'
+import LenisProvider from '@/providers/lenis.provider'
 import './globals.css'
 
 const GoogleSansCode = localFont({
@@ -74,6 +77,33 @@ const GoogleSansCode = localFont({
   fallback: ['ui-sans-serif', 'system-ui']
 })
 
+const GoogleSans = localFont({
+  src: [
+    {
+      path: '../public/font/ProductSans/Product Sans Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/ProductSans/Product Sans Italic.ttf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../public/font/ProductSans/Product Sans Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/font/ProductSans/Product Sans Bold Italic.ttf',
+      weight: '700',
+      style: 'italic',
+    }
+  ],
+  variable: '--font-google-sans',
+  display: 'swap',
+  fallback: ['ui-sans-serif', 'system-ui']
+})
 
 
 export const metadata: Metadata = {
@@ -95,6 +125,13 @@ export default function RootLayout({
           {children}
         </SiteShell>
         <Analytics />
+      <body className={` ${GoogleSansCode.variable} ${GoogleSans.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
+        <LenisProvider >
+        <HeaderComponent />
+          {children}
+          <FooterComponent />
+        </LenisProvider>
+          <Analytics />
       </body>
     </html>
   )

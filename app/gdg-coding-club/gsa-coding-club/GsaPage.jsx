@@ -41,9 +41,9 @@ const gsaData = {
   },
 };
 
-const renderMemberCard = (member, index) => (
+const renderMemberCard = (member) => (
   <div
-    key={index}
+    key={member.name}
     className="bg-card rounded-xl p-6 text-center border border-border hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl group"
   >
     <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden">
