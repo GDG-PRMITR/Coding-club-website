@@ -7,39 +7,38 @@ import { CalendarCheck2, Globe, GraduationCap, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import MarqueComponent from "@/components/marque.component";
+import CardsMarqueComponent from "@/components/cards.marque.component";
+import PresentSectionComponent from "@/components/present.section.component";
+
 
 const cardDetails = [
   {
     title: "GDG",
+    logoHref: "/logo/logo-gdg.png",
     description:
       "Google Developer Groups - Connecting developers worldwide through technology, innovation, and community-driven learning experiences.",
     link: "#",
     linkText: "Events",
     isRedirectionExist: true,
-    redirectionLink: "/GDG"
+    redirectionLink: "/GDG",
   },
   {
     title: "GSA",
+    logoHref: "/logo/logo-gsac.png",
     description:
       "Google Student Ambassador - Empowering students with Google technologies and fostering innovation in academic communities.",
     link: "#",
     linkText: "Learn More",
     isRedirectionExist: true,
-    redirectionLink: "/GSA"
-  },
-  {
-    title: "CISCO",
-    description:
-      "Cisco Networking Academy - Building networking skills and cybersecurity expertise for the digital transformation era.",
-    isRedirectionExist: true,
-    redirectionLink: "https://cisco.prmitr.in/"
+    redirectionLink: "/GSA",
   },
   {
     title: "Nvidia",
+    logoHref: "/logo/logo-nvidia.jpg",
     description:
       "Nvidia - Pioneering the future of AI and graphics processing.",
     isRedirectionExist: true,
-    redirectionLink: "https://www.nvidia.com/"
+    redirectionLink: "https://www.nvidia.com/",
   },
 ];
 
@@ -76,31 +75,30 @@ const statistics = [
   {
     number: "500+",
     label: "Participants Reach",
-    color : "#EA4335",
+    color: "#EA4335",
     icon: Zap,
   },
   {
     number: "25+",
     label: "Events Hosted",
-    color : "#FBBC04",
+    color: "#FBBC04",
     icon: CalendarCheck2,
   },
   {
     number: "200+",
     label: "Study Jams Participants",
-    color : "#34A853",
+    color: "#34A853",
     icon: GraduationCap,
   },
   {
     number: "8+",
     label: "Number of Domains",
-    color : "#4285F4",
+    color: "#4285F4",
     icon: Globe,
   },
 ];
 
-const leads =   [
- 
+const leads = [
   {
     name: "Sneha Giri",
     position: "Coding Club Lead",
@@ -115,9 +113,9 @@ const leads =   [
       "Dedicated to fostering a collaborative learning environment and organizing impactful coding events.",
     image: "/professional-young-woman-in-business-attire-in-off.jpg",
   },
-]
+];
 const organisers = [
- {
+  {
     name: "Vedant Mali",
     position: "GDG Lead",
     description:
@@ -136,7 +134,7 @@ const faculty = [
   { name: "Roshan Karwa Sir", title: "Professor, Computer Science" },
   { name: "Bamnote Sir", title: "Associate Professor, IT" },
   { name: "Dr. Sharma", title: "Head of Department" },
-  { name: "Prof. Gupta", title: "Senior Lecturer" }
+  { name: "Prof. Gupta", title: "Senior Lecturer" },
 ];
 const Page = () => {
   const [isVisible, setIsVisible] = useState({});
@@ -169,6 +167,8 @@ const Page = () => {
       {/* Animated Background Canvas */}
       <GoogleParticlesCanvas />
 
+      {/* Present Section */}
+      <PresentSectionComponent />
       {/* Hero Section */}
       <section
         id="home"
@@ -177,28 +177,22 @@ const Page = () => {
         <div className="container mx-auto px-6 relative z-10 ">
           {/* Main Container */}
           <div className="max-w-6xl  mx-auto bg-white/20 border backdrop-blur-[2px] rounded-3xl p-8 md:p-12">
-           {/* Header with Logo and Tagline */}
+            {/* Header with Logo and Tagline */}
             <div className="flex flex-col max-sm:justify-center md:flex-row items-start md:items-center justify-between mb-12">
               <div className="flex max-sm:mx-auto items-center space-x-4 mb-4 md:mb-0 ">
+                {/* Logo */}
                 <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 flex items-center justify-center animate-pulse-glow">
                   <span className="text-white font-bold text-2xl">CC</span>
                 </div>
               </div>
               <div className="text-right max-sm:text-center">
                 <h1 className="text-2xl md:text-3xl font-bold text-black text-pretty">
-                  Empowering Coders, Building the Future
+                  Empowering Innovation, One Code at a Time
                 </h1>
               </div>
             </div>
             {/* Partnership Cards */}
-            <div className="grid md:grid-cols-4 gap-6">
-              {cardDetails.map((cardDetail) => (
-                <CardComponent
-                  key={cardDetail.title}
-                  {...cardDetail}
-                />
-              ))}
-            </div>
+            <CardsMarqueComponent cardDetails={cardDetails} />
           </div>
         </div>
       </section>
@@ -222,9 +216,12 @@ const Page = () => {
                   `text-center transition-all duration-500 border py-4 rounded-xl cursor-pointer group hover:backdrop-blur-[2px] hover:bg-gray-400/20 `,
                   isVisible.about
                     ? "translate-y-0 opacity-100"
-                    : "translate-y-8 opacity-0",
+                    : "translate-y-8 opacity-0"
                 )}
-                style={{ transitionDelay: `${index * 100}ms` , borderColor : stat.color}}
+                style={{
+                  transitionDelay: `${index * 100}ms`,
+                  borderColor: stat.color,
+                }}
               >
                 <div className="flex justify-center mb-4 transition-transform duration-300">
                   <stat.icon color={stat.color} size={32} />
@@ -266,10 +263,11 @@ const Page = () => {
 
           <div className="mx-auto flex flex-col md:flex-row justify-center items-center max-w-4xl max-md:space-y-2 md:space-x-2 my-2">
             {leads.map((lead, index) => (
-                 <div
-                      key={lead.name}
-                      className={cn(`hover-neon-border max-w-full flex flex-col items-center  space-y-6 md:space-y-0 md:space-x-8 transition-all duration-500  cursor-pointer group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 `,
-                        isVisible.organisers
+              <div
+                key={lead.name}
+                className={cn(
+                  `hover-neon-border max-w-full flex flex-col items-center  space-y-6 md:space-y-0 md:space-x-8 transition-all duration-500  cursor-pointer group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 `,
+                  isVisible.organisers
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
                 )}
@@ -311,15 +309,16 @@ const Page = () => {
                     ))}
                   </div>
                 </div>
-                    </div>
+              </div>
             ))}
           </div>
           <div className="max-w-4xl mx-auto space-y-2  my-0">
-            {organisers.map((organiser ,index) => (
+            {organisers.map((organiser, index) => (
               <div
-                      key={organiser.name}
-                      className={cn(`hover-neon-border flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8 transition-all duration-500  cursor-pointer group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 `,
-                        isVisible.organisers
+                key={organiser.name}
+                className={cn(
+                  `hover-neon-border flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8 transition-all duration-500  cursor-pointer group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 `,
+                  isVisible.organisers
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"
                 )}
@@ -361,13 +360,11 @@ const Page = () => {
                     ))}
                   </div>
                 </div>
-                    </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
-
-
     </main>
   );
 };
