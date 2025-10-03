@@ -524,6 +524,7 @@ export default function EventsPage() {
                           </button>
                         )}
                         {(() => {
+                          if (typeof document === 'undefined') return currentCardIndex[1] < upcomingEvents.length - 1;
                           const container = document.getElementById('upcoming-events-container');
                           if (container && container.children.length > 0) {
                             const firstCard = container.children[0] as HTMLElement;
@@ -653,6 +654,7 @@ export default function EventsPage() {
                           </button>
                         )}
                         {(() => {
+                          if (typeof document === 'undefined') return currentCardIndex[2] < pastEvents.length - 1;
                           const container = document.getElementById('past-events-container');
                           if (container && container.children.length > 0) {
                             const firstCard = container.children[0] as HTMLElement;
