@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
+import { SiteShell } from '@/components/site-shell'
 import HeaderComponent from '@/components/header.component'
 import FooterComponent from '@/components/footer.component'
 import LenisProvider from '@/providers/lenis.provider'
@@ -119,6 +120,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <body className={`${GoogleSansCode.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
+        <SiteShell>
+          {children}
+        </SiteShell>
+        <Analytics />
       <body className={` ${GoogleSansCode.variable} ${GoogleSans.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
         <LenisProvider >
         <HeaderComponent />
