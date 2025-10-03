@@ -5,6 +5,7 @@ import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import HeaderComponent from '@/components/header.component'
 import FooterComponent from '@/components/footer.component'
+import LenisProvider from '@/providers/lenis.provider'
 import './globals.css'
 
 const GoogleSansCode = localFont({
@@ -119,10 +120,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${GoogleSansCode.variable} ${GoogleSans.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
+        <LenisProvider >
         <HeaderComponent />
-        {children}
-        <FooterComponent />
-        <Analytics />
+          {children}
+          <FooterComponent />
+        </LenisProvider>
+          <Analytics />
       </body>
     </html>
   )
