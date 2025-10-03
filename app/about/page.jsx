@@ -58,16 +58,16 @@ and contributing to national growth in the global arena.”
 							 <h3 className="font-semibold text-xl text-purple-700 mb-2">GSA</h3>
 							 <p className="text-gray-700 text-center">Google Student Ambassadors: Connecting students with Google resources and opportunities for growth.</p>
 						 </div>
-						 <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
-							 <img src="https://www.svgrepo.com/show/303630/nvidia-logo.svg" alt="NVIDIA Logo" className="w-8 h-10 mb-3 " />
-							 <h3 className="font-semibold text-xl text-green-700 mb-2">NVIDIA</h3>
-							 <p className="text-gray-700 text-center">NVIDIA Community: Fostering AI, ML, and GPU computing skills through events and projects.</p>
-						 </div>
-						 <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
-							 <img src="https://www.svgrepo.com/show/353810/google-developers.svg" alt="GDG Logo" className="w-10 h-10 mb-2" />
-							 <h3 className="font-semibold text-xl text-blue-700 mb-2">GDG</h3>
-							 <p className="text-gray-700 text-center">Google Developer Group: Building a collaborative environment for developers to learn and innovate.</p>
-						 </div>
+						<div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+							<img src="https://www.svgrepo.com/show/303630/nvidia-logo.svg" alt="NVIDIA Logo" className="w-8 h-10 mb-3 " />
+							<h3 className="font-semibold text-xl text-green-700 mb-2">NVIDIA</h3>
+							<p className="text-gray-700 text-center">NVIDIA Community: Fostering AI, ML, and GPU computing skills through events and projects.</p>
+						</div>
+						<div className="bg-white rounded-lg shadow p-6 flex flex-col items-center">
+							<img src="https://www.svgrepo.com/show/353810/google-developers.svg" alt="GDG Logo" className="w-10 h-10 mb-2" />
+							<h3 className="font-semibold text-xl text-blue-700 mb-2">GDG</h3>
+							<p className="text-gray-700 text-center">Google Developer Group: Building a collaborative environment for developers to learn and innovate.</p>
+						</div>
 					 </div>
 				 </section>
 			 </main>
