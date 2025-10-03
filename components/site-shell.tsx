@@ -4,6 +4,8 @@ import { usePathname } from 'next/navigation';
 import HeaderComponent from '@/components/header.component';
 import FooterComponent from '@/components/footer.component';
 
+
+
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   
