@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 export default function CardComponent({
   title,
   description,
@@ -11,17 +12,16 @@ export default function CardComponent({
   theme = "blue",
   isRedirectionExist = false, // New prop to check if redirection exists
   redirectionLink,
+  logoHref
 }) {
   return (
     <div
       className={cn(
-        "border-2 z-10 hover-neon-border p-6 transition-all duration-300 hover:-translate-y-2 group flex flex-col justify-start"
+        "border-2 z-10 hover-neon-border p-6 transition-all duration-300 hover:-translate-y-2 group flex flex-col justify-start h-full rounded-lg"
       )}
     >
       <div className="text-center mb-6">
-        <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-          <span className="text-white font-bold text-lg">{title}</span>
-        </div>
+        <Image src={logoHref} alt={`${title} logo`} width={80} height={80} className="mx-auto mb-4 "/>
       </div>
       <p className="text-gray-600 text-center text-pretty mb-6 text-sm leading-relaxed flex-grow">
         {description}
