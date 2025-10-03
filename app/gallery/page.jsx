@@ -1,4 +1,5 @@
 "use client";
+import useScrollChange from "@/hooks/use-scroll-change";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -95,6 +96,7 @@ const events = [
 
 function Page() {
   const [isVisible, setIsVisible] = useState({});
+  const scrollingDown = useScrollChange(50);
   // Intersection Observer for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -139,20 +141,22 @@ function Page() {
                   ? "translate-y-0 opacity-100"
                   : "translate-y-8 opacity-0"
               )}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 50}ms` }}
             >
-              <Image
+              <div className="relative">
+                <Image
                 height={400}
                 width={300}
                 src={event.image}
                 alt={event.title}
                 className="w-full object-cover rounded-lg"
               />
-              <div className="p-4 absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/20 backdrop-blur-md transform translate-y-4 group-hover:translate-y-0 rounded-lg">
-                <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
-                <p className="text-gray-100">{event.description}</p>
-              </div>
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-25 transition-opacity duration-300 rounded-lg"></div>
+              </div>
+              <div className="p-4 flex justify-between items-center">
+                <h3 className="text-xl text-left font-semibold">{event.title}</h3>
+                {/* <p className="text-gray-400">{event.description.slice(0,3)}...</p> */}
+              </div>
             </div>
           ))}
         </div>
