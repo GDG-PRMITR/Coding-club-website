@@ -3,8 +3,7 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
-import HeaderComponent from '@/components/header.component'
-import FooterComponent from '@/components/footer.component'
+import { SiteShell } from '@/components/site-shell'
 import './globals.css'
 
 const GoogleSansCode = localFont({
@@ -92,9 +91,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${GoogleSansCode.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
-        <HeaderComponent />
-        {children}
-        <FooterComponent />
+        <SiteShell>
+          {children}
+        </SiteShell>
         <Analytics />
       </body>
     </html>
