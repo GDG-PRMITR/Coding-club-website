@@ -120,15 +120,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${GoogleSansCode.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
-        <SiteShell>
-          {children}
-        </SiteShell>
-        <Analytics />
       <body className={` ${GoogleSansCode.variable} ${GoogleSans.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
         <LenisProvider >
         <HeaderComponent />
+        <SiteShell>
           {children}
+        </SiteShell>
           <FooterComponent />
         </LenisProvider>
           <Analytics />
