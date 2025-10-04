@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useMemo, useEffect } from 'react';
-import { Calendar, Search, Filter, TrendingUp, Star, Code, Users, Sparkles, Zap, ArrowRight, Globe, Target, MapPin, Send, Instagram, Mail, Phone } from 'lucide-react';
+import { Calendar, TrendingUp, Star, Code, Users, Sparkles, Zap, ArrowRight, Globe, Target } from 'lucide-react';
 import { PastEventCard } from '@/components/events/PastEventCard';
 import { UpcomingEventCard } from '@/components/events/UpcomingEventCard';
 import { EventFilter } from '@/components/events/EventFilter';
 import { EventDetailModal } from '@/components/events/EventDetailModal';
 import AnimatedBackground  from '@/components/googleParticleBackground';
-import { Badge } from '@/components/ui/badge';
-import Header from '@/components/header.component';
+import Header from '@/components/header.component'
+import Footer from '@/components/footer.component'
 import { 
   Event, 
   EventFilters, 
@@ -79,8 +79,51 @@ export default function EventsPage() {
     let scrollDecayTimeout: NodeJS.Timeout | null = null;
     
     const handleScroll = (e: WheelEvent) => {
+      // If the user is interacting with a native scrollable area (or form control),
+      // don't hijack scrolling — let the browser handle it. This makes the site
+      // feel natural for trackpads and nested scroll areas.
+  const target = (e.target as HTMLElement) || null;
+  let el: HTMLElement | null = target;
+      let isOverInteractive = false;
+      if (target) {
+        const tag = (target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea' || tag === 'select' || target.isContentEditable) {
+          isOverInteractive = true;
+        }
+      }
+
+      let isOverScrollable = false;
+      let footerScrollableEl: HTMLElement | null = null;
+      while (el && el !== document.body) {
+        try {
+          const style = window.getComputedStyle(el);
+          const overflowY = style.overflowY;
+          if (el.scrollHeight > el.clientHeight && (overflowY === 'auto' || overflowY === 'scroll')) {
+            isOverScrollable = true;
+            if (el.id === 'footer-section') {
+              footerScrollableEl = el as HTMLElement;
+            }
+            break;
+          }
+        } catch (err) {
+          // ignore cross-origin or other issues
+        }
+        el = el.parentElement;
+      }
+
+      // If over an interactive element, let native behavior happen.
+      if (isOverInteractive) {
+        return;
+      }
+
+      // If over a scrollable area that's NOT the footer, let native behavior happen.
+      if (isOverScrollable && !footerScrollableEl) {
+        return;
+      }
+
+      // Only prevent default when we intend to hijack the scroll for section navigation
       e.preventDefault();
-      
+
       const currentTime = Date.now();
       let deltaY = e.deltaY;
       let deltaX = e.deltaX;
@@ -105,16 +148,18 @@ export default function EventsPage() {
           clearTimeout(scrollDecayTimeout);
         }
         
-        scrollAccumulator += deltaY * 0.7; 
+        // Much more responsive accumulation for trackpad
+        scrollAccumulator += deltaY * 0.5; 
         
-        const baseThreshold = 80;
-        const velocityFactor = Math.min(2, Math.abs(scrollAccumulator) / 40);
+        // Lower threshold for smoother, more responsive feel
+        const baseThreshold = 40; // Reduced from 80
+        const velocityFactor = Math.min(2, Math.abs(scrollAccumulator) / 30);
         const adaptiveThreshold = baseThreshold * velocityFactor;
         
         if (Math.abs(scrollAccumulator) < adaptiveThreshold) {
           scrollDecayTimeout = setTimeout(() => {
-            scrollAccumulator *= 0.8;
-          }, 150);
+            scrollAccumulator *= 0.7; // Faster decay
+          }, 100); // Reduced from 150ms
           return; 
         }
         
@@ -122,7 +167,30 @@ export default function EventsPage() {
         scrollAccumulator = 0; 
       }
       
-      const threshold = isTouchpad ? 60 : 20;
+      // Much lower threshold for smoother trackpad experience
+      const threshold = isTouchpad ? 30 : 20; // Reduced from 60 for trackpad
+      
+      // Handle scrolling within section 3 (footer section)
+      if (currentSection === 3) {
+        const footerSection = document.getElementById('footer-section');
+        if (footerSection) {
+          const maxScroll = footerSection.scrollHeight - footerSection.clientHeight;
+          const currentScroll = footerSection.scrollTop;
+
+          // Let the browser handle native scrolling inside the footer for smoother behavior.
+          // Only intercept when the footer is already at the top and the user scrolls up
+          // with sufficient intent to move to the previous section.
+          if (currentScroll <= 0 && deltaY < 0 && Math.abs(deltaY) > threshold * 1.5) {
+            setCurrentSection(prev => Math.max(prev - 1, 0));
+            return;
+          }
+
+          // If footer is not at top or user is scrolling down, allow native scroll
+          // (don't call preventDefault here — returning lets browser handle it)
+          return;
+        }
+        return; // Stay in section 3
+      }
       
       if (currentSection === 1 || currentSection === 2) {
         const container = document.getElementById(
@@ -145,14 +213,16 @@ export default function EventsPage() {
           
           const maxScrollIndex = Math.max(0, totalCards - cardsInView);
           
-          const horizontalThreshold = isTouchpad ? threshold * 1.5 : threshold;
+          // Smoother horizontal threshold for trackpad
+          const horizontalThreshold = isTouchpad ? threshold * 1.2 : threshold; // Reduced from 1.5
           if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > horizontalThreshold) {
             if (deltaX > 0) {
               if (currentIndex < maxScrollIndex) {
                 const newIndex = currentIndex + 1;
                 setCurrentCardIndex(prev => ({ ...prev, [currentSection]: newIndex }));
                 const translateX = -(newIndex * scrollUnit);
-                container.style.transition = isTouchpad ? 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'transform 0.5s ease-out';
+                // Smoother, faster transition for trackpad
+                container.style.transition = isTouchpad ? 'transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'transform 0.5s ease-out';
                 container.style.transform = `translateX(${translateX}px)`;
               }
             } else {
@@ -160,7 +230,8 @@ export default function EventsPage() {
                 const newIndex = currentIndex - 1;
                 setCurrentCardIndex(prev => ({ ...prev, [currentSection]: newIndex }));
                 const translateX = -(newIndex * scrollUnit);
-                container.style.transition = isTouchpad ? 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'transform 0.5s ease-out';
+                // Smoother, faster transition for trackpad
+                container.style.transition = isTouchpad ? 'transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'transform 0.5s ease-out';
                 container.style.transform = `translateX(${translateX}px)`;
               }
             }
@@ -173,7 +244,8 @@ export default function EventsPage() {
                 const newIndex = currentIndex + 1;
                 setCurrentCardIndex(prev => ({ ...prev, [currentSection]: newIndex }));
                 const translateX = -(newIndex * scrollUnit);
-                container.style.transition = isTouchpad ? 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'transform 0.5s ease-out';
+                // Smoother, faster transition for trackpad
+                container.style.transition = isTouchpad ? 'transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'transform 0.5s ease-out';
                 container.style.transform = `translateX(${translateX}px)`;
                 return; 
               }
@@ -182,7 +254,8 @@ export default function EventsPage() {
                 const newIndex = currentIndex - 1;
                 setCurrentCardIndex(prev => ({ ...prev, [currentSection]: newIndex }));
                 const translateX = -(newIndex * scrollUnit);
-                container.style.transition = isTouchpad ? 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'transform 0.5s ease-out';
+                // Smoother, faster transition for trackpad
+                container.style.transition = isTouchpad ? 'transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'transform 0.5s ease-out';
                 container.style.transform = `translateX(${translateX}px)`;
                 return;
               }
@@ -217,10 +290,30 @@ export default function EventsPage() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowDown' || e.key === ' ') {
         e.preventDefault();
-        setCurrentSection(prev => Math.min(prev + 1, 3));
+        
+        // If in section 3, scroll within footer instead of changing section
+        if (currentSection === 3) {
+          const footerSection = document.getElementById('footer-section');
+          if (footerSection) {
+            footerSection.scrollBy({ top: 100, behavior: 'smooth' });
+          }
+        } else {
+          setCurrentSection(prev => Math.min(prev + 1, 3));
+        }
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        setCurrentSection(prev => Math.max(prev - 1, 0));
+        
+        // If in section 3 and at top, go to previous section
+        if (currentSection === 3) {
+          const footerSection = document.getElementById('footer-section');
+          if (footerSection && footerSection.scrollTop <= 0) {
+            setCurrentSection(prev => Math.max(prev - 1, 0));
+          } else if (footerSection) {
+            footerSection.scrollBy({ top: -100, behavior: 'smooth' });
+          }
+        } else {
+          setCurrentSection(prev => Math.max(prev - 1, 0));
+        }
       } else if (e.key === 'ArrowRight' && (currentSection === 1 || currentSection === 2)) {
         e.preventDefault();
         const container = document.getElementById(
@@ -293,6 +386,30 @@ export default function EventsPage() {
       const deltaX = touchStartX - touchEndX;
       const deltaY = touchStartY - touchEndY;
       const threshold = 50;
+
+      // Handle touch scrolling in section 3
+      if (currentSection === 3) {
+        const footerSection = document.getElementById('footer-section');
+        if (footerSection && Math.abs(deltaY) > Math.abs(deltaX)) {
+          const maxScroll = footerSection.scrollHeight - footerSection.clientHeight;
+          const currentScroll = footerSection.scrollTop;
+          
+          if (deltaY > 0 && currentScroll < maxScroll) {
+            // Swiping up (scrolling down) and not at bottom
+            footerSection.scrollBy({ top: deltaY * 2, behavior: 'smooth' });
+            return;
+          } else if (deltaY < 0 && currentScroll > 0) {
+            // Swiping down (scrolling up) and not at top
+            footerSection.scrollBy({ top: deltaY * 2, behavior: 'smooth' });
+            return;
+          } else if (deltaY < 0 && currentScroll <= 0 && Math.abs(deltaY) > threshold) {
+            // At top, swiping down - go to previous section
+            setCurrentSection(prev => Math.max(prev - 1, 0));
+            return;
+          }
+        }
+        return;
+      }
 
       if (currentSection === 1 || currentSection === 2) {
         if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > threshold) {
@@ -523,7 +640,8 @@ export default function EventsPage() {
                           </button>
                         )}
                         {(() => {
-                          if (typeof document === 'undefined') return currentCardIndex[1] < upcomingEvents.length - 1;
+                                      if (typeof document === 'undefined') return currentCardIndex[1] < upcomingEvents.length - 1;
+
                           const container = document.getElementById('upcoming-events-container');
                           if (container && container.children.length > 0) {
                             const firstCard = container.children[0] as HTMLElement;
@@ -653,7 +771,8 @@ export default function EventsPage() {
                           </button>
                         )}
                         {(() => {
-                          if (typeof document === 'undefined') return currentCardIndex[2] < pastEvents.length - 1;
+                                                    if (typeof document === 'undefined') return currentCardIndex[2] < pastEvents.length - 1;
+
                           const container = document.getElementById('past-events-container');
                           if (container && container.children.length > 0) {
                             const firstCard = container.children[0] as HTMLElement;
@@ -723,7 +842,7 @@ export default function EventsPage() {
         </div>
 
         {/* Statistics & Footer Section - Combined */}
-        <div className="h-screen relative bg-gradient-to-b from-white via-gray-50 to-white border-t border-gray-200 overflow-y-auto overflow-x-hidden animate-fade-in scroll-smooth">
+        <div id="footer-section" className="h-screen relative bg-gradient-to-b from-white via-gray-50 to-white border-t border-gray-200 overflow-y-auto overflow-x-hidden animate-fade-in scroll-smooth">
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#4285F4] via-[#34A853] via-[#FBBC05] to-[#EA4335]"></div>
             <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-gradient-to-t from-[#4285F4]/5 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
@@ -812,7 +931,9 @@ export default function EventsPage() {
             </div>
             
             {/* Footer Component */}
-            
+            <div className="relative w-full mt-auto">
+              <Footer />
+            </div>
           </div>
         </div>
       
