@@ -126,7 +126,7 @@ export default function RootLayout({
         <SiteShell>
           {children}
         </SiteShell>
-          <FooterComponent />
+        
         </LenisProvider>
         <Analytics />
       </body>
