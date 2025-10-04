@@ -5,7 +5,7 @@ import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/next'
 import { SiteShell } from '@/components/site-shell'
 import HeaderComponent from '@/components/header.component'
-import FooterComponent from '@/components/footer.component'
+
 import LenisProvider from '@/providers/lenis.provider'
 import './globals.css'
 
@@ -122,10 +122,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={` ${GoogleSansCode.variable} ${GoogleSans.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
         <LenisProvider >
-          <HeaderComponent />
-          <SiteShell>
-            {children}
-          </SiteShell>
+        <HeaderComponent />
+        <SiteShell>
+          {children}
+        </SiteShell>
           <FooterComponent />
         </LenisProvider>
         <Analytics />
