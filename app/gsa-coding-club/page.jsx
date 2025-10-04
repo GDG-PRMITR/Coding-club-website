@@ -80,7 +80,7 @@ export default function GsaPage() {
           {/* Logo added here */}
           <div className="absolute top-4 right-6 md:top-8 md:right-8 z-20">
             <Image
-              src="/gsalogo.png"
+              src="/logo/logo-gsac.png"
               alt="Google Student Ambassador Logo"
               width={80}
               height={80}
