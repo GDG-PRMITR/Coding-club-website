@@ -8,7 +8,7 @@ function FooterComponent() {
   return (
     <>
        {/* Footer */}
-      <footer className="relative z-10 mt-16 bg-slate-900">
+  <footer className="relative z-10 mt-16 bg-slate-900" style={{background: 'linear-gradient(90deg, #4f46e5 0%, #9333ea 100%)'}}>
         <div className="container mx-auto px-6 py-12">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Institute Information */}
@@ -96,4 +96,4 @@ function FooterComponent() {
   )
 }
 
-export default FooterComponent;
+export default FooterComponent

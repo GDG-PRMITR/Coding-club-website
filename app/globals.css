@@ -1,3 +1,25 @@
+
+.neon-border {
+  position: relative;
+  box-shadow: 0 0 20px #8e2de2, 0 0 40px #4a00e0, 0 0 60px #8e2de2;
+  border: 2px solid #8e2de2;
+  animation: neon-border-run 2s linear infinite;
+}
+
+@keyframes neon-border-run {
+  0% {
+    box-shadow: 0 0 20px #8e2de2, 0 0 40px #4a00e0, 0 0 60px #8e2de2;
+    border-color: #8e2de2;
+  }
+  50% {
+    box-shadow: 0 0 40px #4a00e0, 0 0 60px #8e2de2, 0 0 80px #4a00e0;
+    border-color: #4a00e0;
+  }
+  100% {
+    box-shadow: 0 0 20px #8e2de2, 0 0 40px #4a00e0, 0 0 60px #8e2de2;
+    border-color: #8e2de2;
+  }
+}
 @import "tailwindcss";
 @import "tw-animate-css";
 

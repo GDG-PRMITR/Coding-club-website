@@ -22,6 +22,16 @@ const cardDetails = [
     redirectionLink: "/GDG",
   },
   {
+    title: "Coding Club",
+    logoHref: "/logo/logo-coding-club.png",
+    description:
+      "Coding Club - A community for developers to learn, share, and grow together.",
+    link: "#",
+    linkText: "Events",
+    isRedirectionExist: true,
+    redirectionLink: "/gdg-coding-club",
+  },
+  {
     title: "GSA",
     logoHref: "/logo/logo-gsac.png",
     description:
@@ -55,6 +65,14 @@ const cardDetails = [
     isRedirectionExist: true,
     redirectionLink: "https://www.nvidia.com/",
     Button : NvidiaCardDialogComponent
+  },
+  {
+    title: "Cisco",
+    logoHref: "/logo/logo-cisco.jpg",
+    description:
+      "Cisco - Leading the way in IT and networking solutions.",
+    isRedirectionExist: true,
+    redirectionLink: "https://academy.prmitr.in/",
   },
 ];
 
