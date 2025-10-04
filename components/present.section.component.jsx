@@ -1,4 +1,5 @@
 import React from 'react'
+import FooterComponent from './footer.component';
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -41,11 +42,14 @@ function PresentSectionComponent() {
 
 
 
-  return (
-      <section ref={containerRef} className="h-screen w-full flex items-center justify-center pointer-events-none">
-        <h1 ref={headingRef} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-black font-google-sans ">PRMITR PRESENTS</h1>
-      </section>
-  )
+    return (
+        <>
+            <section ref={containerRef} className="h-screen w-full flex items-center justify-center pointer-events-none">
+                <h1 ref={headingRef} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-black font-google-sans ">PRMITR PRESENTS</h1>
+            </section>
+            <FooterComponent />
+        </>
+    )
 }
 
 export default PresentSectionComponent

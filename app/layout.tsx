@@ -122,13 +122,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={` ${GoogleSansCode.variable} ${GoogleSans.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
         <LenisProvider >
-        <HeaderComponent />
-        <SiteShell>
-          {children}
-        </SiteShell>
+          <HeaderComponent />
+          <SiteShell>
+            {children}
+          </SiteShell>
           <FooterComponent />
         </LenisProvider>
-          <Analytics />
+        <Analytics />
       </body>
     </html>
   )
