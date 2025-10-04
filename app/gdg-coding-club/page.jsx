@@ -499,6 +499,16 @@ const renderMemberCard = (member) => (
         src={member.image || "/placeholder.svg"}
         alt={member.name}
         className="w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+        onError={(e) => {
+          try {
+            e.currentTarget.src = "/placeholder.jpg";
+          } catch (_) {
+            // fallback: if currentTarget isn't available, set target
+            e.target.src = "/placeholder.jpg";
+          }
+        }}
       />
     </div>
     <h3 className="text-xl font-semibold text-gray-800 mb-2">
