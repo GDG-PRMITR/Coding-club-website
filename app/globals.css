@@ -115,6 +115,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-nvidia-green: #76B900 ;
 }
 
 /* Custom font utility classes */
@@ -139,8 +140,13 @@
   .bottom-line {
     @apply relative overflow-hidden after:content-[''] after:block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-4 rounded-4xl hover:after:w-full after:transition-all after:duration-300;
   }
+  
+
 }
 @layer utilities {
+  /* NVIDIA Green utilities */
+  
+
   .hover-neon-border{
     --border-radius : 16px;
     --border-thickness: 3px;

@@ -8,7 +8,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   
   // Don't show header/footer on events page
-  const isEventsPage = pathname === '/events';
+  const isEventsPage = pathname.startsWith('/events/') || pathname.startsWith('/test');
   
   if (isEventsPage) {
     return <>{children}</>;

@@ -12,7 +12,8 @@ export default function CardComponent({
   theme = "blue",
   isRedirectionExist = false, // New prop to check if redirection exists
   redirectionLink,
-  logoHref
+  logoHref,
+  Button
 }) {
   return (
     <div
@@ -48,7 +49,7 @@ export default function CardComponent({
             </svg>
           </Link>
         )}
-        {link && linkText && (<Link
+        {link && linkText && !Button && (<Link
           href={link}
           target={linkTarget}
           className={cn(
@@ -59,6 +60,7 @@ export default function CardComponent({
           <span >{linkText}</span>
           <ChevronRight className="inline-block ml-1" size={16} />
         </Link>)}
+        {!!Button && <Button/>}
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ const isMobile = useIsMobile();
         className="mySwiper py-4 h-96 "
         spaceBetween={30}
         autoplay={{ delay: 2500, disableOnInteraction: false , pauseOnMouseEnter: true }}
-        slidesPerView={isMobile ? 1 : 3}
+        slidesPerView={isMobile ? 1.2 : 3.15}
         loop={true}
       >
         {cardDetails.map((cardDetail) => (

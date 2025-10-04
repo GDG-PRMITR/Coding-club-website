@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import CardComponent from "@/components/card.component";
 import GoogleParticlesCanvas from "@/components/googleParticleBackground";
 import { cn } from "@/lib/utils";
 import { CalendarCheck2, Globe, GraduationCap, Zap } from "lucide-react";
@@ -9,7 +8,7 @@ import Link from "next/link";
 import MarqueComponent from "@/components/marque.component";
 import CardsMarqueComponent from "@/components/cards.marque.component";
 import PresentSectionComponent from "@/components/present.section.component";
-
+import NvidiaCardDialogComponent from "../components/nvidia.card.dialog.component";
 
 const cardDetails = [
   {
@@ -33,12 +32,29 @@ const cardDetails = [
     redirectionLink: "/GSA",
   },
   {
+    title: "Cisco",
+    logoHref: "/logo/logo-cisco.jpg",
+    description:
+      "Cisco - Leading the way in IT and networking solutions.",
+    isRedirectionExist: true,
+    redirectionLink: "https://academy.prmitr.in",
+  },
+  {
+    title: "Coding Club",
+    logoHref: "/logo/logo-coding-club.png",
+    description:
+      "Coding Club - Fostering creativity and innovation through coding.",
+    isRedirectionExist: true,
+    redirectionLink: "/gdg-coding-club",
+  },
+  {
     title: "Nvidia",
     logoHref: "/logo/logo-nvidia.jpg",
     description:
       "Nvidia - Pioneering the future of AI and graphics processing.",
     isRedirectionExist: true,
     redirectionLink: "https://www.nvidia.com/",
+    Button : NvidiaCardDialogComponent
   },
 ];
 
