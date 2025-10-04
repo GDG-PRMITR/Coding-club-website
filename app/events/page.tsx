@@ -8,8 +8,7 @@ import { EventFilter } from '@/components/events/EventFilter';
 import { EventDetailModal } from '@/components/events/EventDetailModal';
 import AnimatedBackground  from '@/components/googleParticleBackground';
 import { Badge } from '@/components/ui/badge';
-import Header from '@/components/header.component'
-import Footer from '@/components/footer.component'
+import Header from '@/components/header.component';
 import { 
   Event, 
   EventFilters, 
@@ -813,9 +812,7 @@ export default function EventsPage() {
             </div>
             
             {/* Footer Component */}
-            <div className="relative w-full mt-auto">
-              <Footer />
-            </div>
+            
           </div>
         </div>
       
