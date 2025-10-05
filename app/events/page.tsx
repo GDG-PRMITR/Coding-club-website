@@ -6,7 +6,6 @@ import { PastEventCard } from '@/components/events/PastEventCard';
 import { UpcomingEventCard } from '@/components/events/UpcomingEventCard';
 import { EventFilter } from '@/components/events/EventFilter';
 import { EventDetailModal } from '@/components/events/EventDetailModal';
-import AnimatedBackground  from '@/components/googleParticleBackground';
 import Header from '@/components/header.component'
 import Footer from '@/components/footer.component'
 import { 
@@ -494,13 +493,13 @@ export default function EventsPage() {
 
   return (
     <>
-      <div className="h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20">
+      <div className="h-screen overflow-hidden bg-transparent">
         <div 
           className="relative w-full h-full transition-transform duration-700 ease-in-out"
           style={{ transform: `translateY(-${currentSection * 100}vh)` }}
         >
         
-        <div className="h-screen relative bg-white shadow-sm overflow-hidden flex items-center justify-center">
+        <div className="h-screen relative bg-transparent shadow-sm overflow-hidden flex items-center justify-center">
           {currentSection === 0 && (
             <div className="absolute top-0 left-0 right-0 z-50">
               <Header />
@@ -511,10 +510,6 @@ export default function EventsPage() {
             <div className="absolute -top-20 -right-40 w-80 h-80 bg-gradient-to-bl from-[#EA4335]/20 to-[#EA4335]/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
             <div className="absolute -bottom-40 left-1/3 w-80 h-80 bg-gradient-to-t from-[#34A853]/20 to-[#34A853]/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }}></div>
             <div className="absolute top-1/2 right-1/4 w-60 h-60 bg-gradient-to-tr from-[#FBBC05]/15 to-[#FBBC05]/5 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '7s', animationDelay: '0.5s' }}></div>
-          </div>
-          
-          <div className="absolute inset-0 pointer-events-none opacity-40 w-full h-full">
-            <AnimatedBackground />
           </div>
           
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
@@ -710,7 +705,7 @@ export default function EventsPage() {
           </div>
         </div>
 
-        <div className="h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 animate-fade-in">
+        <div className="h-screen bg-transparent animate-fade-in">
           <div className="px-3 sm:px-4 md:px-6 py-4 sm:py-5 md:py-6 h-full">
             {pastEvents.length > 0 ? (
               <section className="relative h-full flex flex-col animate-slide-up">
@@ -771,8 +766,7 @@ export default function EventsPage() {
                           </button>
                         )}
                         {(() => {
-                                                    if (typeof document === 'undefined') return currentCardIndex[2] < pastEvents.length - 1;
-
+                    if (typeof document === 'undefined') return currentCardIndex[2] < pastEvents.length - 1;
                           const container = document.getElementById('past-events-container');
                           if (container && container.children.length > 0) {
                             const firstCard = container.children[0] as HTMLElement;
@@ -842,7 +836,7 @@ export default function EventsPage() {
         </div>
 
         {/* Statistics & Footer Section - Combined */}
-        <div id="footer-section" className="h-screen relative bg-gradient-to-b from-white via-gray-50 to-white border-t border-gray-200 overflow-y-auto overflow-x-hidden animate-fade-in scroll-smooth">
+        <div id="footer-section" className="h-screen relative bg-gradient-to-b from-white/20 via-gray-50/10 to-white/20 border-t border-gray-200 overflow-y-auto overflow-x-hidden animate-fade-in scroll-smooth">
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#4285F4] via-[#34A853] via-[#FBBC05] to-[#EA4335]"></div>
             <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-gradient-to-t from-[#4285F4]/5 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>

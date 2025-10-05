@@ -1,4 +1,20 @@
 
+/* Prevent text selection globally */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for specific elements where needed */
+input, textarea, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
 .neon-border {
   position: relative;
   box-shadow: 0 0 20px #8e2de2, 0 0 40px #4a00e0, 0 0 60px #8e2de2;

@@ -29,22 +29,18 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     return () => clearTimeout(timer);
   }, [children, pathname]);
   
-  if (isEventsPage) {
-    return <>{children}</>;
-  }
-  
   return (
     <>
-      {/* Background particles - persists across all pages */}
+      {/* Background particles - persists across all pages including events */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <GoogleParticlesCanvas />
       </div>
 
       {/* Page content with fade transition */}
       <div className={`relative z-10 transition-opacity duration-200 ${isNavigating ? 'opacity-50' : 'opacity-100'}`}>
-        <HeaderComponent />
+        {!isEventsPage && <HeaderComponent />}
         {displayChildren}
-        <FooterComponent />
+        {!isEventsPage && <FooterComponent />}
       </div>
     </>
   );
