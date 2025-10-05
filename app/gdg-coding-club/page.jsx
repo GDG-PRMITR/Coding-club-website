@@ -12,8 +12,8 @@ export default function GdgCodingClubPage() {
       position: "Coding Club Lead",
       image: "/images/Sneha_Giri_Coding_Club.jpg",
       social: { instagram: "vedant_mali", linkedin: "vedantmali", github: "vedantmali" },
-    },
-    {
+    },   
+     {
       name: "Lavannya Deshpande",
       position: "Coding Club Co-Lead",
       image: "/images/Lavannya_Deshpande_Coding_Club.png",
@@ -28,6 +28,18 @@ export default function GdgCodingClubPage() {
   ]
 
   const coreTeam = [
+    {
+      name: "Parth Deshmukh",
+      position: "Community Manager",
+      image: "/images/Parth_Deshmukh_Core_Team.png",
+      social: { instagram: "karan_community", linkedin: "karanmehta", github: "karanmehta" },
+    },
+    {
+      name: "Sarang Mahore",
+      position: "Content Manager",
+      image: "/images/Sarang_Mahore_Core_Team.jpg",
+      social: { instagram: "ananya_content", linkedin: "ananyasingh", github: "ananyasingh" },
+    },
     {
       name: "Shruti Raju Misal",
       position: "Technical Lead",
@@ -45,18 +57,6 @@ export default function GdgCodingClubPage() {
       position: "Design Lead",
       image: "/images/Tanvi_Watane_Core_Team.jpg",
       social: { instagram: "arjun_design", linkedin: "arjunkumar", github: "arjunkumar" },
-    },
-    {
-      name: "Sarang Mahore",
-      position: "Content Manager",
-      image: "/images/Sarang_Mahore_Core_Team.jpg",
-      social: { instagram: "ananya_content", linkedin: "ananyasingh", github: "ananyasingh" },
-    },
-    {
-      name: "Parth Deshmukh",
-      position: "Community Manager",
-      image: "/images/Parth_Deshmukh_Core_Team.png",
-      social: { instagram: "karan_community", linkedin: "karanmehta", github: "karanmehta" },
     },
   ]
 
@@ -78,10 +78,46 @@ export default function GdgCodingClubPage() {
       ],
       members: [
         {
+          name: "Amruta Topale",
+          position: "Domain Member",
+          image: "/images/Amruta_Tople_Web_Development.jpg",
+          social: { instagram: "suresh_angular", linkedin: "sureshyadav", github: "sureshyadav" },
+        },
+        {
+          name: "Bhaumik Dhore",
+          position: "Domain Member",
+          image: "/images/Bhaumik_Dhore_Web_Development.png",
+          social: { instagram: "pooja_uiux", linkedin: "poojasharma", github: "poojasharma" },
+        },
+        {
+          name: "Harshal Gunjarkar",
+          position: "Domain Member",
+          image: "/images/Harshal_Gunjarkar_Web_Development.jpg",
+          social: { instagram: "manish_php", linkedin: "manishjoshi", github: "manishjoshi" },
+        },
+        {
+          name: "Kartik Shriwas",
+          position: "Domain Member",
+          image: "/images/Kartik_Shriwas_Web.jpg",
+          social: { instagram: "ravi_react", linkedin: "ravikumar", github: "ravikumar" },
+        },
+        {
+          name: "Krishna Mastud",
+          position: "Domain Member",
+          image: "/images/Krishna_Mastud_Web_Development.jpg",
+          social: { instagram: "kavya_node", linkedin: "kavyareddy", github: "kavyareddy" },
+        },
+        {
           name: "Rohit Gupta",
           position: "Domain Member",
           image: "/images/Rohit_Gupta_Web_Developement.png",
           social: { instagram: "amit_frontend", linkedin: "amitverma", github: "amitverma" },
+        },
+        {
+          name: "Shruti Raut",
+          position: "Domain Member",
+          image: "/images/Shruti_Raut_Web_Development.jpg",
+          social: { instagram: "divya_vue", linkedin: "divyapatel", github: "divyapatel" },
         },
         {
           name: "Vedant Deshmukh",
@@ -95,94 +131,21 @@ export default function GdgCodingClubPage() {
           image: "/images/Vedant_Payghan_Web_Development.jpg",
           social: { instagram: "vikash_fullstack", linkedin: "vikashsingh", github: "vikashsingh" },
         },
-        {
-          name: "Bhaumik Dhore",
-          position: "Domain Member",
-          image: "/images/Bhaumik_Dhore_Web_Development.png",
-          social: { instagram: "pooja_uiux", linkedin: "poojasharma", github: "poojasharma" },
-        },
-        {
-          name: "Kartik Shriwas",
-          position: "Domain Member",
-          image: "/images/Kartik_Shriwas_Web.jpg",
-          social: { instagram: "ravi_react", linkedin: "ravikumar", github: "ravikumar" },
-        },
-        {
-          name: "Shruti Raut",
-          position: "Domain Member",
-          image: "/images/Shruti_Raut_Web_Development.jpg",
-          social: { instagram: "divya_vue", linkedin: "divyapatel", github: "divyapatel" },
-        },
-        {
-          name: "Amruta Topale",
-          position: "Domain Member",
-          image: "/images/Amruta_Tople_Web_Development.jpg",
-          social: { instagram: "suresh_angular", linkedin: "sureshyadav", github: "sureshyadav" },
-        },
-        {
-          name: "Krishna Mastud",
-          position:"Domain Member",
-          image: "/images/Krishna_Mastud_Web_Development.jpg",
-          social: { instagram: "kavya_node", linkedin: "kavyareddy", github: "kavyareddy" },
-        },
-        {
-          name: "Harshal Gunjarkar",
-          position: "Domain Member",
-          image: "/images/Harshal_Gunjarkar_Web_Development.jpg",
-          social: { instagram: "manish_php", linkedin: "manishjoshi", github: "manishjoshi" },
-        }
-
       ],
     },
-    "App Development": {
+        "AI/ML": {
       executives: [
-        {
-          name: "Pranav Rajput ",
-          position: "App Dev Executive",
-          image: "/images/Pranav_Rajput_App_Development - Pranav Rajput.jpg",
-          social: { instagram: "harsh_app", linkedin: "harshpatel", github: "harshpatel" },
-        },
-        {
-          name: "Ayush Waghade",
-          position: "App Dev Executive",
-          image: "/images/Ayush_Waghade_App_Development.png",
-          social: { instagram: "isha_app", linkedin: "ishagupta", github: "ishagupta" },
-        },
-      ],
-      members: [
-        {
-          name: "Anand Kakad",
-          position: "Domain Member",
-          image: "/images/Anand_Kakad_App_Development.jpg",
-          social: { instagram: "nikhil_android", linkedin: "nikhiljain", github: "nikhiljain" },
-        },
-        {
-          name: "Anurag Deshmukh",
-          position: "Domain Member",
-          image: "/images/Anurag_Deshmukh_App_Development.png",
-          social: { instagram: "ritika_ios", linkedin: "ritikasingh", github: "ritikasingh" },
-        },
-        {
-          name: "Krupa Sawarkar",
-          position: "Domain Member",
-          image: "/images/Krupa_Sawarkar_App_Development - Krupa Sawarkar.jpg",
-          social: { instagram: "gaurav_flutter", linkedin: "gauravkumar", github: "gauravkumar" },
-        },
-      ],
-    },
-    "AI/ML": {
-      executives: [
-        {
-          name: "Krushna Mohod",
-          position: "AI/ML Executive",
-          image: "/images/Krushna_Mohod_AIML.jpeg",
-          social: { instagram: "aditya_ai", linkedin: "adityasharma", github: "adityasharma" },
-        },
         {
           name: "Harshal Alaspure",
           position: "AI/ML Executive",
           image: "/images/Harshal_Alaspure_AIML.jpg",
           social: { instagram: "nisha_ml", linkedin: "nishapatel", github: "nishapatel" },
+        },
+        {
+          name: "Krushna Mohod",
+          position: "AI/ML Executive",
+          image: "/images/Krushna_Mohod_AIML.jpeg",
+          social: { instagram: "aditya_ai", linkedin: "adityasharma", github: "adityasharma" },
         },
       ],
       members: [
@@ -212,6 +175,78 @@ export default function GdgCodingClubPage() {
         },
       ],
     },
+    "App Development": {
+      executives: [
+        {
+          name: "Ayush Waghade",
+          position: "App Dev Executive",
+          image: "/images/Ayush_Waghade_App_Development.png",
+          social: { instagram: "isha_app", linkedin: "ishagupta", github: "ishagupta" },
+        },
+        {
+          name: "Pranav Rajput ",
+          position: "App Dev Executive",
+          image: "/images/Pranav_Rajput_App_Development - Pranav Rajput.jpg",
+          social: { instagram: "harsh_app", linkedin: "harshpatel", github: "harshpatel" },
+        },
+      ],
+      members: [
+        {
+          name: "Anand Kakad",
+          position: "Domain Member",
+          image: "/images/Anand_Kakad_App_Development.jpg",
+          social: { instagram: "nikhil_android", linkedin: "nikhiljain", github: "nikhiljain" },
+        },
+        {
+          name: "Anurag Deshmukh",
+          position: "Domain Member",
+          image: "/images/Anurag_Deshmukh_App_Development.png",
+          social: { instagram: "ritika_ios", linkedin: "ritikasingh", github: "ritikasingh" },
+        },
+        {
+          name: "Krupa Sawarkar",
+          position: "Domain Member",
+          image: "/images/Krupa_Sawarkar_App_Development - Krupa Sawarkar.jpg",
+          social: { instagram: "gaurav_flutter", linkedin: "gauravkumar", github: "gauravkumar" },
+        },
+      ],
+    },
+    "Cloud Computing": {
+      executives: [
+        {
+          name: "Radhika Adhau",
+          position: "Cloud Executive",
+          image: "/images/Radhika_Adhau_Cloud_Computing.jpg",
+          social: { instagram: "abhishek_cloud", linkedin: "abhishekjain", github: "abhishekjain" },
+        },
+      ],
+      members: [
+        {
+          name: "Atharv Kakade",
+          position: "Domain Member",
+          image: "/images/Atharv_Kakade_Cloud_Computing.jpg",
+          social: { instagram: "atharv_cloud", linkedin: "atharvkakade", github: "atharvkakade" },
+        },
+        {
+          name: "Hirek Warhekar",
+          position: "Domain Member",
+          image: "/images/Hirek_Warhekar_Cloud_Computing.jpg",
+          social: { instagram: "tanvi_cloud", linkedin: "tanvisharma", github: "tanvisharma" },
+        },
+        {
+          name: "Manjiri Jawarkar",
+          position: "Domain Member",
+          image: "/images/Manjiri_Jawarkar_Cloud_Computing.jpg",
+          social: { instagram: "manjiri_cloud", linkedin: "manjirijawarkar", github: "manjirijawarkar" },
+        },
+        {
+          name: "Sharvil Wange",
+          position: "Domain Member",
+          image: "/images/Sharvil_Wange_Cloud_Computing.jpg",
+          social: { instagram: "sharvil_cloud", linkedin: "sharvilwange", github: "sharvilwange" },
+        },
+      ],
+    },
     "Data Science": {
       executives: [
         {
@@ -223,16 +258,16 @@ export default function GdgCodingClubPage() {
       ],
       members: [
         {
-          name: "Dnyandeep Bendewar",
-          position: "Domain Member",
-          image: "/images/Dnyandeep_Bendewar_Data_Science.jpg",
-          social: { instagram: "akash_analyst", linkedin: "akashgupta", github: "akashgupta" },
-        },
-        {
           name: "Devendra Deshmukh",
           position: "Domain Member",
           image: "/images/Devendra_Deshmukh_Data_Science.jpg",
           social: { instagram: "ritu_business", linkedin: "ritupatel", github: "ritupatel" },
+        },
+        {
+          name: "Dnyandeep Bendewar",
+          position: "Domain Member",
+          image: "/images/Dnyandeep_Bendewar_Data_Science.jpg",
+          social: { instagram: "akash_analyst", linkedin: "akashgupta", github: "akashgupta" },
         },
         {
           name: "Harshad  Badge",
@@ -277,16 +312,16 @@ export default function GdgCodingClubPage() {
           social: { instagram: "akash_analyst", linkedin: "akashgupta", github: "akashgupta" },
         },
         {
-          name: "Pratik Ingole",
-          position: "Domain Member",
-          image: "/images/Pratik_Ingole_DSA.png",
-          social: { instagram: "ritu_business", linkedin: "ritupatel", github: "ritupatel" },
-        },
-        {
           name: "Prathamesh Nistane",
           position: "Domain Member",
           image: "/images/Prathamesh_ Nistane_DSA.jpg",
           social: { instagram: "mohit_stats", linkedin: "mohitkumar", github: "mohitkumar" },
+        },
+        {
+          name: "Pratik Ingole",
+          position: "Domain Member",
+          image: "/images/Pratik_Ingole_DSA.png",
+          social: { instagram: "ritu_business", linkedin: "ritupatel", github: "ritupatel" },
         },
         {
           name: "Rohit Datir",
@@ -295,23 +330,6 @@ export default function GdgCodingClubPage() {
           social: { instagram: "anjali_viz", linkedin: "anjalisingh", github: "anjalisingh" },
         },
       ],
-    },
-    "Cloud Computing": {
-      executives: [
-        {
-          name: "Radhika Adhau",
-          position: "Cloud Executive",
-          image: "/images/Radhika_Adhau_Cloud_Computing.jpg",
-          social: { instagram: "abhishek_cloud", linkedin: "abhishekjain", github: "abhishekjain" },
-        },
-        {
-          name: "Hirek Warhekar",
-          position:  "Cloud Executive",
-          image: "/images/Hirek_Warhekar_Cloud_Computing.jpg",
-          social: { instagram: "tanvi_cloud", linkedin: "tanvisharma", github: "tanvisharma" },
-        },
-      ],
-      members: [],
     },
     "IoT (Internet of Things)": {
       executives: [
@@ -324,10 +342,10 @@ export default function GdgCodingClubPage() {
       ],
       members: [
         {
-          name: "Yash Dhobale ",
+          name: "Kartik Akhade",
           position: "Domain Member",
-          image: "/images/Yash_dhoble_IOT.png",
-          social: { instagram: "varun_hardware", linkedin: "varunkumar", github: "varunkumar" },
+          image: "/images/Kartik_Akhade_IOT.png",
+          social: { instagram: "rohit_sensor", linkedin: "rohitverma", github: "rohitverma" },
         },
         {
           name: "Smit Pathade",
@@ -336,10 +354,10 @@ export default function GdgCodingClubPage() {
           social: { instagram: "pallavi_embedded", linkedin: "pallavisingh", github: "pallavisingh" },
         },
         {
-          name: "Kartik Akhade",
+          name: "Yash Dhobale ",
           position: "Domain Member",
-          image: "/images/Kartik_Akhade_IOT.png",
-          social: { instagram: "rohit_sensor", linkedin: "rohitverma", github: "rohitverma" },
+          image: "/images/Yash_dhoble_IOT.png",
+          social: { instagram: "varun_hardware", linkedin: "varunkumar", github: "varunkumar" },
         },
       ],
     },
@@ -395,10 +413,10 @@ export default function GdgCodingClubPage() {
           social: { instagram: "nikita_design", linkedin: "nikitasingh", github: "nikitasingh" },
         },
         {
-          name: "Om Charthal",
-          position: "Photographer",
-          image: "/images/Om_Charthal_Photography.jpg",
-          social: { instagram: "harsh_video", linkedin: "harshkumar", github: "harshkumar" },
+          name: "Maitreyee Patil",
+          position: "Copy Writer",
+          image: "/images/Maitreyee_Patil_Social_Media_&_PR.jpg",
+          social: { instagram: "yash_content", linkedin: "yashagarwal", github: "yashagarwal" },
         },
         {
           name: "Nirbhay Shende",
@@ -407,21 +425,9 @@ export default function GdgCodingClubPage() {
           social: { instagram: "riya_marketing", linkedin: "riyapatel", github: "riyapatel" },
         },
         {
-          name: "Maitreyee Patil",
-          position: "Copy Writer",
-          image: "/images/Maitreyee_Patil_Social_Media_&_PR.jpg",
-          social: { instagram: "yash_content", linkedin: "yashagarwal", github: "yashagarwal" },
-        },
-        {
-          name: "Sudhanshu Khakse",
-          position: "Video Editor",
-          image: "/images/1758606694268 - Sudhanshu Khakse.jpg",
-          social: { instagram: "nikita_design", linkedin: "nikitasingh", github: "nikitasingh" },
-        },
-        {
-          name: "Vedant Dange",
-          position: "Video Editor",
-          image: "/images/Vedant_Dange_Video_Editor.jpg",
+          name: "Om Charthal",
+          position: "Photographer",
+          image: "/images/Om_Charthal_Photography.jpg",
           social: { instagram: "harsh_video", linkedin: "harshkumar", github: "harshkumar" },
         },
         {
@@ -447,6 +453,18 @@ export default function GdgCodingClubPage() {
           position: "Social Media & Public Relations",
           image: "/images/Vedant_Wankhade_Social_Media_PR.png",
           social: { instagram: "nikita_design", linkedin: "nikitasingh", github: "nikitasingh" },
+        },
+        {
+          name: "Sudhanshu Khakse",
+          position: "Video Editor",
+          image: "/images/1758606694268 - Sudhanshu Khakse.jpg",
+          social: { instagram: "nikita_design", linkedin: "nikitasingh", github: "nikitasingh" },
+        },
+        {
+          name: "Vedant Dange",
+          position: "Video Editor",
+          image: "/images/Vedant_Dange_Video_Editor.jpg",
+          social: { instagram: "harsh_video", linkedin: "harshkumar", github: "harshkumar" },
         },
       ],
     },
