@@ -182,7 +182,7 @@ export const EventDetailModal = ({
           <Button
             variant="ghost"
             size="sm"
-            className="absolute top-4 right-4 w-11 h-11 rounded-full bg-white/25 backdrop-blur-md border border-white/40 text-white hover:bg-white/40 transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95"
+            className="absolute top-4 right-4 w-11 h-11 rounded-full bg-black/20 border border-white/40 text-white hover:bg-white/40 transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95"
             onClick={onClose}
             aria-label="Close event details"
           >

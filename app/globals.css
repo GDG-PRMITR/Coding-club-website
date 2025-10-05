@@ -15,6 +15,16 @@ input, textarea, [contenteditable="true"] {
   user-select: text;
 }
 
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
 .neon-border {
   position: relative;
   box-shadow: 0 0 20px #8e2de2, 0 0 40px #4a00e0, 0 0 60px #8e2de2;
@@ -352,4 +362,18 @@ html {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Slow pulse animation for live events */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

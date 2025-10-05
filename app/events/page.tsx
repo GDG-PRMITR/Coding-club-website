@@ -14,7 +14,7 @@ import {
   PastEvent, 
   UpcomingEvent, 
   isPastEvent, 
-  isUpcomingEvent 
+  isUpcomingEvent
 } from '@/lib/types/events';
 import { mockEvents } from '@/lib/data/mockEvents';
 
@@ -32,6 +32,10 @@ export default function EventsPage() {
     1: 0,
     2: 0  
   });
+  // Mobile detection with proper SSR handling
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [showHeader, setShowHeader] = useState<boolean>(true);
+  const [lastScrollY, setLastScrollY] = useState<number>(0);
 
   const filteredEvents = useMemo(() => {
     return mockEvents.filter(event => {
@@ -55,7 +59,23 @@ export default function EventsPage() {
     });
   }, [filters]);
 
-  const upcomingEvents = filteredEvents.filter(isUpcomingEvent);
+  // Helper function to check if event is currently live
+  const isLiveEvent = (event: Event): boolean => {
+    if (!isUpcomingEvent(event)) return false;
+    const now = new Date();
+    const eventStart = new Date(event.date);
+    // If event has endDate, use it; otherwise assume 2 hours duration
+    const eventEnd = event.endDate ? new Date(event.endDate) : new Date(eventStart.getTime() + 2 * 60 * 60 * 1000);
+    return now >= eventStart && now <= eventEnd;
+  };
+
+  // Sort upcoming events by date (ascending) and separate live events
+  const allUpcomingEvents = filteredEvents.filter(isUpcomingEvent).sort((a, b) => {
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
+  });
+
+  const liveEvents = allUpcomingEvents.filter(isLiveEvent);
+  const upcomingEvents = allUpcomingEvents.filter(event => !isLiveEvent(event));
   const pastEvents = filteredEvents.filter(isPastEvent);
 
   const handleEventDetails = (event: Event) => {
@@ -71,7 +91,51 @@ export default function EventsPage() {
     window.open(event.registrationUrl, '_blank');
   };
 
+  // Detect mobile device - client-side only
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Handle header show/hide on scroll (mobile only)
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 10) {
+        // At top, always show header
+        setShowHeader(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down, hide header
+        setShowHeader(false);
+      } else {
+        // Scrolling up, show header
+        setShowHeader(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile, lastScrollY]);
+
+  useEffect(() => {
+    // Skip scroll hijacking on mobile devices for better performance
+    if (isMobile) {
+      return;
+    }
+
     let lastScrollTime = 0;
     let scrollAccumulator = 0;
     let consecutiveSmallScrolls = 0;
@@ -363,9 +427,14 @@ export default function EventsPage() {
       window.removeEventListener('wheel', handleScroll);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [currentSection, currentCardIndex]);
+  }, [currentSection, currentCardIndex, isMobile]);
 
   useEffect(() => {
+    // Skip touch hijacking on mobile for better performance
+    if (isMobile) {
+      return;
+    }
+
     let touchStartX = 0;
     let touchStartY = 0;
     let touchEndX = 0;
@@ -468,7 +537,7 @@ export default function EventsPage() {
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [currentSection, currentCardIndex]);
+  }, [currentSection, currentCardIndex, isMobile]);
 
   useEffect(() => {
     if (currentSection === 1 || currentSection === 2) {
@@ -493,7 +562,405 @@ export default function EventsPage() {
 
   return (
     <>
-      <div className="h-screen overflow-hidden bg-transparent">
+      {isMobile ? (
+        // Mobile: Native app-like experience
+        <div className="min-h-screen bg-gradient-to-b from-blue-50/30 via-white to-purple-50/20">
+          {/* Fixed Google Particles Background */}
+          <div className="fixed inset-0 z-0 pointer-events-none">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5"></div>
+          </div>
+
+          {/* Content with z-index */}
+          <div className="relative z-10">
+            {/* Navbar - Google Style - Auto Hide on Scroll */}
+            <div className={`sticky top-0 z-50 border-b border-gray-200/30 transition-transform duration-300 ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>
+              <Header />
+            </div>
+
+            {/* Hero Section - Google "Events" Title */}
+            <div className="relative px-4 pt-8 pb-6 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-pink-500/10 blur-3xl"></div>
+              <div className="relative text-center">
+                {/* Animated "Events" Title with Google Colors */}
+                <div className="flex items-center justify-center mb-4 animate-slide-down">
+                  <div className="flex items-center space-x-1 group">
+                    <span className="text-5xl font-light text-[#4285F4] transition-all duration-300 group-hover:scale-110 animate-bounce-in" style={{ animationDelay: '0.1s' }}>E</span>
+                    <span className="text-5xl font-light text-[#EA4335] transition-all duration-300 group-hover:scale-110 animate-bounce-in" style={{ animationDelay: '0.2s' }}>v</span>
+                    <span className="text-5xl font-light text-[#FBBC05] transition-all duration-300 group-hover:scale-110 animate-bounce-in" style={{ animationDelay: '0.3s' }}>e</span>
+                    <span className="text-5xl font-light text-[#4285F4] transition-all duration-300 group-hover:scale-110 animate-bounce-in" style={{ animationDelay: '0.4s' }}>n</span>
+                    <span className="text-5xl font-light text-[#34A853] transition-all duration-300 group-hover:scale-110 animate-bounce-in" style={{ animationDelay: '0.5s' }}>t</span>
+                    <span className="text-5xl font-light text-[#EA4335] transition-all duration-300 group-hover:scale-110 animate-bounce-in" style={{ animationDelay: '0.6s' }}>s</span>
+                  </div>
+                </div>
+                
+                {/* Subtitle with Google-styled highlights */}
+                <h2 className="text-base sm:text-lg text-gray-800 font-light leading-relaxed mb-4 px-4">
+                  Discover <span className="font-medium text-[#4285F4]">amazing</span> tech events,{' '}
+                  <span className="font-medium text-[#34A853]">workshops</span>, and{' '}
+                  <span className="font-medium text-[#EA4335]">meetups</span>
+                </h2>
+                
+                <p className="text-sm text-gray-600 leading-relaxed mb-6 px-4 max-w-md mx-auto">
+                  Join our vibrant community of <strong className="text-gray-800">10,000+</strong> developers, designers, and tech enthusiasts
+                </p>
+                
+                {/* Quick Stats Pills */}
+                <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 px-2 justify-center">
+                  <div className="flex-shrink-0 flex items-center gap-2 px-3 py-2 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs font-medium text-gray-700">Expert Sessions</span>
+                  </div>
+                  <div className="flex-shrink-0 flex items-center gap-2 px-3 py-2 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs font-medium text-gray-700">Workshops</span>
+                  </div>
+                  <div className="flex-shrink-0 flex items-center gap-2 px-3 py-2 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs font-medium text-gray-700">Networking</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Search & Filter - Mobile First */}
+            <div className="px-4 mb-6">
+              <div className="bg-gradient-to-r from-[#4285F4] to-[#34A853] rounded-2xl shadow-lg border border-white/20 p-4">
+                <EventFilter
+                  filters={filters}
+                  onFiltersChange={setFilters}
+                  totalEvents={mockEvents.length}
+                  filteredEvents={filteredEvents.length}
+                />
+              </div>
+            </div>
+
+            {/* Live Events - Special Section */}
+            {liveEvents.length > 0 && (
+              <div className="mb-8">
+                <div className="px-4 mb-4 flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+                      <div className="relative">
+                        <Zap className="w-5 h-5 text-red-500" />
+                        <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full animate-ping"></div>
+                      </div>
+                      Live Now
+                    </h3>
+                    <p className="text-xs text-red-500 mt-0.5 font-medium">Happening right now!</p>
+                  </div>
+                </div>
+                
+                <div className="px-4 space-y-4">
+                  {liveEvents.map((event, index) => (
+                    <div
+                      key={event.id}
+                      className="relative bg-white rounded-2xl shadow-lg border-2 border-red-400 overflow-hidden active:scale-[0.98] transition-transform animate-pulse-slow"
+                      style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                      {/* Event Image with Live Badge */}
+                      <div className="relative h-40 overflow-hidden bg-gradient-to-br from-red-100 to-orange-100">
+                        <img
+                          src={event.image.url}
+                          alt={event.image.alt}
+                          loading="lazy"
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                          }}
+                        />
+                        {/* Gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20"></div>
+                        
+                        {/* Live Badge - Top Right */}
+                        <div className="absolute top-2 right-2 z-10">
+                          <div className="flex items-center gap-1.5 bg-red-500 text-white px-3 py-1.5 rounded-full shadow-lg animate-pulse">
+                            <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
+                            <span className="text-xs font-bold uppercase">Live Now</span>
+                          </div>
+                        </div>
+                        
+                        {/* Organization Badge - Top Left */}
+                        <div className="absolute top-2 left-2">
+                          <span className="inline-block px-2.5 py-1 bg-red-600 text-white text-xs font-bold rounded-full shadow-lg">
+                            {event.organization}
+                          </span>
+                        </div>
+                        
+                        {/* Date Badge - Bottom */}
+                        <div className="absolute bottom-2 left-2">
+                          <div className="flex items-center gap-2 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+                            <div className="flex flex-col items-center text-white">
+                              <span className="text-xs font-medium opacity-90">
+                                {new Date(event.date).toLocaleDateString('en-US', { month: 'short' }).toUpperCase()}
+                              </span>
+                              <span className="text-lg font-bold leading-none">
+                                {new Date(event.date).getDate()}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Event Card - Live Design */}
+                      <div className="p-4 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
+                        <h4 className="font-bold text-gray-900 text-sm mb-2 line-clamp-2">
+                          {event.title}
+                        </h4>
+                        <p className="text-xs text-gray-600 mb-3 line-clamp-2">
+                          {event.shortDescription}
+                        </p>
+
+                        {/* Action Buttons */}
+                        <div className="flex gap-2">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleEventDetails(event);
+                            }}
+                            className="flex-1 px-4 py-2.5 bg-white hover:bg-gray-50 text-gray-700 text-sm font-medium rounded-xl transition-colors shadow-sm"
+                          >
+                            Details
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleEventRegister(event);
+                            }}
+                            className="flex-1 px-4 py-2.5 bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 text-white text-sm font-bold rounded-xl shadow-lg transition-all active:scale-95"
+                          >
+                            Join Now
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Upcoming Events - Card Stack */}
+            {upcomingEvents.length > 0 && (
+              <div className="mb-8">
+                <div className="px-4 mb-4 flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+                      <TrendingUp className="w-5 h-5 text-blue-500" />
+                      Coming Up
+                    </h3>
+                    <p className="text-xs text-gray-500 mt-0.5">{upcomingEvents.length} events to register</p>
+                  </div>
+                </div>
+                
+                <div className="px-4 space-y-4">
+                  {upcomingEvents.map((event, index) => (
+                    <div
+                      key={event.id}
+                      className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden active:scale-[0.98] transition-transform"
+                      style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                      {/* Event Image */}
+                      <div className="relative h-40 overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100">
+                        <img
+                          src={event.image.url}
+                          alt={event.image.alt}
+                          loading="lazy"
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                          }}
+                        />
+                        {/* Gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10"></div>
+                        
+                        {/* Organization Badge */}
+                        <div className="absolute top-2 left-2">
+                          <span className="inline-block px-2.5 py-1 bg-blue-600 text-white text-xs font-bold rounded-full shadow-lg">
+                            {event.organization}
+                          </span>
+                        </div>
+                        
+                        {/* Date Badge */}
+                        <div className="absolute bottom-2 left-2">
+                          <div className="flex items-center gap-2 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+                            <div className="flex flex-col items-center text-white">
+                              <span className="text-xs font-medium opacity-90">
+                                {new Date(event.date).toLocaleDateString('en-US', { month: 'short' }).toUpperCase()}
+                              </span>
+                              <span className="text-lg font-bold leading-none">
+                                {new Date(event.date).getDate()}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Event Card - Compact Mobile Design */}
+                      <div className="p-4">
+                        <h4 className="font-bold text-gray-800 text-sm mb-2 line-clamp-2">
+                          {event.title}
+                        </h4>
+                        <p className="text-xs text-gray-500 mb-3 line-clamp-2">
+                          {event.shortDescription}
+                        </p>
+
+                        {/* Action Buttons */}
+                        <div className="flex gap-2">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleEventDetails(event);
+                            }}
+                            className="flex-1 px-4 py-2.5 bg-gray-50 hover:bg-gray-100 text-gray-700 text-sm font-medium rounded-xl transition-colors"
+                          >
+                            Details
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleEventRegister(event);
+                            }}
+                            className="flex-1 px-4 py-2.5 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white text-sm font-bold rounded-xl shadow-lg transition-all active:scale-95"
+                          >
+                            Register Now
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}  
+                </div>
+              </div>
+            )}
+
+            {/* Past Events - Horizontal Scroll Gallery */}
+            {pastEvents.length > 0 && (
+              <div className="mb-8">
+                <div className="px-4 mb-4">
+                  <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2">
+                    <Star className="w-5 h-5 text-yellow-500" />
+                    Past Events
+                  </h3>
+                  <p className="text-xs text-gray-500 mt-0.5">Swipe to explore galleries</p>
+                </div>
+                
+                <div className="overflow-x-auto scrollbar-hide">
+                  <div className="flex gap-4 px-4 pb-2">
+                    {pastEvents.map((event) => (
+                      <div
+                        key={event.id}
+                        className="flex-shrink-0 w-72 bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden active:scale-[0.98] transition-transform"
+                      >
+                        {/* Past Event Card - Gallery Style with Image */}
+                        <div className="relative h-40 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+                          <img
+                            src={event.image.url}
+                            alt={event.image.alt}
+                            loading="lazy"
+                            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              const parent = target.parentElement;
+                              if (parent) {
+                                const placeholder = document.createElement('div');
+                                placeholder.className = 'absolute inset-0 flex items-center justify-center';
+                                placeholder.innerHTML = '<svg class="w-12 h-12 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>';
+                                parent.appendChild(placeholder);
+                              }
+                            }}
+                          />
+                          {/* Gradient overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10"></div>
+                          
+                          {/* Organization Badge */}
+                          <div className="absolute top-2 left-2">
+                            <span className="inline-block px-2.5 py-1 bg-orange-600 text-white text-xs font-bold rounded-full shadow-lg">
+                              {event.organization}
+                            </span>
+                          </div>
+                          
+                          {/* Past Event Badge */}
+                          <div className="absolute top-2 right-2 px-2.5 py-1 bg-black/60 backdrop-blur-sm text-white text-xs font-medium rounded-full">
+                            Past Event
+                          </div>
+                          
+                          {/* Date */}
+                          <div className="absolute bottom-2 left-2">
+                            <div className="bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-lg">
+                              <div className="flex items-center gap-2 text-white text-xs font-medium">
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span>{new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="p-4">
+                          <h4 className="font-bold text-gray-800 text-sm mb-3 line-clamp-2">
+                            {event.title}
+                          </h4>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleEventGallery(event);
+                            }}
+                            className="w-full px-3 py-2 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white text-xs font-bold rounded-xl transition-all active:scale-95 shadow-md"
+                          >
+                            More Details
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Stats Section - Mobile Cards */}
+            <div className="px-4 pb-8">
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-gray-800 mb-4 text-center">Community Stats</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-xl">
+                    <div className="text-2xl font-bold text-blue-600 mb-1">{mockEvents.length}</div>
+                    <div className="text-xs text-gray-600 font-medium">Total Events</div>
+                  </div>
+                  <div className="text-center p-4 bg-gradient-to-br from-green-50 to-green-100/50 rounded-xl">
+                    <div className="text-2xl font-bold text-green-600 mb-1">{upcomingEvents.length}</div>
+                    <div className="text-xs text-gray-600 font-medium">Upcoming</div>
+                  </div>
+                  <div className="text-center p-4 bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-xl">
+                    <div className="text-2xl font-bold text-purple-600 mb-1">10K+</div>
+                    <div className="text-xs text-gray-600 font-medium">Members</div>
+                  </div>
+                  <div className="text-center p-4 bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-xl">
+                    <div className="text-2xl font-bold text-orange-600 mb-1">50+</div>
+                    <div className="text-xs text-gray-600 font-medium">Speakers</div>
+                  </div>
+                </div>
+                
+                {/* CTA Button */}
+                <button
+                  onClick={() => window.open('https://linktr.ee/gdgoncampusprmitr', '_blank')}
+                  className="mt-6 w-full px-6 py-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-bold rounded-xl shadow-lg active:scale-95 transition-transform"
+                >
+                  Join Our Community
+                </button>
+              </div>
+            </div>
+
+            {/* Footer - Compact Mobile */}
+            <div className="bg-gray-50 border-t border-gray-200">
+              <Footer />
+            </div>
+          </div>
+        </div>
+      ) : (
+        // Desktop: Full screen scroll sections
+        <div className="h-screen overflow-hidden bg-transparent">
         <div 
           className="relative w-full h-full transition-transform duration-700 ease-in-out"
           style={{ transform: `translateY(-${currentSection * 100}vh)` }}
@@ -576,29 +1043,49 @@ export default function EventsPage() {
 
         <div className="h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 animate-fade-in">
           <div className="px-3 sm:px-4 md:px-6 py-4 sm:py-5 md:py-6 h-full">
-            {upcomingEvents.length > 0 ? (
+            {(liveEvents.length > 0 || upcomingEvents.length > 0) ? (
               <section className="relative h-full flex flex-col animate-slide-up">
                 <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-[#4285F4]/20 to-transparent rounded-full blur-xl pointer-events-none animate-pulse" style={{ animationDuration: '3s' }}></div>
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-tl from-[#34A853]/20 to-transparent rounded-full blur-xl pointer-events-none animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
                 
                 <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200/50 overflow-hidden flex-1 flex flex-col transform hover:shadow-2xl transition-all duration-500">
-                  <div className="relative bg-gradient-to-r from-[#4285F4] via-[#4285F4] to-[#34A853] px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 flex-none">
+                  <div className={`relative ${liveEvents.length > 0 ? 'bg-gradient-to-r from-[#EA4335] via-[#FF5722] to-[#FF9800]' : 'bg-gradient-to-r from-[#4285F4] via-[#4285F4] to-[#34A853]'} px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-4 flex-none`}>
                     <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
                     <div className="relative">
                       <div className="text-center mb-2 sm:mb-3 md:mb-4">
                         <div className="inline-flex items-center gap-2 sm:gap-3 md:gap-4 mb-1.5 sm:mb-2">
                           <div className="p-2 sm:p-2 md:p-2.5 bg-white/20 rounded-lg sm:rounded-xl backdrop-blur-sm border border-white/30 shadow-lg">
-                            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
+                            {liveEvents.length > 0 ? (
+                              <div className="relative">
+                                <Zap className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
+                                <div className="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full animate-ping"></div>
+                              </div>
+                            ) : (
+                              <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
+                            )}
                           </div>
                           <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-white flex items-center gap-2 sm:gap-3">
-                            Upcoming Events
-                            <div className="bg-white/20 text-white px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-medium border border-white/30">
-                              {upcomingEvents.length}
-                            </div>
+                            {liveEvents.length > 0 ? (
+                              <>
+                                Live & Upcoming Events
+                                <div className="bg-white/20 text-white px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-medium border border-white/30 animate-pulse">
+                                  {liveEvents.length} Live
+                                </div>
+                              </>
+                            ) : (
+                              <>
+                                Upcoming Events
+                                <div className="bg-white/20 text-white px-2 sm:px-3 md:px-4 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-medium border border-white/30">
+                                  {upcomingEvents.length}
+                                </div>
+                              </>
+                            )}
                           </h2>
                         </div>
                         <p className="text-white/90 text-xs sm:text-sm max-w-2xl mx-auto px-2">
-                          Don't miss these exciting upcoming events. Scroll with mouse wheel or use arrow keys to navigate.
+                          {liveEvents.length > 0 
+                            ? 'Events happening now! Plus upcoming events you can register for.' 
+                            : 'Don\'t miss these exciting upcoming events. Scroll with mouse wheel or use arrow keys to navigate.'}
                         </p>
                       </div>
                       
@@ -612,7 +1099,7 @@ export default function EventsPage() {
                   </div>
 
                   <div className="flex-1 overflow-hidden px-2 sm:px-4 md:px-6 py-2.5 sm:py-3.5 relative touch-pan-y">
-                    {upcomingEvents.length > 1 && (
+                    {(liveEvents.length + upcomingEvents.length > 1) && (
                       <>
                         {currentCardIndex[1] > 0 && (
                           <button
@@ -635,7 +1122,8 @@ export default function EventsPage() {
                           </button>
                         )}
                         {(() => {
-                                      if (typeof document === 'undefined') return currentCardIndex[1] < upcomingEvents.length - 1;
+                          const totalEvents = liveEvents.length + upcomingEvents.length;
+                          if (typeof document === 'undefined') return currentCardIndex[1] < totalEvents - 1;
 
                           const container = document.getElementById('upcoming-events-container');
                           if (container && container.children.length > 0) {
@@ -644,10 +1132,10 @@ export default function EventsPage() {
                             const viewport = container.parentElement;
                             const viewportWidth = viewport ? viewport.offsetWidth : window.innerWidth;
                             const cardsInView = Math.floor(viewportWidth / scrollUnit);
-                            const maxScrollIndex = Math.max(0, upcomingEvents.length - cardsInView);
+                            const maxScrollIndex = Math.max(0, totalEvents - cardsInView);
                             return currentCardIndex[1] < maxScrollIndex;
                           }
-                          return currentCardIndex[1] < upcomingEvents.length - 1;
+                          return currentCardIndex[1] < totalEvents - 1;
                         })() && (
                           <button
                             onClick={() => {
@@ -658,7 +1146,8 @@ export default function EventsPage() {
                                 const viewport = container.parentElement;
                                 const viewportWidth = viewport ? viewport.offsetWidth : window.innerWidth;
                                 const cardsInView = Math.floor(viewportWidth / scrollUnit);
-                                const maxScrollIndex = Math.max(0, upcomingEvents.length - cardsInView);
+                                const totalEvents = liveEvents.length + upcomingEvents.length;
+                                const maxScrollIndex = Math.max(0, totalEvents - cardsInView);
                                 const newIndex = Math.min(currentCardIndex[1] + 1, maxScrollIndex);
                                 setCurrentCardIndex(prev => ({ ...prev, 1: newIndex }));
                                 container.style.transform = `translateX(-${newIndex * scrollUnit}px)`;
@@ -676,6 +1165,26 @@ export default function EventsPage() {
                     )}
                     
                     <div className="h-full flex items-center gap-2 sm:gap-3 transition-transform duration-500 ease-out will-change-transform touch-pan-x" id="upcoming-events-container">
+                      {/* Live Events First */}
+                      {liveEvents.map((event) => (
+                        <div key={event.id} className="flex-shrink-0 w-[min(380px,90vw)] sm:w-[min(380px,85vw)] h-[500px] relative">
+                          {/* Live Badge Overlay */}
+                          <div className="absolute top-2 right-2 z-10">
+                            <div className="flex items-center gap-1.5 bg-red-500 text-white px-3 py-1.5 rounded-full shadow-lg animate-pulse">
+                              <div className="w-2 h-2 bg-white rounded-full animate-ping"></div>
+                              <span className="text-xs font-bold uppercase">Live Now</span>
+                            </div>
+                          </div>
+                          <div className="ring-2 ring-red-400 ring-offset-2 rounded-2xl h-full">
+                            <UpcomingEventCard
+                              event={event}
+                              onKnowMore={() => handleEventDetails(event)}
+                              onRegister={() => handleEventRegister(event)}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                      {/* Regular Upcoming Events */}
                       {upcomingEvents.map((event) => (
                         <div key={event.id} className="flex-shrink-0 w-[min(380px,90vw)] sm:w-[min(380px,85vw)] h-[500px]">
                           <UpcomingEventCard
@@ -931,6 +1440,8 @@ export default function EventsPage() {
         </div>
       
       </div>
+        </div>
+      )}
 
       <EventDetailModal
         event={selectedEvent}
@@ -941,7 +1452,6 @@ export default function EventsPage() {
         }}
         onRegister={selectedEvent && isUpcomingEvent(selectedEvent) ? handleEventRegister : undefined}
       />
-    </div>
-  </>
+    </>
   );
 }
