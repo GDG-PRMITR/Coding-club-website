@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import GoogleParticlesCanvas from "@/components/googleParticleBackground";
 import { cn } from "@/lib/utils";
 import { CalendarCheck2, Globe, GraduationCap, Zap } from "lucide-react";
 import Image from "next/image";
@@ -198,9 +197,6 @@ const Page = () => {
 
   return (
     <main className="min-h-screen bg-transparent text-foreground relative overflow-x-hidden ">
-      {/* Animated Background Canvas */}
-      <GoogleParticlesCanvas />
-
       {/* Present Section */}
       <PresentSectionComponent />
       {/* Hero Section */}

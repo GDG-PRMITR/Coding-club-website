@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react";
-import GoogleParticlesCanvas from "@/components/googleParticleBackground";
 import MemberCard from "@/components/member.card.component";
 
 export default function GdgCodingClubPage() {
@@ -472,10 +471,7 @@ export default function GdgCodingClubPage() {
 
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <div className="fixed inset-0 w-full h-full">
-        <GoogleParticlesCanvas />
-      </div>
+    <div className="min-h-screen bg-transparent text-foreground overflow-x-hidden">
       {/* Header Section */}
       <section className="relative pt-20 pb-16 px-6 mt-4">
         <div className="container mx-auto max-w-6xl text-center">

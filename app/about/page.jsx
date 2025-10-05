@@ -1,4 +1,3 @@
-import GoogleParticlesCanvas from "@/components/googleParticleBackground";
 import Image from "next/image";
 
 export default function AboutPage() {
@@ -42,12 +41,6 @@ const aboutData = {
 
 return (
 	<div className="relative min-h-screen text-foreground overflow-x-hidden">
-		<div
-			className="fixed inset-0 w-full h-full -z-10 pointer-events-none"
-			style={{ filter: "blur(1px)" }}
-		>
-			<GoogleParticlesCanvas />
-		</div>
 		<main className="py-12 px-4 flex flex-col items-center">
 			{/* Frame 1: Coding Club heading, Vision and Mission as 2 grid boxes, description below */}
 			<section className="max-w-4xl w-full bg-white rounded-xl shadow-lg p-8 mb-12 flex flex-col items-center border border-gray-300">

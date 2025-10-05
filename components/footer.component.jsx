@@ -3,8 +3,16 @@ import React from 'react'
 import { cn } from '@/lib/utils';
 import { MapPin, Phone, Send } from 'lucide-react';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation'
 
 function FooterComponent() {
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const navigate = (href) => {
+    router.push(href)
+  }
+
   return (
     <>
        {/* Footer */}
@@ -39,15 +47,28 @@ function FooterComponent() {
             <div>
               <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
               <div className="space-y-3">
-                {["Events", "About Us", "Contact", "Gallery", "Resources"].map((link) => (
-                  <button
-                    key={link}
-                    onClick={() => scrollToSection(link.toLowerCase().replace(/\s+/g, "-"))}
-                    className="block text-slate-300 hover:text-white transition-colors duration-300"
-                  >
-                    {link}
-                  </button>
-                ))}
+                {[
+                  { title: 'Events', href: '/events' },
+                  { title: 'About Us', href: '/about' },
+                  { title: 'GDG', href: '/gdg' },
+                  { title: 'Gallery', href: '/gallery' },
+                  { title: 'GSA', href: '/gsa' },
+                ].map(({ title, href }) => {
+                  const isActive = pathname === href
+                  return (
+                    <button
+                      key={title}
+                      onClick={() => navigate(href)}
+                      aria-current={isActive ? 'page' : undefined}
+                      className={cn(
+                        "block text-slate-300 hover:text-white transition-colors duration-300 text-left",
+                        isActive && "text-white font-semibold"
+                      )}
+                    >
+                      {title}
+                    </button>
+                  )
+                })}
               </div>
             </div>
 
@@ -56,17 +77,23 @@ function FooterComponent() {
               <h3 className="text-white font-bold text-lg mb-6">Follow Our Communities</h3>
               <div className="space-y-4">
                 {[
-                  { name: "GDG Instagram", handle: "@gdg_prmit", color: "text-red-400" },
-                  { name: "Coding Club Instagram", handle: "@codingclub_prmit", color: "text-green-400" },
-                  { name: "GSA Instagram", handle: "@gsa_prmit", color: "text-yellow-400" },
+                  { name: "GDG Instagram", handle: "@gdg_prmit", color: "text-red-400", url: "https://instagram.com/gdg_prmit" },
+                  { name: "Coding Club Instagram", handle: "@codingclub_prmit", color: "text-green-400", url: "https://instagram.com/codingclub_prmit" },
+                  { name: "GSA Instagram", handle: "@gsa_prmit", color: "text-yellow-400", url: "https://instagram.com/gsa_prmit" },
                 ].map((social, index) => (
-                  <div key={index} className="flex items-center space-x-3">
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 hover:opacity-90"
+                  >
                     <span className="text-lg"><Image src="/social-icons/instagram.svg" alt={social.name} width={24} height={24} /></span>
                     <div>
                       <div className="text-white font-medium">{social.name}</div>
                       <div className={cn(`text-sm`, social.color)}>{social.handle}</div>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
