@@ -138,6 +138,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-nvidia-green: #76B900 ;
+  --color-coding-club-logo-gradient-start : #47ADFE;
+  --color-coding-club-logo-gradient-end : #ABD9DD;
 }
 
 /* Custom font utility classes */

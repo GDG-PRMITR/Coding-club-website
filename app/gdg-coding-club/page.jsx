@@ -459,9 +459,9 @@ export default function GdgCodingClubPage() {
         <GoogleParticlesCanvas />
       </div>
       {/* Header Section */}
-      <section className="relative pt-20 pb-16 px-6">
+      <section className="relative pt-20 pb-16 px-6 mt-4">
         <div className="container mx-auto max-w-6xl text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-coding-club-logo-gradient-start to-coding-club-logo-gradient-end bg-clip-text text-transparent">
             Meet Our Team
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
@@ -499,7 +499,7 @@ export default function GdgCodingClubPage() {
         <section key={domainName} className="py-16 px-6">
           <div className="container mx-auto max-w-6xl">
             <div className="bg-white/10 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg p-8 md:p-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-coding-club-logo-gradient-start to-coding-club-logo-gradient-end bg-clip-text text-transparent">
                 {domainName}
               </h2>
 
