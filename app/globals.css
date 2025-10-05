@@ -204,7 +204,7 @@
     display: block;
     inset: 0px;
     z-index: -1;
-    border-radius: calc(var(--border-radius) + 3px);
+    border-radius: var(--border-radius);
     display: none;
     @apply bg-gray-100;
   }

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { Github, Linkedin } from "lucide-react";
 import GoogleParticlesCanvas from "@/components/googleParticleBackground";
+import MemberCard from "@/components/member.card.component";
 
 // Data for the team members
 const gsaLeads = [
@@ -101,45 +101,6 @@ const gsaDomains = {
   ],
 };
 
-const renderMemberCard = (member) => (
-  <div
-    key={member.name}
-    className="bg-white rounded-xl p-6 text-center border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-2xl group w-full max-w-[280px] relative z-10"
-  >
-    <div className="w-28 h-28 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-gray-100 group-hover:ring-blue-200 transition-all duration-300">
-      <img
-        src={member.image || "/placeholder.svg"}
-        alt={member.name}
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <h3 className="text-xl font-semibold text-gray-800 mb-2">
-      {member.name}
-    </h3>
-    <p className="text-gray-600 mb-4 text-sm">{member.position}</p>
-
-    <div className="flex justify-center gap-3">
-      <a
-        href={`https://linkedin.com/in/${member.social.linkedin}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
-      >
-        <Linkedin className="w-5 h-5 text-white" />
-      </a>
-      
-      <a
-        href={`https://github.com/${member.social.github}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-900 flex items-center justify-center transition-all duration-300 hover:scale-110"
-      >
-        <Github className="w-5 h-5 text-white" />
-      </a>
-    </div>
-  </div>
-);
-
 export default function GsaPage() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -174,7 +135,7 @@ export default function GsaPage() {
           </h2>
           <div className="flex justify-center">
             <div className="w-full max-w-[320px]">
-              {gsaLeads.map((lead) => renderMemberCard(lead))}
+              {gsaLeads.map((lead) => <MemberCard key={lead.name} {...lead} />)}
             </div>
           </div>
         </div>
@@ -191,7 +152,7 @@ export default function GsaPage() {
 
               {/* Domain Members - Centered Grid */}
               <div className="flex flex-wrap justify-center gap-8">
-                {members.map((member) => renderMemberCard(member))}
+                {members.map((member) => <MemberCard key={member.name} {...member} />)}
               </div>
             </div>
           </div>
