@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import useScrollChange from '@/hooks/use-scroll-change';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -37,7 +37,7 @@ const links = [
 ]
 
 const scrollingDown = useScrollChange(50);
-
+const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const pathname = usePathname()
   const router = useRouter()
@@ -45,6 +45,7 @@ const scrollingDown = useScrollChange(50);
   const navigate = (href) => {
     // keep client-side navigation
     router.push(href)
+    setMobileMenuOpen(false) // Close mobile menu after navigation
   }
 
   return (
@@ -88,13 +89,51 @@ const scrollingDown = useScrollChange(50);
             </nav>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden p-2 rounded-lg glass">
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg glass hover:bg-white/20 transition-colors"
+              aria-label="Toggle mobile menu"
+              aria-expanded={mobileMenuOpen}
+            >
               <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-                <div className="w-full h-0.5 bg-slate-600"></div>
-                <div className="w-full h-0.5 bg-slate-600"></div>
-                <div className="w-full h-0.5 bg-slate-600"></div>
+                <div className={cn("w-full h-0.5 bg-slate-600 transition-all duration-300", 
+                  mobileMenuOpen && "rotate-45 translate-y-1.5"
+                )}></div>
+                <div className={cn("w-full h-0.5 bg-slate-600 transition-all duration-300",
+                  mobileMenuOpen && "opacity-0"
+                )}></div>
+                <div className={cn("w-full h-0.5 bg-slate-600 transition-all duration-300",
+                  mobileMenuOpen && "-rotate-45 -translate-y-1.5"
+                )}></div>
               </div>
             </button>
+          </div>
+
+          {/* Mobile Menu */}
+          <div className={cn(
+            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
+            mobileMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
+          )}>
+            <nav className="flex flex-col space-y-2 py-2" aria-label="Mobile navigation">
+              {links.map(({ title, href }) => {
+                const isActive = pathname === href
+                return (
+                  <button
+                    key={title}
+                    onClick={() => navigate(href)}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={cn(
+                      "text-left px-4 py-3 rounded-lg transition-all duration-200 cursor-pointer",
+                      isActive 
+                        ? "bg-blue-50 text-blue-600 font-semibold" 
+                        : "text-slate-600 hover:bg-white/30 hover:text-blue-600"
+                    )}
+                  >
+                    {title}
+                  </button>
+                )
+              })}
+            </nav>
           </div>
         </div>
       </header>
