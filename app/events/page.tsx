@@ -838,7 +838,6 @@ export default function EventsPage() {
         {/* Statistics & Footer Section - Combined */}
         <div id="footer-section" className="h-screen relative bg-gradient-to-b from-white/20 via-gray-50/10 to-white/20 border-t border-gray-200 overflow-y-auto overflow-x-hidden animate-fade-in scroll-smooth">
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#4285F4] via-[#34A853] via-[#FBBC05] to-[#EA4335]"></div>
             <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-gradient-to-t from-[#4285F4]/5 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
             <div className="absolute top-1/2 right-1/4 w-48 h-48 bg-gradient-to-b from-[#34A853]/5 to-transparent rounded-full blur-2xl animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
             <div className="absolute top-1/4 left-1/3 w-32 h-32 bg-gradient-to-br from-[#EA4335]/5 to-transparent rounded-full blur-xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2.5s' }}></div>
