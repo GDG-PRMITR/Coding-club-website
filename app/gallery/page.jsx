@@ -129,6 +129,23 @@ function Page() {
           provident minus dolorum dolores ex veritatis eveniet.
         </p>
       </section>
+      <section className=" flex flex-col justify-center items-center gap-8 p-2 lg:p-8 mt-16">
+        <Image
+          src="https://placehold.co/1280x420/ccc/black/png?font=poppins&text=1280x420+Installation+Ceremony+2025"
+          alt="Installation Ceremony 2025"
+          className="rounded-lg box-border mx-4"
+          width={1280}
+          height={420}
+        />
+        <h2 className="text-4xl font-bold text-center px-4">
+          Installation Ceremony 2025
+        </h2>
+        <p className="max-w-3xl text-center px-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+          praesentium consequatur. Repudiandae fuga vel autem, ea cumque
+          provident minus dolorum dolores ex veritatis eveniet.
+        </p>
+      </section>
       <section className="mt-16 px-4">
         <h2 className="text-4xl font-bold text-center mb-16">Events Gallery</h2>
         <div className="columns-xs" id="card" data-animate>
