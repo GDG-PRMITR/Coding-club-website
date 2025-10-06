@@ -135,14 +135,14 @@ const leads = [
     position: "Coding Club Lead",
     description:
       "Dedicated to fostering a collaborative learning environment and organizing impactful coding events.",
-    image: "/professional-young-woman-in-business-attire-in-off.jpg",
+    image: "/images/Sneha_Giri_Coding_Club.jpg",
   },
   {
     name: "Lavannya Deshmukh",
     position: "Coding Club Co-Lead",
     description:
       "Dedicated to fostering a collaborative learning environment and organizing impactful coding events.",
-    image: "/professional-young-woman-in-business-attire-in-off.jpg",
+    image: "/images/Lavannya_Deshpande_Coding_Club.png",
   },
 ];
 const organisers = [
@@ -151,14 +151,14 @@ const organisers = [
     position: "GDG Lead",
     description:
       "Passionate about Google technologies and community building. Leading innovative workshops and tech talks.",
-    image: "/professional-young-man-in-business-attire-presenti.jpg",
+    image: "/images/Vedant_Mali_Organiser.png",
   },
   {
     name: "Adnan Qureshi",
     position: "GSA Lead",
     description:
       "Enthusiastic about student engagement and creating opportunities for peer-to-peer learning.",
-    image: "/professional-young-man-in-business-attire-presenti.jpg",
+    image: "/images/ADNAN_AHMAD_IOT.jpg",
   },
 ];
 const faculty = [
