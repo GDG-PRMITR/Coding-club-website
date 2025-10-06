@@ -43,8 +43,7 @@ const cardDetails = [
   {
     title: "Cisco",
     logoHref: "/logo/logo-cisco.jpg",
-    description:
-      "Cisco - Leading the way in IT and networking solutions.",
+    description: "Cisco - Leading the way in IT and networking solutions.",
     isRedirectionExist: true,
     redirectionLink: "https://academy.prmitr.in",
   },
@@ -63,13 +62,12 @@ const cardDetails = [
       "Nvidia - Pioneering the future of AI and graphics processing.",
     isRedirectionExist: true,
     redirectionLink: "https://www.nvidia.com/",
-    Button : NvidiaCardDialogComponent
+    Button: NvidiaCardDialogComponent,
   },
   {
     title: "Cisco",
     logoHref: "/logo/logo-cisco.jpg",
-    description:
-      "Cisco - Leading the way in IT and networking solutions.",
+    description: "Cisco - Leading the way in IT and networking solutions.",
     isRedirectionExist: true,
     redirectionLink: "https://academy.prmitr.in/",
   },
@@ -164,10 +162,41 @@ const organisers = [
   },
 ];
 const faculty = [
-  { name: "Roshan Karwa Sir", title: "Professor, Computer Science" },
-  { name: "Bamnote Sir", title: "Associate Professor, IT" },
-  { name: "Dr. Sharma", title: "Head of Department" },
-  { name: "Prof. Gupta", title: "Senior Lecturer" },
+  {
+    name: "Dr. R.R. Karwa ",
+    title: "Professor, Computer Science",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/roshan.jpg",
+  },
+  {
+    name: "Dr. G.R. Bamnote ",
+    title: "Associate Professor, IT",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/Gajendra.jpg",
+  },
+  {
+    name: "Dr. M.A. Pund",
+    title: "HOKD CSE",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/mahendra.jpg",
+  },
+  {
+    name: "Dr. M.A. Deshmukh",
+    title: "HOKD CSE",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/meghana.jpg",
+  },
+  {
+    name: "Prof. A. U. Chaudhari",
+    title: "Senior Lecturer",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/arpit.jpg",
+  },
+  {
+    name: "Prof. C.N. Deshmukh",
+    title: "Senior Lecturer",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/Chandrashekhar.jpg",
+  },
+  {
+    name: "Prof. A.A. Chaudhari",
+    title: "Senior Lecturer",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/anand.jpg",
+  },
 ];
 const Page = () => {
   const [isVisible, setIsVisible] = useState({});

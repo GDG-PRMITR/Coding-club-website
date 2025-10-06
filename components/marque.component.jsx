@@ -28,9 +28,8 @@ function MarqueComponent({ faculty, isVisible }) {
       <Swiper
         pagination={{
           dynamicBullets: true,
-
         }}
-        modules={[Autoplay,Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation]}
         navigation={true}
         className="mySwiper h-full"
         spaceBetween={30}
@@ -52,7 +51,10 @@ function MarqueComponent({ faculty, isVisible }) {
           >
             <div className="w-28 h-28 mx-auto rounded-full bg-gradient-to-r from-amber-600 to-amber-800  overflow-hidden transition-transform duration-300">
               <Image
-                src="/professional-faculty-member-in-office-with-books.jpg"
+                src={
+                  faculty.image ||
+                  "/professional-faculty-member-in-office-with-books.jpg"
+                }
                 alt={faculty.name}
                 className="w-full h-full object-cover"
                 width={112}
