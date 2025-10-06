@@ -163,39 +163,39 @@ const organisers = [
 ];
 const faculty = [
   {
-    name: "Dr. R.R. Karwa ",
-    title: "Professor, Computer Science",
-    image: "https://mitra.ac.in/MitraFaculty/public/upload/roshan.jpg",
-  },
-  {
-    name: "Dr. G.R. Bamnote ",
-    title: "Associate Professor, IT",
+    name: "Dr. G. R. Bamnote ",
+    title: "Principal",
     image: "https://mitra.ac.in/MitraFaculty/public/upload/Gajendra.jpg",
   },
   {
-    name: "Dr. M.A. Pund",
+    name: "Dr. M. A. Pund",
     title: "HOKD CSE",
     image: "https://mitra.ac.in/MitraFaculty/public/upload/mahendra.jpg",
   },
   {
-    name: "Dr. M.A. Deshmukh",
-    title: "HOKD CSE",
+    name: "Dr. M. A. Deshmukh",
+    title: "IQAC Coordinator",
     image: "https://mitra.ac.in/MitraFaculty/public/upload/meghana.jpg",
   },
   {
-    name: "Prof. A. U. Chaudhari",
-    title: "Senior Lecturer",
-    image: "https://mitra.ac.in/MitraFaculty/public/upload/arpit.jpg",
+    name: "Prof. C. N. Deshmukh",
+    title: "cisco coordinator",
+    image: "https://academy.prmitr.in/assets/faculty/c_n_deshmukh.png",
   },
   {
-    name: "Prof. C.N. Deshmukh",
-    title: "Senior Lecturer",
-    image: "https://mitra.ac.in/MitraFaculty/public/upload/Chandrashekhar.jpg",
-  },
-  {
-    name: "Prof. A.A. Chaudhari",
-    title: "Senior Lecturer",
+    name: "Prof. A. A. Chaudhari",
+    title: "placement officer",
     image: "https://mitra.ac.in/MitraFaculty/public/upload/anand.jpg",
+  },
+  {
+    name: "Dr. R. R. Karwa ",
+    title: "faculty adviser",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/roshan.jpg",
+  },
+  {
+    name: "Prof. A. U. Chaudhari",
+    title: "cisco co-coordinator",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/arpit.jpg",
   },
 ];
 const Page = () => {

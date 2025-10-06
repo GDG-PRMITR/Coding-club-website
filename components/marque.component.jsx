@@ -57,6 +57,7 @@ function MarqueComponent({ faculty, isVisible }) {
                 }
                 alt={faculty.name}
                 className="w-full h-full object-cover"
+                loading="lazy"
                 width={112}
                 height={112}
               />
