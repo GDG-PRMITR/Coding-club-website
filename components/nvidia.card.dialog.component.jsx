@@ -75,14 +75,7 @@ return (
                             </div>
                         ))}
                     </div>
-                    <div className="flex justify-center items-center">
-                        <Link
-                            href="/www.nvidia.com"
-                            className="bg-nvidia-green text-white py-2 px-4 rounded "
-                        >
-                            Visit Nvidia
-                        </Link>
-                    </div>
+                   
                 </main>
             </DialogContent>
         </Dialog>
