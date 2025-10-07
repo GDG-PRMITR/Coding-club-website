@@ -121,12 +121,11 @@ function Page() {
   };
   return (
     <main className="font-google-sans">
-      <section className='h-screen bg-slate-200 flex flex-col gap-4 justify-center items-center text-center p-4   bg-[url("https://img.freepik.com/free-photo/blue-abstract-gradient-wave-wallpaper_53876-108364.jpg?w=2000")] bg-cover bg-center'>
-        <h1 className="  text-6xl md:text-9xl font-extrabold">Gallery</h1>
-        <p className="text-lg  max-w-4xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
-          praesentium consequatur. Repudiandae fuga vel autem, ea cumque
-          provident minus dolorum dolores ex veritatis eveniet.
+      <section className='h-screen flex flex-col gap-4 justify-center items-center text-center p-4   bg-[url("/prmitr.jpeg")] bg-cover bg-center'>
+        <h1 className=" text-6xl md:text-9xl font-extrabold text-google-gradient-sharp ">Gallery</h1>
+        <p className="text-lg  max-w-4xl text-gray-300">
+          We came together to turn ideas into code and challenges into solutions.
+This gallery is the source code of our community's passion and teamwork.
         </p>
       </section>
       <section className=" flex flex-col justify-center items-center gap-8 p-2 lg:p-8 mt-16">
