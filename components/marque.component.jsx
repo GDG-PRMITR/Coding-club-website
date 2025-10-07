@@ -13,7 +13,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { cn } from "@/lib/utils";
+import { capitalizeAllWords, cn } from "@/lib/utils";
 import Image from "next/image";
 
 function MarqueComponent({ faculty, isVisible }) {
@@ -56,16 +56,16 @@ function MarqueComponent({ faculty, isVisible }) {
                   "/professional-faculty-member-in-office-with-books.jpg"
                 }
                 alt={faculty.name}
-                className="w-full h-full object-cover"
+                className="w-full object-contain "
                 loading="lazy"
                 width={112}
                 height={112}
               />
             </div>
             <h3 className="font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors duration-300 text-xl">
-              {faculty.name}
+              {capitalizeAllWords(faculty.name)}
             </h3>
-            <p className="text-slate-600 text-md ">{faculty.title}</p>
+            <p className="text-slate-600 text-md ">{capitalizeAllWords(faculty.title)}</p>
           </SwiperSlide>
         ))}
       </Swiper>
