@@ -20,16 +20,16 @@ const cardDetails = [
     isRedirectionExist: true,
     redirectionLink: "/GDG",
   },
-  {
-    title: "Coding Club",
-    logoHref: "/logo/logo-coding-club.png",
-    description:
-      "Coding Club - A community for developers to learn, share, and grow together.",
-    link: "#",
-    linkText: "Events",
-    isRedirectionExist: true,
-    redirectionLink: "/gdg-coding-club",
-  },
+  // {
+  //   title: "Coding Club",
+  //   logoHref: "/logo/logo-coding-club.png",
+  //   description:
+  //     "Coding Club - A community for developers to learn, share, and grow together.",
+  //   link: "#",
+  //   linkText: "Events",
+  //   isRedirectionExist: true,
+  //   redirectionLink: "/gdg-coding-club",
+  // },
   {
     title: "GSA",
     logoHref: "/logo/logo-gsac.png",
@@ -237,13 +237,8 @@ const Page = () => {
           {/* Main Container */}
           <div className="max-w-6xl  mx-auto bg-white/20 border backdrop-blur-[2px] rounded-3xl p-8 md:p-12">
             {/* Header with Logo and Tagline */}
-            <div className="flex flex-col max-sm:justify-center md:flex-row items-start md:items-center justify-between mb-12">
-              <div className="flex max-sm:mx-auto items-center space-x-4 mb-4 md:mb-0 ">
-                {/* Logo */}
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 flex items-center justify-center animate-pulse-glow">
-                  <span className="text-white font-bold text-2xl">CC</span>
-                </div>
-              </div>
+            <div className="flex flex-col max-sm:justify-center md:flex-row items-start md:items-center justify-center mb-12">
+             
               <div className="text-right max-sm:text-center">
                 <h1 className="text-2xl md:text-3xl font-bold text-black text-pretty">
                   Empowering Innovation, One Code at a Time
@@ -332,7 +327,7 @@ const Page = () => {
                 )}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300 mx-auto">
+                <div className="rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300 mx-auto max-h-24">
                   <Image
                     src={lead.image || "/placeholder.svg"}
                     alt={lead.name}
