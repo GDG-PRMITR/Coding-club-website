@@ -14,27 +14,17 @@ const cardDetails = [
     title: "GDGOC",
     logoHref: "/logo/logo-gdg.png",
     description:
-      "Google Developer Groups - Connecting developers worldwide through technology, innovation, and community-driven learning experiences.",
+      "GDG on campus - Connecting developers worldwide through technology, innovation, and community-driven learning experiences.",
     link: "#",
     linkText: "Events",
     isRedirectionExist: true,
     redirectionLink: "/GDG",
   },
-  // {
-  //   title: "Coding Club",
-  //   logoHref: "/logo/logo-coding-club.png",
-  //   description:
-  //     "Coding Club - A community for developers to learn, share, and grow together.",
-  //   link: "#",
-  //   linkText: "Events",
-  //   isRedirectionExist: true,
-  //   redirectionLink: "/GDGOC-coding-club",
-  // },
   {
     title: "GSA",
     logoHref: "/logo/logo-gsac.png",
     description:
-      "Google Student Ambassador - Empowering students with Google technologies and fostering innovation in academic communities.",
+      "Curious about Generative AI Technologies, on the way to build community of Like minds.",
     link: "#",
     linkText: "Learn More",
     isRedirectionExist: true,
@@ -169,7 +159,7 @@ const faculty = [
   },
   {
     name: "Dr. M. A. Pund",
-    title: "HOKD CSE",
+    title: "HOKD, CSE",
     image: "https://mitra.ac.in/MitraFaculty/public/upload/mahendra.jpg",
   },
   {
@@ -183,7 +173,7 @@ const faculty = [
     image: "https://academy.prmitr.in/assets/faculty/c_n_deshmukh.png",
   },
   {
-    name: "Prof. A. A. Chaudhari",
+    name: "Dr. A. A. Chaudhari",
     title: "placement officer",
     image: "https://mitra.ac.in/MitraFaculty/public/upload/anand.jpg",
   },
@@ -233,14 +223,14 @@ const Page = () => {
         id="home"
         className="relative pt-24 pb-16 min-h-screen flex items-center"
       >
-        <div className="container mx-auto px-6 relative z-10 ">
+        <div className="container mx-auto px-6 max-sm:px-2  relative z-10 ">
           {/* Main Container */}
-          <div className="max-w-6xl  mx-auto bg-white/20 border backdrop-blur-[2px] rounded-3xl p-8 md:p-12">
+          <div className="max-w-6xl  mx-auto bg-white/20 border backdrop-blur-[4px] rounded-3xl p-8 md:p-12">
             {/* Header with Logo and Tagline */}
             <div className="flex flex-col max-sm:justify-center md:flex-row items-start md:items-center justify-center mb-12">
              
               <div className="text-right max-sm:text-center">
-                <h1 className="text-2xl md:text-3xl font-bold text-black text-pretty">
+                <h1 className=" text-xl sm:text-2xl md:text-3xl font-bold text-black text-pretty">
                   Empowering Innovation, One Code at a Time
                 </h1>
               </div>
@@ -265,7 +255,7 @@ const Page = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {statistics.map((stat, index) => (
               <div
-                key={index}
+                key={stat.label}
                 className={cn(
                   `text-center transition-all duration-500 border py-4 rounded-xl cursor-pointer group hover:backdrop-blur-[2px] hover:bg-gray-400/20 `,
                   isVisible.about
@@ -333,7 +323,7 @@ const Page = () => {
                     alt={lead.name}
                     height={90}
                     width={90}
-                    className="w-full h-full object-cover"
+                    className="w-full object-contain"
                   />
                 </div>
 
@@ -384,7 +374,7 @@ const Page = () => {
                     alt={organiser.name}
                     height={90}
                     width={90}
-                    className="w-full h-full object-cover"
+                    className="w-full  object-contain"
                   />
                 </div>
 
