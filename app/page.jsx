@@ -138,7 +138,7 @@ const leads = [
 const organisers = [
   {
     name: "Vedant Mali",
-    position: "GDGOC Organizer", 
+    position: "GDGOC Organizer",
     description:
       "Passionate about Google technologies and community building. Leading innovative workshops and tech talks.",
     image: "/images/Vedant_Mali_Organiser.png",
@@ -147,7 +147,7 @@ const organisers = [
     name: "Adnan Ahmad",
     position: "GSA Lead",
     description:
-      "Enthusiastic about student engagement and creating opportunities for peer-to-peer learning.",
+      "Curious about Generative AI Technologies, on the way to build community of Like minds.",
     image: "/images/ADNAN_AHMAD_IOT.jpg",
   },
 ];
@@ -228,7 +228,6 @@ const Page = () => {
           <div className="max-w-6xl  mx-auto bg-white/20 border backdrop-blur-[4px] rounded-3xl p-8 md:p-12">
             {/* Header with Logo and Tagline */}
             <div className="flex flex-col max-sm:justify-center md:flex-row items-start md:items-center justify-center mb-12">
-             
               <div className="text-right max-sm:text-center">
                 <h1 className=" text-xl sm:text-2xl md:text-3xl font-bold text-black text-pretty">
                   Empowering Innovation, One Code at a Time
