@@ -175,7 +175,7 @@ const faculty = [
   {
     name: "Dr. M. A. Deshmukh",
     title: "IQAC Coordinator",
-    image: "https://mitra.ac.in/MitraFaculty/public/upload/meghana.jpg",
+    image: "https://mitra.ac.in/MitraFaculty/public/upload/MSDESHMUKH.jpg",
   },
   {
     name: "Prof. C. N. Deshmukh",
