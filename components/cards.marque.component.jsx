@@ -26,7 +26,7 @@ const isMobile = useIsMobile();
         modules={[Autoplay,Pagination]}
         className="mySwiper py-4 h-96 "
         spaceBetween={30}
-        autoplay={{ delay: 2500, disableOnInteraction: false , pauseOnMouseEnter: true }}
+        autoplay={{ delay: 1000, disableOnInteraction: false , pauseOnMouseEnter: true }}
         slidesPerView={isMobile ? 1.2 : 3.15}
         loop={true}
       >
