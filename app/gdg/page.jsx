@@ -29,31 +29,31 @@ export default function GdgCodingClubPage() {
   const coreTeam = [
     {
       name: "Parth Deshmukh",
-      position: "Community Manager",
+      position: "Core Committee",
       image: "/images/Parth_Deshmukh_Core_Team.png",
       social: { instagram: "karan_community", linkedin: "karanmehta", github: "karanmehta" },
     },
     {
       name: "Sarang Mahore",
-      position: "Content Manager",
+      position: "Core Committee",
       image: "/images/Sarang_Mahore_Core_Team.jpg",
       social: { instagram: "ananya_content", linkedin: "ananyasingh", github: "ananyasingh" },
     },
     {
       name: "Shruti Raju Misal",
-      position: "Technical Lead",
+      position: "Core Committee",
       image: "/images/Shruti_Misal_Core_Team.jpg",
       social: { instagram: "rahul_tech", linkedin: "rahulsharma", github: "rahulsharma" },
     },
     {
       name: "Tanvi Markad",
-      position: "Event Coordinator",
+      position: "Core Committee",
       image: "/images/Tanvi_Markad_Core_Team.jpg",
       social: { instagram: "priya_events", linkedin: "priyapatel", github: "priyapatel" },
     },
     {
       name: "Tanvi Watane",
-      position: "Design Lead",
+      position: "Core Committee",
       image: "/images/Tanvi_Watane_Core_Team.jpg",
       social: { instagram: "arjun_design", linkedin: "arjunkumar", github: "arjunkumar" },
     },
