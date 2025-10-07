@@ -154,7 +154,7 @@ const organisers = [
     image: "/images/Vedant_Mali_Organiser.png",
   },
   {
-    name: "Adnan Qureshi",
+    name: "Adnan Ahmad",
     position: "GSA Lead",
     description:
       "Enthusiastic about student engagement and creating opportunities for peer-to-peer learning.",
