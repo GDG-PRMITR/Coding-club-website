@@ -24,18 +24,25 @@ const isMobile = useIsMobile();
           dynamicBullets: true          
         }}
         modules={[Autoplay,Pagination]}
-        className="mySwiper py-4 h-96 "
+        className="mySwiper py-4 mb-8 h-96 "
         spaceBetween={30}
         autoplay={{ delay: 1000, disableOnInteraction: false , pauseOnMouseEnter: true }}
         slidesPerView={isMobile ? 1.2 : 3.15}
         loop={true}
+        style={{
+  "--swiper-pagination-bullet-inactive-color": "#999999",
+  "--swiper-pagination-bullet-inactive-opacity": "1",
+  "--swiper-pagination-bullet-size": "16px",
+  "--swiper-pagination-bullet-horizontal-gap": "6px",
+  "--swiper-pagination-bottom": "-10px",
+}}
       >
         {cardDetails.map((cardDetail) => (
           <SwiperSlide
             id="cards"
             key={cardDetail.title}
             className={cn(
-              `text-center transition-all duration-500 cursor-pointer h-full py-4 rounded-md`,
+              `text-center transition-all duration-500 cursor-pointer h-full py-4  rounded-md`,
             )}
           >
             <CardComponent
