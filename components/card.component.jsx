@@ -21,9 +21,10 @@ export default function CardComponent({
         "border-2 z-10 hover-neon-border p-6 transition-all duration-300 hover:-translate-y-2 group flex flex-col justify-start h-full rounded-lg"
       )}
     >
-      <div className="text-center mb-6">
-        <Image src={logoHref} alt={`${title} logo`} width={80} height={80} className="mx-auto mb-4 "/>
+      <div className="text-center mb-6 h-16">
+        <Image src={logoHref} alt={`${title} logo`} width={80} height={80} className="mx-auto mb-4"/>
       </div>
+      <h3 className="text-xl font-semibold text-gray-800 mb-2 text-center">{title}</h3>
       <p className="text-gray-600 text-center text-pretty mb-6 text-sm leading-relaxed flex-grow">
         {description}
       </p>
