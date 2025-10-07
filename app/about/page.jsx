@@ -17,9 +17,9 @@ const aboutData = {
 	},
 	communities: [
 		{
-			name: "GDGOC",
-			logo: "/Coding-Club.png",
-			description: "Google Developer Groups on Campus: A global program by Google Developers that empowers students to explore technology, build skills, and collaborate on impactful projects."
+			name: "Cisco",
+			logo: "/logo/logo-cisco.jpg",
+			description: "Cisco Networking Academy: Equipping students with networking and cybersecurity skills for the digital age."
 		},
 		{
 			name: "GSA",
