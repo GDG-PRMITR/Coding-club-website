@@ -58,7 +58,9 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
             {/* Logo and Brand */}
             <button 
               onClick={() => navigate('/')} 
-              className="flex flex-col justify-center items-center space-x-3 hover:opacity-80 transition-opacity cursor-pointer"
+              className={cn("flex flex-col justify-center items-center space-x-3 hover:opacity-80 transition-opacity cursor-pointer ",
+                scrollingDown ? "translate-y-20" : "translate-y-0"
+              )}
               aria-label="Go to home"
             >
               <Image src="/logo/logo-coding-club.png" alt="Logo" width={50} height={50} />
