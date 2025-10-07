@@ -25,7 +25,7 @@ const MemberCard = (member) => {
           <Image
             src={member.image || "/placeholder.svg"}
             alt={member.name}
-            className="w-full h-full object-cover"
+            className="w-full object-contain"
             loading="lazy"
             decoding="async"
             onError={() => setImageError(true)}
