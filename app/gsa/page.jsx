@@ -7,7 +7,7 @@ import MemberCard from "@/components/member.card.component";
 const gsaLeads = [
   {
     name: "Adnan Ahmad",
-    position: "GSA & Head",
+    position: "GSA Head",
     image: "/images/ADNAN_AHMAD_IOT.jpg",
     social: { linkedin: "adnheyr", github: "adnheyr" },
   },
@@ -131,7 +131,9 @@ export default function GsaPage() {
           </h2>
           <div className="flex justify-center">
             <div className="w-full max-w-[320px]">
-              {gsaLeads.map((lead) => <MemberCard key={lead.name} {...lead} />)}
+              {gsaLeads.map((lead) => (
+                <MemberCard key={lead.name} {...lead} />
+              ))}
             </div>
           </div>
         </div>
@@ -148,7 +150,9 @@ export default function GsaPage() {
 
               {/* Domain Members - Centered Grid */}
               <div className="flex flex-wrap justify-center gap-8">
-                {members.map((member) => <MemberCard key={member.name} {...member} />)}
+                {members.map((member) => (
+                  <MemberCard key={member.name} {...member} />
+                ))}
               </div>
             </div>
           </div>
