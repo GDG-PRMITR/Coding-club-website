@@ -45,7 +45,7 @@ function PresentSectionComponent() {
     return (
         <>
             <section ref={containerRef} className="h-screen w-full flex items-center justify-center pointer-events-none">
-                <h1 ref={headingRef} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-black font-google-sans ">PRMITR PRESENTS</h1>
+                <h1 ref={headingRef} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-center font-bold text-black font-google-sans ">PRMITR PRESENTS</h1>
             </section>
             
         </>
