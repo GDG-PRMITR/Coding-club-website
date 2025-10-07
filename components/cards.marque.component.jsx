@@ -29,13 +29,6 @@ const isMobile = useIsMobile();
         autoplay={{ delay: 1000, disableOnInteraction: false , pauseOnMouseEnter: true }}
         slidesPerView={isMobile ? 1.2 : 3.15}
         loop={true}
-        style={{
-  "--swiper-pagination-bullet-inactive-color": "#999999",
-  "--swiper-pagination-bullet-inactive-opacity": "1",
-  "--swiper-pagination-bullet-size": "16px",
-  "--swiper-pagination-bullet-horizontal-gap": "6px",
-  "--swiper-pagination-bottom": "-10px",
-}}
       >
         {cardDetails.map((cardDetail) => (
           <SwiperSlide

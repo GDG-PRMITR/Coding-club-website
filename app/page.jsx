@@ -11,7 +11,7 @@ import NvidiaCardDialogComponent from "../components/nvidia.card.dialog.componen
 
 const cardDetails = [
   {
-    title: "GDG",
+    title: "GDGOC",
     logoHref: "/logo/logo-gdg.png",
     description:
       "Google Developer Groups - Connecting developers worldwide through technology, innovation, and community-driven learning experiences.",
@@ -28,7 +28,7 @@ const cardDetails = [
   //   link: "#",
   //   linkText: "Events",
   //   isRedirectionExist: true,
-  //   redirectionLink: "/gdg-coding-club",
+  //   redirectionLink: "/GDGOC-coding-club",
   // },
   {
     title: "GSA",
@@ -53,7 +53,7 @@ const cardDetails = [
     description:
       "Coding Club - Fostering creativity and innovation through coding.",
     isRedirectionExist: true,
-    redirectionLink: "/gdg-coding-club",
+    redirectionLink: "/GDG-coding-club",
   },
   {
     title: "Nvidia",
@@ -148,7 +148,7 @@ const leads = [
 const organisers = [
   {
     name: "Vedant Mali",
-    position: "GDG Lead",
+    position: "GDGOC Organizer", 
     description:
       "Passionate about Google technologies and community building. Leading innovative workshops and tech talks.",
     image: "/images/Vedant_Mali_Organiser.png",
