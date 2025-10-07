@@ -59,7 +59,7 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
             <button 
               onClick={() => navigate('/')} 
               className={cn("flex flex-col justify-center items-center space-x-3 hover:opacity-80 transition-opacity cursor-pointer ",
-                scrollingDown ? "translate-y-20" : "translate-y-0"
+                
               )}
               aria-label="Go to home"
             >
