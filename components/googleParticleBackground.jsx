@@ -1,12 +1,15 @@
 
 "use client";
 import React, { useRef, useEffect } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const GoogleParticlesCanvas = () => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const particles = useRef([]);
   const googleColors = ["#4285F4", "#EA4335", "#FBBC05", "#34A853"];
+ const isMobile = useIsMobile();
+
 
 useEffect(() => {
   const canvas = canvasRef.current;
@@ -17,7 +20,18 @@ useEffect(() => {
     canvas.height = canvas.parentElement.offsetHeight;
 
     particles.current = [];
-    for (let i = 0; i < 150; i++) {
+    // for (let i = 0; i < 150; i++) {
+    //   particles.current.push({
+    //     x: Math.random() * canvas.width,
+    //     y: Math.random() * canvas.height,
+    //     radius: Math.random() * 2 + 1.2,
+    //     color: googleColors[Math.floor(Math.random() * googleColors.length)],
+    //     speedX: (Math.random() - 0.5) * 0.4,
+    //     speedY: (Math.random() - 0.5) * 0.4,
+    //   });
+    // }
+    const particleCount = canvas.width < 768 ? 50 : canvas.width < 1200 ? 100 : 150;
+    for (let i = 0; i < particleCount; i++) {
       particles.current.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
