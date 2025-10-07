@@ -19,7 +19,7 @@ const links = [
         href : "/about"
     },
     {
-        title : "GDG x Coding Club",
+        title : "GDGOC x Coding Club",
         href : "/gdg"
     },
     {
@@ -49,7 +49,7 @@ const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   }
 
   return (
-      <header className={cn("sticky top-0 left-0 right-0 z-50 glass backdrop-blur-md border-b border-white/20 transition-transform duration-300" ,
+      <header className={cn("fixed top-0 left-0 right-0 z-50 glass backdrop-blur-md border-b border-white/20 transition-transform duration-300" ,
         scrollingDown ? "-translate-y-full" : "translate-y-0"
 
       )}>

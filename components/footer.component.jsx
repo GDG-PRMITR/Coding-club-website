@@ -148,7 +148,7 @@ function FooterComponent() {
           {/* Footer bottom section */}
           <div className="border-t border-slate-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-center md:text-left text-pretty text-sm mb-4 md:mb-0">
-              © 2024 Professor Ram Meghe Institute of Technology and Research.
+              © 2025 Prof. Ram Meghe Institute of Technology and Research.
               All rights reserved.
             </p>
             <div className="flex items-center space-x-2">
