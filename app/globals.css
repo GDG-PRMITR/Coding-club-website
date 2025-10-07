@@ -166,6 +166,8 @@ input, textarea, [contenteditable="true"] {
   --color-nvidia-green: #76B900 ;
   --color-coding-club-logo-gradient-start : #47ADFE;
   --color-coding-club-logo-gradient-end : #ABD9DD;
+  --color-google-gradient-sharp: linear-gradient(to right, #4285F4 0 18%, #34A853 18% 50%, #FBBC05 50% 75%, #EA4335 75% 100%);
+  --color-google-gradient: linear-gradient(to right, #4285F4, #34A853, #FBBC05, #EA4335);
 }
 
 /* Custom font utility classes */
@@ -176,6 +178,18 @@ input, textarea, [contenteditable="true"] {
 .font-google-sans,
 .font-product-sans {
   font-family: var(--font-google-sans);
+}
+.background-google-gradient {
+  background: var(--color-google-gradient);
+}
+.text-google-gradient-sharp {
+  background: var(--color-google-gradient-sharp);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
 @layer base {
