@@ -754,7 +754,7 @@ export default function GdgCodingClubPage() {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            The minds powering GDG x Coding CLub on Campus at PRMITR
+            The minds powering GDGOC x Coding CLub on Campus at PRMITR
           </p>
         </div>
       </section>
