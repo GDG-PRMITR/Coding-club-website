@@ -20,7 +20,7 @@ const gsaDomains = {
     {
       name: "Yash Dhoble",
       position: "Team GenAI",
-      image: "/images/Yash_dhoble_IOT.png",
+      image: "/images/Yash_dhoble_ IOT.png",
       social: { linkedin: "yash_dhoble", github: "yash_dhoble" },
     },
     {
