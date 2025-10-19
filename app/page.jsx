@@ -128,7 +128,7 @@ const leads = [
     image: "/images/Sneha_Giri_Coding_Club.jpg",
   },
   {
-    name: "Lavannya Deshmukh",
+    name: "Lavannya Deshpande",
     position: "Coding Club Co-Lead",
     description:
       "Dedicated to fostering a collaborative learning environment and organizing impactful coding events.",
