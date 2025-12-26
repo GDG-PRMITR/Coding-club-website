@@ -6,8 +6,15 @@ import {
 } from "./ui/dialog";
 
 function PopupAlert({ url }) {
-  const [isOpen, setIsOpen] = useState(!localStorage.getItem("popupShown") ?? true );
-  localStorage.setItem("popupShown" , true);
+  const [isOpen, setIsOpen] = useState(true);
+  
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsOpen(!localStorage.getItem("popupShown") ?? true);
+      localStorage.setItem("popupShown", true);
+    }
+  }, []);
+  
   return (
     <Dialog className="overflow-hidden" onOpenChange={setIsOpen} open={isOpen}>
       <DialogContent className="w-80">
