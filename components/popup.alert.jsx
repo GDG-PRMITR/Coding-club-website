@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState , useEffect } from "react";
 import Image from "next/image";
 import {
@@ -6,12 +8,15 @@ import {
 } from "./ui/dialog";
 
 function PopupAlert({ url }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setIsOpen(!localStorage.getItem("popupShown") ?? true);
-      localStorage.setItem("popupShown", true);
+      const hasShown = localStorage.getItem("popupShown");
+      if (!hasShown) {
+        setIsOpen(true);
+        localStorage.setItem("popupShown", "true");
+      }
     }
   }, []);
   
