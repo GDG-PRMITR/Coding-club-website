@@ -8,6 +8,7 @@ import MarqueComponent from "@/components/marque.component";
 import CardsMarqueComponent from "@/components/cards.marque.component";
 import PresentSectionComponent from "@/components/present.section.component";
 import NvidiaCardDialogComponent from "../components/nvidia.card.dialog.component";
+import PopupAlert from "@/components/popup.alert";
 
 const cardDetails = [
   {
@@ -215,200 +216,204 @@ const Page = () => {
   };
 
   return (
-    <main className="min-h-screen bg-transparent text-foreground relative overflow-x-hidden ">
-      {/* Present Section */}
-      <PresentSectionComponent />
-      {/* Hero Section */}
-      <section
-        id="home"
-        className="relative pt-24 pb-16 min-h-screen flex items-center"
-      >
-        <div className="container mx-auto px-6 max-sm:px-2  relative z-10 ">
-          {/* Main Container */}
-          <div className="max-w-6xl  mx-auto bg-white/20 border backdrop-blur-[4px] rounded-3xl p-8 md:p-12">
-            {/* Header with Logo and Tagline */}
-            <div className="flex flex-col max-sm:justify-center md:flex-row items-start md:items-center justify-center mb-12">
-              <div className="text-right max-sm:text-center">
-                <h1 className=" text-xl sm:text-2xl md:text-3xl font-bold text-black text-pretty">
-                  Empowering Innovation, One Code at a Time
-                </h1>
+    <>
+    {/* Bad popup which is hard coded  change it for backend handled*/}
+    <PopupAlert url={"/alert/tear1-in-gc-jam.jpeg"} />
+      <main className="min-h-screen bg-transparent text-foreground relative overflow-x-hidden ">
+        {/* Present Section */}
+        <PresentSectionComponent />
+        {/* Hero Section */}
+        <section
+          id="home"
+          className="relative pt-24 pb-16 min-h-screen flex items-center"
+        >
+          <div className="container mx-auto px-6 max-sm:px-2  relative z-10 ">
+            {/* Main Container */}
+            <div className="max-w-6xl  mx-auto bg-white/20 border backdrop-blur-[4px] rounded-3xl p-8 md:p-12">
+              {/* Header with Logo and Tagline */}
+              <div className="flex flex-col max-sm:justify-center md:flex-row items-start md:items-center justify-center mb-12">
+                <div className="text-right max-sm:text-center">
+                  <h1 className=" text-xl sm:text-2xl md:text-3xl font-bold text-black text-pretty">
+                    Empowering Innovation, One Code at a Time
+                  </h1>
+                </div>
               </div>
+              {/* Partnership Cards */}
+              <CardsMarqueComponent cardDetails={cardDetails} />
             </div>
-            {/* Partnership Cards */}
-            <CardsMarqueComponent cardDetails={cardDetails} />
+          </div>
+        </section>
+        {/*Tagline */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between my-12 ">
+          <div className="text-center max-w-6xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold text-black mx-auto text-center text-pretty">
+              A Campus Where Innovation Meets Collaboration
+            </h1>
           </div>
         </div>
-      </section>
-      {/*Tagline */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between my-12 ">
-        <div className="text-center max-w-6xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold text-black mx-auto text-center text-pretty">
-            A Campus Where Innovation Meets Collaboration
-          </h1>
-        </div>
-      </div>
 
-      {/* Statistics Section */}
-      <section id="about" className="py-16 relative z-10 " data-animate>
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {statistics.map((stat, index) => (
-              <div
-                key={stat.label}
-                className={cn(
-                  `text-center transition-all duration-500 border py-4 rounded-xl cursor-pointer group hover:backdrop-blur-[2px] hover:bg-gray-400/20 `,
-                  isVisible.about
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-8 opacity-0"
-                )}
-                style={{
-                  transitionDelay: `${index * 100}ms`,
-                  borderColor: stat.color,
-                }}
-              >
-                <div className="flex justify-center mb-4 transition-transform duration-300">
-                  <stat.icon color={stat.color} size={32} />
+        {/* Statistics Section */}
+        <section id="about" className="py-16 relative z-10 " data-animate>
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+              {statistics.map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={cn(
+                    `text-center transition-all duration-500 border py-4 rounded-xl cursor-pointer group hover:backdrop-blur-[2px] hover:bg-gray-400/20 `,
+                    isVisible.about
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
+                  )}
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                    borderColor: stat.color,
+                  }}
+                >
+                  <div className="flex justify-center mb-4 transition-transform duration-300">
+                    <stat.icon color={stat.color} size={32} />
+                  </div>
+                  <div className="text-3xl md:text-4xl font-bold text-black mb-2  transition-colors duration-300">
+                    {stat.number}
+                  </div>
+                  <div className="text-slate-600 text-sm font-medium text-pretty">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-black mb-2  transition-colors duration-300">
-                  {stat.number}
-                </div>
-                <div className="text-slate-600 text-sm font-medium text-pretty">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Faculty Members Section */}
-      <section id="faculty" className="py-16 relative z-10" data-animate>
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12">
-            Faculty Members
-          </h2>
+        {/* Faculty Members Section */}
+        <section id="faculty" className="py-16 relative z-10" data-animate>
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12">
+              Faculty Members
+            </h2>
 
-          <MarqueComponent faculty={faculty} isVisible={isVisible} />
+            <MarqueComponent faculty={faculty} isVisible={isVisible} />
 
-          {/* Horizontal line separator */}
-          {/* <div className="w-full max-w-4xl mx-auto mt-12">
+            {/* Horizontal line separator */}
+            {/* <div className="w-full max-w-4xl mx-auto mt-12">
             <hr className="border-slate-300" />
           </div> */}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* Organisers Section */}
-      <section id="organisers" className="py-16 relative z-10" data-animate>
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12">
-            Organisers
-          </h2>
+        {/* Organisers Section */}
+        <section id="organisers" className="py-16 relative z-10" data-animate>
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-12">
+              Organisers
+            </h2>
 
-          <div className="mx-auto flex flex-col md:flex-row justify-center items-center max-w-4xl max-md:space-y-2 md:space-x-2 my-2">
-            {leads.map((lead, index) => (
-              <div
-                key={lead.name}
-                className={cn(
-                  `hover-neon-border max-w-full flex flex-col items-center  space-y-6 md:space-y-0 md:space-x-8 transition-all duration-500  cursor-pointer group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 `,
-                  isVisible.organisers
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-8 opacity-0"
-                )}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                <div className="rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300 mx-auto max-h-24">
-                  <Image
-                    src={lead.image || "/placeholder.svg"}
-                    alt={lead.name}
-                    height={90}
-                    width={90}
-                    className="w-full object-contain"
-                  />
-                </div>
+            <div className="mx-auto flex flex-col md:flex-row justify-center items-center max-w-4xl max-md:space-y-2 md:space-x-2 my-2">
+              {leads.map((lead, index) => (
+                <div
+                  key={lead.name}
+                  className={cn(
+                    `hover-neon-border max-w-full flex flex-col items-center  space-y-6 md:space-y-0 md:space-x-8 transition-all duration-500  cursor-pointer group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 `,
+                    isVisible.organisers
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
+                  )}
+                  style={{ transitionDelay: `${index * 200}ms` }}
+                >
+                  <div className="rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300 mx-auto max-h-24">
+                    <Image
+                      src={lead.image || "/placeholder.svg"}
+                      alt={lead.name}
+                      height={90}
+                      width={90}
+                      className="w-full object-contain"
+                    />
+                  </div>
 
-                <div className="flex-1 text-center ">
-                  <h3 className="text-2xl font font-bold text-black mb-2 transition-colors duration-300">
-                    {lead.name}
-                  </h3>
-                  <p className="text-sm text-gray-800/70 font-semibold mb-4">
-                    {lead.position}
-                  </p>
-                  <p className="text-slate-600 leading-relaxed mb-6">
-                    {lead.description}
-                  </p>
+                  <div className="flex-1 text-center ">
+                    <h3 className="text-2xl font font-bold text-black mb-2 transition-colors duration-300">
+                      {lead.name}
+                    </h3>
+                    <p className="text-sm text-gray-800/70 font-semibold mb-4">
+                      {lead.position}
+                    </p>
+                    <p className="text-slate-600 leading-relaxed mb-6">
+                      {lead.description}
+                    </p>
 
-                  <div className="flex justify-center space-x-6">
-                    {socialDetails.map((social) => (
-                      <Link
-                        key={social.label}
-                        href={social.href}
-                        className="flex items-center space-x-2 text-gray-400 hover:text-gray-800 transition-colors duration-300 "
-                      >
-                        {social.icon}
-                        <span className="text-sm font-medium">
-                          {social.label}
-                        </span>
-                      </Link>
-                    ))}
+                    <div className="flex justify-center space-x-6">
+                      {socialDetails.map((social) => (
+                        <Link
+                          key={social.label}
+                          href={social.href}
+                          className="flex items-center space-x-2 text-gray-400 hover:text-gray-800 transition-colors duration-300 "
+                        >
+                          {social.icon}
+                          <span className="text-sm font-medium">
+                            {social.label}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          <div className="max-w-4xl mx-auto space-y-2  my-0">
-            {organisers.map((organiser, index) => (
-              <div
-                key={organiser.name}
-                className={cn(
-                  `hover-neon-border flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8 transition-all duration-500  cursor-pointer group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 `,
-                  isVisible.organisers
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-8 opacity-0"
-                )}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                <div className="   rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300">
-                  <Image
-                    src={organiser.image || "/placeholder.svg"}
-                    alt={organiser.name}
-                    height={90}
-                    width={90}
-                    className="w-full  object-contain"
-                  />
-                </div>
+              ))}
+            </div>
+            <div className="max-w-4xl mx-auto space-y-2  my-0">
+              {organisers.map((organiser, index) => (
+                <div
+                  key={organiser.name}
+                  className={cn(
+                    `hover-neon-border flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8 transition-all duration-500  cursor-pointer group bg-white/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 `,
+                    isVisible.organisers
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-8 opacity-0"
+                  )}
+                  style={{ transitionDelay: `${index * 200}ms` }}
+                >
+                  <div className="   rounded-full overflow-hidden flex-shrink-0 transition-transform duration-300">
+                    <Image
+                      src={organiser.image || "/placeholder.svg"}
+                      alt={organiser.name}
+                      height={90}
+                      width={90}
+                      className="w-full  object-contain"
+                    />
+                  </div>
 
-                <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-2xl font-bold text-black mb-2 transition-colors duration-300">
-                    {organiser.name}
-                  </h3>
-                  <p className="text-sm text-gray-800/70 font-semibold mb-4">
-                    {organiser.position}
-                  </p>
-                  <p className="text-slate-600 leading-relaxed mb-6">
-                    {organiser.description}
-                  </p>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-2xl font-bold text-black mb-2 transition-colors duration-300">
+                      {organiser.name}
+                    </h3>
+                    <p className="text-sm text-gray-800/70 font-semibold mb-4">
+                      {organiser.position}
+                    </p>
+                    <p className="text-slate-600 leading-relaxed mb-6">
+                      {organiser.description}
+                    </p>
 
-                  <div className="flex justify-center md:justify-start space-x-6">
-                    {socialDetails.map((social) => (
-                      <Link
-                        key={social.label}
-                        href={social.href}
-                        className="flex items-center space-x-2 text-gray-400 hover:text-gray-800 transition-colors duration-300 "
-                      >
-                        {social.icon}
-                        <span className="text-sm font-medium">
-                          {social.label}
-                        </span>
-                      </Link>
-                    ))}
+                    <div className="flex justify-center md:justify-start space-x-6">
+                      {socialDetails.map((social) => (
+                        <Link
+                          key={social.label}
+                          href={social.href}
+                          className="flex items-center space-x-2 text-gray-400 hover:text-gray-800 transition-colors duration-300 "
+                        >
+                          {social.icon}
+                          <span className="text-sm font-medium">
+                            {social.label}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 };
 
