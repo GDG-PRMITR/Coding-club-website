@@ -6,92 +6,59 @@ import React, { useState, useEffect } from "react";
 
 const events = [
   {
-    image: "https://picsum.photos/400/300?random=1",
-    title: "Tech Symposium",
+    image: "/gallery/all-gdg-members-in-seminar-hall.jpeg",
+    title: "GDG Members in Seminar Hall",
     description:
-      "A gathering of tech enthusiasts sharing the latest trends and innovations in technology.",
+      "All GDG members gathered together in the seminar hall.",
   },
   {
-    image: "https://picsum.photos/300/400?random=2",
-    title: "Art Exhibition",
+    image: "/gallery/all-gdg-members-top.jpeg",
+    title: "GDG Members Top View",
     description:
-      "Showcasing creative artworks from talented students and local artists.",
+      "Top view of all GDG members at the event.",
   },
   {
-    image: "https://picsum.photos/450/320?random=3",
-    title: "Robotics Workshop",
+    image: "/gallery/all-gdg-members.jpeg",
+    title: "GDG Members Group Photo",
     description:
-      "Hands-on workshop building and programming robots for beginners and pros.",
+      "Complete team photo of all GDG members.",
   },
   {
-    image: "https://picsum.photos/350/420?random=4",
-    title: "Coding Hackathon",
+    image: "/gallery/guests-on-stage.jpeg",
+    title: "Guests on Stage",
     description:
-      "24-hour coding marathon where teams solve real-world problems.",
+      "Distinguished guests sharing their insights on stage.",
   },
   {
-    image: "https://picsum.photos/420/350?random=5",
-    title: "Photography Contest",
+    image: "/gallery/principal-sir-on-stage.jpeg",
+    title: "Principal Sir's Speech",
     description:
-      "Capture the best moments and win exciting prizes in our annual contest.",
+      "Principal sir addressing the gathering.",
   },
   {
-    image: "https://picsum.photos/360/440?random=6",
-    title: "Science Fair",
+    image: "/gallery/principal-speach-from-last.jpeg",
+    title: "Principal's Speech",
     description:
-      "Students present innovative science projects and experiments.",
+      "Principal sir delivering an inspiring speech.",
   },
   {
-    image: "https://picsum.photos/430/370?random=7",
-    title: "Guest Lecture Series",
+    image: "/gallery/roshan-sir-speach.jpeg",
+    title: "Roshan Sir's Speech",
     description:
-      "Industry experts share insights on emerging technologies and career paths.",
+      "Roshan sir sharing valuable insights with the audience.",
   },
   {
-    image: "https://picsum.photos/340/420?random=8",
-    title: "Gaming Tournament",
-    description: "Competitive gaming event featuring popular eSports titles.",
-  },
-  {
-    image: "https://picsum.photos/400/280?random=9",
-    title: "Math Olympiad",
+    image: "/gallery/students-attended.jpeg",
+    title: "Students in Attendance",
     description:
-      "Challenge your problem-solving skills in our annual math competition.",
+      "Enthusiastic students attending the event.",
   },
   {
-    image: "https://picsum.photos/300/420?random=10",
-    title: "Cultural Fest",
+    image: "/gallery/web-dev-team.jpeg",
+    title: "Web Development Team",
     description:
-      "A celebration of diverse cultures with music, dance, and food.",
-  },
-  {
-    image: "https://picsum.photos/460/350?random=11",
-    title: "Quiz Night",
-    description:
-      "Test your knowledge across various topics in a fun quiz competition.",
-  },
-  {
-    image: "https://picsum.photos/330/400?random=12",
-    title: "Startup Pitch",
-    description:
-      "Aspiring entrepreneurs pitch their startup ideas to a panel of judges.",
-  },
-  {
-    image: "https://picsum.photos/420/380?random=13",
-    title: "Alumni Meet",
-    description: "Reconnect with alumni and expand your professional network.",
-  },
-  {
-    image: "https://picsum.photos/450/320?random=14",
-    title: "Book Fair",
-    description:
-      "Explore a wide range of books and meet your favorite authors.",
-  },
-  {
-    image: "https://picsum.photos/380/400?random=15",
-    title: "Music Night",
-    description: "Enjoy soulful performances and live music under the stars.",
-  },
+      "The talented web development team of the coding club.",
+  }
 ];
 
 function Page() {
@@ -121,18 +88,18 @@ function Page() {
   };
   return (
     <main className="font-google-sans">
-      <section className='h-screen flex flex-col gap-4 justify-center items-center text-center p-4   bg-[url("/prmitr.jpeg")] bg-cover bg-center'>
+      <section className='h-screen flex flex-col gap-4 justify-center items-center text-center p-4 max-sm:max-h-screen bg-[url("/prmitr.jpeg")] bg-cover bg-center'>
         <h1 className=" text-6xl md:text-9xl font-extrabold text-google-gradient-sharp ">Gallery</h1>
         <p className="text-lg  max-w-4xl text-gray-300">
           We came together to turn ideas into code and challenges into solutions.
 This gallery is the source code of our community's passion and teamwork.
         </p>
       </section>
-      <section className=" flex flex-col justify-center items-center gap-8 p-2 lg:p-8 mt-16">
+      <section className=" flex flex-col justify-center items-center gap-8 p-2 lg:p-8 mt-16 overflow-clip">
         <Image
-          src="https://placehold.co/1280x420/ccc/black/png?font=poppins&text=1280x420+Installation+Ceremony+2025"
+          src="/gallery/installation-ceremony-main.jpeg"
           alt="Installation Ceremony 2025"
-          className="rounded-lg box-border mx-4"
+          className="rounded-lg box-border mx-4 sm:max-w-8/12 object-contain max-sm:min-w-10/12"
           width={1280}
           height={420}
         />

@@ -24,7 +24,7 @@ const isMobile = useIsMobile();
           dynamicBullets: true          
         }}
         modules={[Autoplay,Pagination]}
-        className="mySwiper py-4 mb-8 h-96 max-sm:h-[26rem] border "
+        className="mySwiper py-4 mb-8 h-96 max-sm:h-[26rem] "
         spaceBetween={30}
         autoplay={{ delay: 1000, disableOnInteraction: false , pauseOnMouseEnter: true }}
         slidesPerView={isMobile ? 1.2 : 3.15}
