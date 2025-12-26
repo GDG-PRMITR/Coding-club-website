@@ -13,6 +13,44 @@ function FooterComponent() {
     router.push(href);
   };
 
+  const handleScrollToSection = (sectionId) => {
+    const scrollToElement = () => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const targetPosition = element.getBoundingClientRect().top + window.scrollY;
+        const startPosition = window.scrollY;
+        const distance = targetPosition - startPosition;
+        const duration = 500; 
+        let start = null;
+
+        const easeInOutQuad = (t) => {
+          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        };
+
+        const animation = (currentTime) => {
+          if (start === null) start = currentTime;
+          const elapsed = currentTime - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = easeInOutQuad(progress);
+          window.scrollTo(0, startPosition + distance * ease);
+
+          if (elapsed < duration) {
+            requestAnimationFrame(animation);
+          }
+        };
+
+        requestAnimationFrame(animation);
+      }
+    };
+
+    if (pathname === "/gdg") {
+      scrollToElement();
+    } else {
+      router.push("/gdg");
+      setTimeout(scrollToElement, 500);
+    }
+  };
+
   return (
     <>
       {/* Footer */}
@@ -46,13 +84,7 @@ function FooterComponent() {
                   <span className="text-green-400">
                     <Send className="w-4 h-4" />
                   </span>
-                  <span>info@prmit.ac.in</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-yellow-400">
-                    <Phone className="w-4 h-4" />
-                  </span>
-                  <span>+91 XXXX XXXXXX</span>
+                  <span>gdscprmitr@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -95,23 +127,23 @@ function FooterComponent() {
                 {[
                   {
                     name: "GDG Instagram",
-                    handle: "@gdg_prmit",
+                    handle: "@gdg_on_campus_prmitr",
                     color: "text-red-400",
-                    url: "https://instagram.com/gdg_prmit",
+                    url: "https://instagram.com/gdg_on_campus_prmitr",
                     icon : Instagram
                   },
-                  {
-                    name: "Coding Club Instagram",
-                    handle: "@codingclub_prmit",
-                    color: "text-green-400",
-                    url: "https://instagram.com/codingclub_prmit",
-                    icon : Instagram
-                  },
+                  // {
+                  //   name: "Coding Club Instagram",
+                  //   handle: "@codingclub_prmit",
+                  //   color: "text-green-400",
+                  //   url: "https://instagram.com/codingclub_prmit",
+                  //   icon : Instagram
+                  // },
                   {
                     name: "GSA Instagram",
-                    handle: "@gsa_prmit",
+                    handle: "@gsac_prmitr",
                     color: "text-yellow-400",
-                    url: "https://instagram.com/gsa_prmit",
+                    url: "https://instagram.com/gsac_prmitr",
                     icon : Instagram
                   },
                 ].map((social, index) => (
@@ -148,22 +180,21 @@ function FooterComponent() {
           {/* Footer bottom section */}
           <div className="border-t border-slate-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-center md:text-left text-pretty text-sm mb-4 md:mb-0">
-              © 2025 Prof. Ram Meghe Institute of Technology and Research.
+              © 2025 Coding Club, PRMIT&R.
               All rights reserved.
             </p>
             <div className="flex items-center space-x-2">
               <span className="text-slate-400 text-sm flex text-nowrap">
                 Made with
                 <span className="mx-1">❤️</span>
-                by our web development team
+                by our
+                <button
+                  onClick={() => handleScrollToSection("web-development")}
+                  className="text-white hover:text-blue-300 transition-colors ml-1 font-semibold underline"
+                >
+                  Web development team
+                </button>
               </span>
-              {/* <span className="text-slate-400 text-sm">Built with passion by our communities</span> */}
-              {/* <div className="flex space-x-1">
-                <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              </div> */}
             </div>
           </div>
         </div>

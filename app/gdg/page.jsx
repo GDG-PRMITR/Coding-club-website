@@ -789,7 +789,7 @@ export default function GdgCodingClubPage() {
 
       {/* Domain Teams */}
       {Object.entries(domains).map(([domainName, domainData]) => (
-        <section key={domainName} className="py-16 px-6">
+        <section key={domainName} id={domainName.toLowerCase().replace(/\s+/g, "-")} className="py-16 px-6">
           <div className="container mx-auto max-w-6xl">
             <div className="bg-white/10 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-lg p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-coding-club-logo-gradient-start to-coding-club-logo-gradient-end bg-clip-text text-transparent">
