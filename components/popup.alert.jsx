@@ -22,9 +22,15 @@ function PopupAlert({ url }) {
   
   return (
     <Dialog className="overflow-hidden" onOpenChange={setIsOpen} open={isOpen}>
-      <DialogContent className="w-80">
-        <div className="flex justify-center text-center max-w-lg">
-          <Image src={url} alt="Notice Image" width={400} height={300} className="w-80"/> 
+      <DialogContent>
+        <div className="overflow-hidden rounded-lg">
+          <Image 
+            src={url} 
+            alt="Notice Image" 
+            width={500} 
+            height={400} 
+            className="w-full h-auto object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+          /> 
         </div>
       </DialogContent>
     </Dialog>
