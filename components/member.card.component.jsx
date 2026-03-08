@@ -40,23 +40,27 @@ const MemberCard = (member) => {
       <p className="text-gray-600 mb-4 text-sm">{member.position}</p>
 
       <div className="flex justify-center gap-3">
-        <a
-          href={`https://linkedin.com/in/${member.social.linkedin}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
-        >
-          <Linkedin className="w-5 h-5 text-white" />
-        </a>
+        {member.social?.linkedin && member.social.linkedin !== "NA" && (
+          <a
+            href={member.social.linkedin.startsWith("http") ? member.social.linkedin : `https://linkedin.com/in/${member.social.linkedin}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
+          >
+            <Linkedin className="w-5 h-5 text-white" />
+          </a>
+        )}
         
-        <a
-          href={`https://github.com/${member.social.github}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-900 flex items-center justify-center transition-all duration-300 hover:scale-110"
-        >
-          <Github className="w-5 h-5 text-white" />
-        </a>
+        {member.social?.github && member.social.github !== "NA" && (
+          <a
+            href={member.social.github.startsWith("http") ? member.social.github : `https://github.com/${member.social.github}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-900 flex items-center justify-center transition-all duration-300 hover:scale-110"
+          >
+            <Github className="w-5 h-5 text-white" />
+          </a>
+        )}
       </div>
     </div>
   );

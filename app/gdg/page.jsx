@@ -10,9 +10,9 @@ export default function GdgCodingClubPage() {
       position: "Coding Club Lead",
       image: "/images/Sneha_Giri_Coding_Club.jpg",
       social: {
-        instagram: "vedant_mali",
-        linkedin: "vedantmali",
-        github: "vedantmali",
+        instagram: "NA",
+        linkedin: "sneha-giri-764700292",
+        github: "sneha-giri330",
       },
     },
     {
@@ -20,9 +20,9 @@ export default function GdgCodingClubPage() {
       position: "Coding Club Co-Lead",
       image: "/images/Lavannya_Deshpande_Coding_Club.png",
       social: {
-        instagram: "sneha_codes",
-        linkedin: "snehagiri",
-        github: "snehagiri",
+        instagram: "NA",
+        linkedin: "NA",
+        github: "NA",
       },
     },
     {
@@ -30,9 +30,9 @@ export default function GdgCodingClubPage() {
       position: "GDGoC Organizer",
       image: "/images/Vedant_Mali_Organiser.png",
       social: {
-        instagram: "adnan_tech",
-        linkedin: "adnanqureshi",
-        github: "adnanqureshi",
+        instagram: "NA",
+        linkedin: "NA",
+        github: "NA",
       },
     },
   ];
@@ -43,9 +43,9 @@ export default function GdgCodingClubPage() {
       position: "Core Committee",
       image: "/images/Parth_Deshmukh_Core_Team.png",
       social: {
-        instagram: "karan_community",
-        linkedin: "karanmehta",
-        github: "karanmehta",
+        instagram: "NA",
+        linkedin: "NA",
+        github: "NA",
       },
     },
     {
@@ -53,9 +53,9 @@ export default function GdgCodingClubPage() {
       position: "Core Committee",
       image: "/images/Sarang_Mahore_Core_Team.jpg",
       social: {
-        instagram: "ananya_content",
-        linkedin: "ananyasingh",
-        github: "ananyasingh",
+        instagram: "NA",
+        linkedin: "NA",
+        github: "NA",
       },
     },
     {
@@ -63,9 +63,9 @@ export default function GdgCodingClubPage() {
       position: "Core Committee",
       image: "/images/Shruti_Misal_Core_Team.jpg",
       social: {
-        instagram: "rahul_tech",
-        linkedin: "rahulsharma",
-        github: "rahulsharma",
+        instagram: "NA",
+        linkedin: "shruti-raju-misal-a1636b25a",
+        github: "Shruti2010",
       },
     },
     {
@@ -73,9 +73,9 @@ export default function GdgCodingClubPage() {
       position: "Core Committee",
       image: "/images/Tanvi_Markad_Core_Team.jpg",
       social: {
-        instagram: "priya_events",
-        linkedin: "priyapatel",
-        github: "priyapatel",
+        instagram: "NA",
+        linkedin: "NA",
+        github: "NA",
       },
     },
     {
@@ -83,9 +83,9 @@ export default function GdgCodingClubPage() {
       position: "Core Committee",
       image: "/images/Tanvi_Watane_Core_Team.jpg",
       social: {
-        instagram: "arjun_design",
-        linkedin: "arjunkumar",
-        github: "arjunkumar",
+        instagram: "NA",
+        linkedin: "NA",
+        github: "NA",
       },
     },
   ];
@@ -98,9 +98,9 @@ export default function GdgCodingClubPage() {
           position: "Web Dev Executive",
           image: "/images/Ninad_Vaidya_Web_Development.jpg",
           social: {
-            instagram: "rohit_web",
-            linkedin: "rohitagarwal",
-            github: "rohitagarwal",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -108,9 +108,9 @@ export default function GdgCodingClubPage() {
           position: "Web Dev Executive",
           image: "/images/Riya_Umekar_Web_Development.jpeg",
           social: {
-            instagram: "sakshi_web",
-            linkedin: "sakshijain",
-            github: "sakshijain",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
       ],
@@ -120,9 +120,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Amruta_Tople_Web_Development.jpg",
           social: {
-            instagram: "suresh_angular",
-            linkedin: "sureshyadav",
-            github: "sureshyadav",
+            instagram: "NA",
+            linkedin: "amruta-topale-84375231b",
+            github: "Amruta907",
           },
         },
         {
@@ -130,9 +130,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Bhaumik_Dhore_Web_Development.png",
           social: {
-            instagram: "pooja_uiux",
-            linkedin: "poojasharma",
-            github: "poojasharma",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -140,9 +140,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Harshal_Gunjarkar_Web_Development.jpg",
           social: {
-            instagram: "manish_php",
-            linkedin: "manishjoshi",
-            github: "manishjoshi",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -150,9 +150,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Kartik_Shriwas_Web.jpg",
           social: {
-            instagram: "ravi_react",
-            linkedin: "ravikumar",
-            github: "ravikumar",
+            instagram: "NA",
+            linkedin: "kartikshriwas",
+            github: "kartikshriwas",
           },
         },
         {
@@ -160,9 +160,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Krishna_Mastud_Web_Development.jpg",
           social: {
-            instagram: "kavya_node",
-            linkedin: "kavyareddy",
-            github: "kavyareddy",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -170,9 +170,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Rohit_Gupta_Web_Developement.png",
           social: {
-            instagram: "amit_frontend",
-            linkedin: "amitverma",
-            github: "amitverma",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -180,9 +180,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Shruti_Raut_Web_Development.jpg",
           social: {
-            instagram: "divya_vue",
-            linkedin: "divyapatel",
-            github: "divyapatel",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -190,9 +190,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Vedant_Deshmukh_Web_Dev.png",
           social: {
-            instagram: "neha_backend",
-            linkedin: "nehagupta",
-            github: "nehagupta",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -200,9 +200,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Vedant_Payghan_Web_Development.jpg",
           social: {
-            instagram: "vikash_fullstack",
-            linkedin: "vikashsingh",
-            github: "vikashsingh",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
       ],
@@ -214,9 +214,9 @@ export default function GdgCodingClubPage() {
           position: "AI/ML Executive",
           image: "/images/Harshal_Alaspure_AIML.jpg",
           social: {
-            instagram: "nisha_ml",
-            linkedin: "nishapatel",
-            github: "nishapatel",
+            instagram: "NA",
+            linkedin: "harshal-alaspure-36b057291",
+            github: "HarshalAl02",
           },
         },
         {
@@ -224,9 +224,9 @@ export default function GdgCodingClubPage() {
           position: "AI/ML Executive",
           image: "/images/Krushna_Mohod_AIML.jpeg",
           social: {
-            instagram: "aditya_ai",
-            linkedin: "adityasharma",
-            github: "adityasharma",
+            instagram: "mr_patil_37",
+            linkedin: "krushna-mohod-5076a128a",
+            github: "krushnamohod",
           },
         },
       ],
@@ -236,9 +236,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Abhang_Vyawhare_AIML.png",
           social: {
-            instagram: "rajesh_data",
-            linkedin: "rajeshkumar",
-            github: "rajeshkumar",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -246,9 +246,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Kaushik_Tayde_AIML.png",
           social: {
-            instagram: "meera_ml",
-            linkedin: "meerajoshi",
-            github: "meerajoshi",
+            instagram: "kaushik_tayde45",
+            linkedin: "kaushik-tayde-055a31290",
+            github: "Kaushik-Tayde",
           },
         },
         {
@@ -256,9 +256,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Rashika_Gangraj_AIML.png",
           social: {
-            instagram: "sanjay_ai",
-            linkedin: "sanjayverma",
-            github: "sanjayverma",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -266,9 +266,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Rutvik_Bele_ALML.png",
           social: {
-            instagram: "priyanka_dl",
-            linkedin: "priyankasingh",
-            github: "priyankasingh",
+            instagram: "rutvik_bele07",
+            linkedin: "rutvik-bele",
+            github: "Rutvik-Bele",
           },
         },
       ],
@@ -280,9 +280,9 @@ export default function GdgCodingClubPage() {
           position: "App Dev Executive",
           image: "/images/Ayush_Waghade_App_Development.png",
           social: {
-            instagram: "isha_app",
-            linkedin: "ishagupta",
-            github: "ishagupta",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -290,9 +290,9 @@ export default function GdgCodingClubPage() {
           position: "App Dev Executive",
           image: "/images/Pranav_Rajput_App_Development - Pranav Rajput.jpg",
           social: {
-            instagram: "harsh_app",
-            linkedin: "harshpatel",
-            github: "harshpatel",
+            instagram: "pranav____rajput",
+            linkedin: "pranav-rajput-9bb446244",
+            github: "24-Pranav",
           },
         },
       ],
@@ -302,9 +302,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Anand_Kakad_App_Development.jpg",
           social: {
-            instagram: "nikhil_android",
-            linkedin: "nikhiljain",
-            github: "nikhiljain",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -312,9 +312,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Anurag_Deshmukh_App_Development.png",
           social: {
-            instagram: "ritika_ios",
-            linkedin: "ritikasingh",
-            github: "ritikasingh",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -322,9 +322,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Krupa_Sawarkar_App_Development - Krupa Sawarkar.jpg",
           social: {
-            instagram: "gaurav_flutter",
-            linkedin: "gauravkumar",
-            github: "gauravkumar",
+            instagram: "NA",
+            linkedin: "krupa-sawarkar-b808ba322",
+            github: "krupasawarkar630",
           },
         },
       ],
@@ -336,9 +336,9 @@ export default function GdgCodingClubPage() {
           position: "Cloud Executive",
           image: "/images/Radhika_Adhau_Cloud_Computing.jpg",
           social: {
-            instagram: "abhishek_cloud",
-            linkedin: "abhishekjain",
-            github: "abhishekjain",
+            instagram: "NA",
+            linkedin: "radhika-adhau-71baa0290",
+            github: "RadhikaAdhau0708",
           },
         },
       ],
@@ -348,9 +348,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Atharv_Kakade_Cloud_Computing.jpg",
           social: {
-            instagram: "atharv_cloud",
-            linkedin: "atharvkakade",
-            github: "atharvkakade",
+            instagram: "atharv__k_7",
+            linkedin: "atharv-kakade-779b1a290",
+            github: "Atharvkakade2005",
           },
         },
         {
@@ -358,9 +358,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Hirek_Warhekar_Cloud_Computing.jpg",
           social: {
-            instagram: "tanvi_cloud",
-            linkedin: "tanvisharma",
-            github: "tanvisharma",
+            instagram: "hirek.18",
+            linkedin: "hirek-warhekar-5a1b14290",
+            github: "hirek18",
           },
         },
         {
@@ -368,9 +368,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Manjiri_Jawarkar_Cloud_Computing.jpg",
           social: {
-            instagram: "manjiri_cloud",
-            linkedin: "manjirijawarkar",
-            github: "manjirijawarkar",
+            instagram: "manjiriiii_17",
+            linkedin: "manjiri-jawarkar-b86a01342",
+            github: "Manjiri699",
           },
         },
         {
@@ -378,9 +378,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Sharvil_Wange_Cloud_Computing.jpg",
           social: {
-            instagram: "sharvil_cloud",
-            linkedin: "sharvilwange",
-            github: "sharvilwange",
+            instagram: "Na",
+            linkedin: "sharvil-wange-618b17290",
+            github: "Na",
           },
         },
       ],
@@ -392,9 +392,9 @@ export default function GdgCodingClubPage() {
           position: "Data Science Executive",
           image: "/images/Aryan_Bute_Data_Science.jpg",
           social: {
-            instagram: "vishal_data",
-            linkedin: "vishalagarwal",
-            github: "vishalagarwal",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
       ],
@@ -404,9 +404,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Devendra_Deshmukh_Data_Science.jpg",
           social: {
-            instagram: "ritu_business",
-            linkedin: "ritupatel",
-            github: "ritupatel",
+            instagram: "NA",
+            linkedin: "devendra-deshmukh-7a330b320",
+            github: "Devendra0655",
           },
         },
         {
@@ -414,9 +414,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Dnyandeep_Bendewar_Data_Science.jpg",
           social: {
-            instagram: "akash_analyst",
-            linkedin: "akashgupta",
-            github: "akashgupta",
+            instagram: "NA",
+            linkedin: "dnyandeep-bendewar-2325b8290",
+            github: "dnyandeep-bendewar",
           },
         },
         {
@@ -424,9 +424,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Harshad_Badge_Data_Science.jpg",
           social: {
-            instagram: "mohit_stats",
-            linkedin: "mohitkumar",
-            github: "mohitkumar",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -434,9 +434,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Ishita_Rathi_Data_Science - Ishita Rathi.png",
           social: {
-            instagram: "anjali_viz",
-            linkedin: "anjalisingh",
-            github: "anjalisingh",
+            instagram: "NA",
+            linkedin: "ishita-rathi-9b180230a",
+            github: "ishita2740",
           },
         },
         {
@@ -444,9 +444,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Srushti_Makwana_Data_Science.jpg",
           social: {
-            instagram: "anjali_viz",
-            linkedin: "anjalisingh",
-            github: "anjalisingh",
+            instagram: "srushtie_11",
+            linkedin: "srushti-makwana-5a560b30b",
+            github: "SrushtiMakwana",
           },
         },
       ],
@@ -458,9 +458,9 @@ export default function GdgCodingClubPage() {
           position: "Data Science & Algorithms Executive",
           image: "/images/Bhargavi_Kulkarni_DSA.png",
           social: {
-            instagram: "vishal_data",
-            linkedin: "vishalagarwal",
-            github: "vishalagarwal",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -468,9 +468,9 @@ export default function GdgCodingClubPage() {
           position: "Data Science & Algorithms Executive",
           image: "/images/Gauri_Garole_DSA.jpg",
           social: {
-            instagram: "vishal_data",
-            linkedin: "vishalagarwal",
-            github: "vishalagarwal",
+            instagram: "NA",
+            linkedin: "gauri-garole-a96411256",
+            github: "gaurigarole",
           },
         },
       ],
@@ -480,9 +480,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Chirag_Bhoyar_DSA.jpg",
           social: {
-            instagram: "akash_analyst",
-            linkedin: "akashgupta",
-            github: "akashgupta",
+            instagram: "NA",
+            linkedin: "chirag-bhoyar-5495b5290",
+            github: "chiragbhoyar004",
           },
         },
         {
@@ -490,9 +490,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Prathamesh_ Nistane_DSA.jpg",
           social: {
-            instagram: "mohit_stats",
-            linkedin: "mohitkumar",
-            github: "mohitkumar",
+            instagram: "prathamesh_nistane",
+            linkedin: "pprathameshnistanee-693058291",
+            github: "prathamesh-it",
           },
         },
         {
@@ -500,9 +500,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Pratik_Ingole_DSA.png",
           social: {
-            instagram: "ritu_business",
-            linkedin: "ritupatel",
-            github: "ritupatel",
+            instagram: "pratik_ingole.45",
+            linkedin: "pratik-ingole",
+            github: "PratikIngole45",
           },
         },
         {
@@ -510,9 +510,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Rohit_Datir_DSA.jpg",
           social: {
-            instagram: "anjali_viz",
-            linkedin: "anjalisingh",
-            github: "anjalisingh",
+            instagram: "NA",
+            linkedin: "rohit-datir",
+            github: "NA",
           },
         },
       ],
@@ -524,9 +524,9 @@ export default function GdgCodingClubPage() {
           position: "IoT Executive",
           image: "/images/ADNAN_AHMAD_IOT.jpg",
           social: {
-            instagram: "karthik_iot",
-            linkedin: "karthikreddy",
-            github: "karthikreddy",
+            instagram: "NA",
+            linkedin: "adnanrahmad",
+            github: "adnanaskh",
           },
         },
       ],
@@ -536,9 +536,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Kartik_Akhade_IOT.png",
           social: {
-            instagram: "rohit_sensor",
-            linkedin: "rohitverma",
-            github: "rohitverma",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -546,19 +546,19 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Smit_Pathade_IOT.png",
           social: {
-            instagram: "pallavi_embedded",
-            linkedin: "pallavisingh",
-            github: "pallavisingh",
+            instagram: "smit_576",
+            linkedin: "smit-pathade-112b46315",
+            github: "Smit576",
           },
         },
         {
           name: "Yash Dhobale ",
           position: "Domain Member",
-          image: "/images/Yash_dhoble_IOT.png",
+          image: "/images/Yash_dhoble_ IOT.png",
           social: {
-            instagram: "varun_hardware",
-            linkedin: "varunkumar",
-            github: "varunkumar",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
       ],
@@ -570,9 +570,9 @@ export default function GdgCodingClubPage() {
           position: "Placement Executive",
           image: "/images/Shivani_Bhure_Placement_Preparation.jpg",
           social: {
-            instagram: "ankit_placement",
-            linkedin: "ankitsharma",
-            github: "ankitsharma",
+            instagram: "NA",
+            linkedin: "shivani-bhure-80b144286",
+            github: "Shivanibhure",
           },
         },
       ],
@@ -582,9 +582,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Ayuti_ Pendhari_Placement_Preparation.png",
           social: {
-            instagram: "saurabh_mentor",
-            linkedin: "saurabhgupta",
-            github: "saurabhgupta",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -592,9 +592,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Lekha_Sedani_Placement_Preperation.jpg",
           social: {
-            instagram: "kriti_resume",
-            linkedin: "kritisingh",
-            github: "kritisingh",
+            instagram: "NA",
+            linkedin: "lekhasedani",
+            github: "Lekhasedani15",
           },
         },
         {
@@ -602,9 +602,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Pooja_Ladhawe_Placement_Preparation.jpeg",
           social: {
-            instagram: "mayank_coding",
-            linkedin: "mayankkumar",
-            github: "mayankkumar",
+            instagram: "pooja_123268",
+            linkedin: "pooja-ladhawe-4a460a290",
+            github: "ladhawepooja",
           },
         },
         {
@@ -612,9 +612,9 @@ export default function GdgCodingClubPage() {
           position: "Domain Member",
           image: "/images/Tanushka_Mathurkar_Placement_ Preparation.png",
           social: {
-            instagram: "simran_aptitude",
-            linkedin: "simranjoshi",
-            github: "simranjoshi",
+            instagram: "402.tanushka_mathurkar",
+            linkedin: "tanushka-mathurkar",
+            github: "TANUSHKAUMESHMATHURKAR",
           },
         },
       ],
@@ -627,9 +627,9 @@ export default function GdgCodingClubPage() {
           position: "Graphic Designer",
           image: "/images/Aditya_Rathod_Graphic_Designing.jpg",
           social: {
-            instagram: "yash_content",
-            linkedin: "yashagarwal",
-            github: "yashagarwal",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -637,9 +637,9 @@ export default function GdgCodingClubPage() {
           position: "Graphic Designer",
           image: "/images/Arjun_Solanke_Graphic_Designer.jpg",
           social: {
-            instagram: "nikita_design",
-            linkedin: "nikitasingh",
-            github: "nikitasingh",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -647,9 +647,9 @@ export default function GdgCodingClubPage() {
           position: "Copy Writer",
           image: "/images/Maitreyee_Patil_Social_Media_&_PR.jpg",
           social: {
-            instagram: "yash_content",
-            linkedin: "yashagarwal",
-            github: "yashagarwal",
+            instagram: "NA",
+            linkedin: "maitreyee-patil-617mp",
+            github: "NA",
           },
         },
         {
@@ -657,9 +657,9 @@ export default function GdgCodingClubPage() {
           position: "Photographer",
           image: "/images/Nirbhay_ Shende_Social_media _&_PR.jpg",
           social: {
-            instagram: "riya_marketing",
-            linkedin: "riyapatel",
-            github: "riyapatel",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -667,9 +667,9 @@ export default function GdgCodingClubPage() {
           position: "Photographer",
           image: "/images/Om_Charthal_Photography.jpg",
           social: {
-            instagram: "harsh_video",
-            linkedin: "harshkumar",
-            github: "harshkumar",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -677,9 +677,9 @@ export default function GdgCodingClubPage() {
           position: "Social Media & Public Relations",
           image: "/images/Mohit_Social_Media_&_PR.png",
           social: {
-            instagram: "riya_marketing",
-            linkedin: "riyapatel",
-            github: "riyapatel",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -687,9 +687,9 @@ export default function GdgCodingClubPage() {
           position: "Social Media & Public Relations",
           image: "/images/aryarautsocialmedia.jpg",
           social: {
-            instagram: "riya_marketing",
-            linkedin: "riyapatel",
-            github: "riyapatel",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -697,9 +697,9 @@ export default function GdgCodingClubPage() {
           position: "Social Media & Public Relations",
           image: "/images/Shreya_Somani_Social_Media_PR.png",
           social: {
-            instagram: "yash_content",
-            linkedin: "yashagarwal",
-            github: "yashagarwal",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -707,9 +707,9 @@ export default function GdgCodingClubPage() {
           position: "Social Media & Public Relations",
           image: "/images/Vedant_Wankhade_Social_Media_PR.png",
           social: {
-            instagram: "nikita_design",
-            linkedin: "nikitasingh",
-            github: "nikitasingh",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -717,9 +717,9 @@ export default function GdgCodingClubPage() {
           position: "Video Editor",
           image: "/images/1758606694268 - Sudhanshu Khakse.jpg",
           social: {
-            instagram: "nikita_design",
-            linkedin: "nikitasingh",
-            github: "nikitasingh",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
         {
@@ -727,9 +727,9 @@ export default function GdgCodingClubPage() {
           position: "Video Editor",
           image: "/images/Vedant_Dange_Video_Editor.jpg",
           social: {
-            instagram: "harsh_video",
-            linkedin: "harshkumar",
-            github: "harshkumar",
+            instagram: "NA",
+            linkedin: "NA",
+            github: "NA",
           },
         },
       ],
