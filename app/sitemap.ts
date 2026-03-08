@@ -2,45 +2,29 @@ import type { MetadataRoute } from 'next'
 
 const siteUrl = 'https://codingclub.prmitr.in'
 
+type StaticRoute = {
+  path: string
+  changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency']
+  priority: number
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
-
-  return [
-    {
-      url: `${siteUrl}/`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${siteUrl}/about`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/events`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${siteUrl}/gallery`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/gdg`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}/gsa`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
+  const routes: StaticRoute[] = [
+    { path: '/', changeFrequency: 'weekly', priority: 1 },
+    { path: '/about', changeFrequency: 'monthly', priority: 0.8 },
+    { path: '/events', changeFrequency: 'daily', priority: 0.9 },
+    { path: '/gallery', changeFrequency: 'weekly', priority: 0.8 },
+    { path: '/gdg', changeFrequency: 'weekly', priority: 0.8 },
+    { path: '/gsa', changeFrequency: 'weekly', priority: 0.8 },
   ]
+
+  return routes
+    .filter((route) => route.path && route.path.trim().length > 0)
+    .map((route) => ({
+      url: `${siteUrl}${route.path}`,
+      lastModified: now,
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+    }))
 }
