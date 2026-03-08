@@ -1,10 +1,24 @@
 "use client";
 import { useState } from "react";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 import Image from "next/image";
 
 const MemberCard = (member) => {
   const [imageError, setImageError] = useState(false);
+  const isValidSocial = (value) =>
+    Boolean(value) && value.trim().toUpperCase() !== "NA";
+
+  const getProfileUrl = (platform, value) => {
+    if (!isValidSocial(value)) return "#";
+    if (value.startsWith("http")) return value;
+
+    if (platform === "linkedin") return `https://linkedin.com/in/${value}`;
+    if (platform === "github") return `https://github.com/${value}`;
+    if (platform === "instagram") return `https://instagram.com/${value}`;
+
+    return value;
+  };
+
   const getNickname = (name) => {
     if (!name) return "U";
     const names = name.trim().split(" ");
@@ -15,6 +29,15 @@ const MemberCard = (member) => {
   return (
     <div
       className="bg-white rounded-xl p-6 text-center border-2 border-gray-200 hover:shadow-sm hover-neon-border transition-all duration-300  group w-full max-w-[280px] relative z-10"
+      style={{
+        "--border-radius": "0.75rem",
+        "--border-thickness": "2px",
+        "--hover-neon-c1": "rgba(66, 133, 244, 0.18)",
+        "--hover-neon-c2": "rgba(52, 168, 83, 0.45)",
+        "--hover-neon-c3": "rgba(251, 188, 4, 0.72)",
+        "--hover-neon-c4": "rgba(234, 67, 53, 0.92)",
+        "--hover-neon-surface": "#ffffff",
+      }}
     >
       <div className="w-28 h-28 rounded-full mx-auto mb-4 overflow-hidden ring-4 ring-gray-100 group-hover:ring-blue-200 transition-all duration-300">
         {imageError ? (
@@ -39,26 +62,40 @@ const MemberCard = (member) => {
       </h3>
       <p className="text-gray-600 mb-4 text-sm">{member.position}</p>
 
-      <div className="flex justify-center gap-3">
-        {member.social?.linkedin && member.social.linkedin !== "NA" && (
+      <div className="flex justify-center gap-4">
+        {isValidSocial(member.social?.instagram) && (
           <a
-            href={member.social.linkedin.startsWith("http") ? member.social.linkedin : `https://linkedin.com/in/${member.social.linkedin}`}
+            href={getProfileUrl("instagram", member.social.instagram)}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="p-2 bg-slate-50 rounded-lg text-[#EA4335] hover:bg-[#EA4335] hover:text-white transition-all shadow-sm"
+            aria-label={`${member.name} Instagram`}
           >
-            <Linkedin className="w-5 h-5 text-white" />
+            <Instagram className="w-5 h-5" />
+          </a>
+        )}
+
+        {isValidSocial(member.social?.linkedin) && (
+          <a
+            href={getProfileUrl("linkedin", member.social.linkedin)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 bg-slate-50 rounded-lg text-[#4285F4] hover:bg-[#4285F4] hover:text-white transition-all shadow-sm"
+            aria-label={`${member.name} LinkedIn`}
+          >
+            <Linkedin className="w-5 h-5" />
           </a>
         )}
         
-        {member.social?.github && member.social.github !== "NA" && (
+        {isValidSocial(member.social?.github) && (
           <a
-            href={member.social.github.startsWith("http") ? member.social.github : `https://github.com/${member.social.github}`}
+            href={getProfileUrl("github", member.social.github)}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-900 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="p-2 bg-slate-50 rounded-lg text-[#34A853] hover:bg-[#34A853] hover:text-white transition-all shadow-sm"
+            aria-label={`${member.name} GitHub`}
           >
-            <Github className="w-5 h-5 text-white" />
+            <Github className="w-5 h-5" />
           </a>
         )}
       </div>

@@ -305,10 +305,18 @@ const Page = () => {
                   <div
                     key={lead.name}
                     className={cn(
-                      "group relative bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1",
+                      "group relative z-10 hover-neon-border bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1",
                       isVisible.organisers ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     )}
-                    style={{ transitionDelay: `${index * 200}ms` }}
+                    style={{
+                      transitionDelay: `${index * 200}ms`,
+                      "--border-radius": "2rem",
+                      "--border-thickness": "2px",
+                      "--hover-neon-c1": "rgba(66, 133, 244, 0.18)",
+                      "--hover-neon-c2": "rgba(52, 168, 83, 0.45)",
+                      "--hover-neon-c3": "rgba(251, 188, 4, 0.72)",
+                      "--hover-neon-c4": "rgba(234, 67, 53, 0.92)",
+                    }}
                   >
                     <div className="flex flex-col items-center text-center">
                       <div className="relative w-32 h-32 rounded-2xl overflow-hidden shadow-inner ring-4 ring-slate-50 mb-6 transition-transform duration-500 group-hover:scale-105">
@@ -349,10 +357,18 @@ const Page = () => {
                 <div
                   key={organiser.name}
                   className={cn(
-                    "group relative bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1",
+                    "group relative z-10 hover-neon-border bg-white rounded-[2rem] p-8 border border-slate-100 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1",
                     isVisible.organisers ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   )}
-                  style={{ transitionDelay: `${(index + leads.length) * 200}ms` }}
+                  style={{
+                    transitionDelay: `${(index + leads.length) * 200}ms`,
+                    "--border-radius": "2rem",
+                    "--border-thickness": "2px",
+                    "--hover-neon-c1": "rgba(66, 133, 244, 0.18)",
+                    "--hover-neon-c2": "rgba(52, 168, 83, 0.45)",
+                    "--hover-neon-c3": "rgba(251, 188, 4, 0.72)",
+                    "--hover-neon-c4": "rgba(234, 67, 53, 0.92)",
+                  }}
                 >
                   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-10">
                     <div className="relative w-32 h-32 rounded-2xl overflow-hidden shadow-inner ring-4 ring-slate-50 flex-shrink-0">
