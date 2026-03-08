@@ -109,6 +109,9 @@ export const metadata: Metadata = {
   description: 'A coding club for everyone, by everyone. where you can learn, share and collaborate on projects.',
   keywords: ['coding', 'club', 'programming', 'development', 'javascript', 'typescript', 'react', 'nextjs', 'nodejs', 'python', 'java', 'c++', 'c#', 'ruby', 'php', 'html', 'css', 'web development', 'mobile development', 'game development', 'data science', 'machine learning', 'artificial intelligence', 'cloud computing', 'devops', 'cybersecurity'],
   creator: 'Coding club web team',
+  verification: {
+    google: 'UfcNu_lP-vFHNt4pQtU4A9_2Qaezu_WbEZvzN30OKMM',
+  },
 }
 
 export default function RootLayout({
