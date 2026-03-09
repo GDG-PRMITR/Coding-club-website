@@ -1,9 +1,10 @@
 import Hero from "@/components/Hero";
 import ClubCard from "@/components/ClubCard";
 import EventCard from "@/components/EventCard";
-import TeamCard from "@/components/TeamCard";
 import NewsletterForm from "@/components/NewsletterForm";
 import StatsSection from "@/components/StatsSection";
+import SpotlightSection from "@/components/SpotlightSection";
+import FacultySection from "@/components/FacultySection";
 import Link from "next/link";
 import { clubs } from "@/data/clubs";
 import { events } from "@/data/events";
@@ -29,21 +30,9 @@ export default function Home() {
 
       <StatsSection />
 
-      <section>
-        <h2 className="font-display text-3xl font-bold">Leadership Spotlight</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <TeamCard
-            name={clubs.mainClub.lead.name}
-            role={clubs.mainClub.lead.role}
-            photo={clubs.mainClub.lead.photo}
-          />
-          <TeamCard
-            name={clubs.mainClub.coLead.name}
-            role={clubs.mainClub.coLead.role}
-            photo={clubs.mainClub.coLead.photo}
-          />
-        </div>
-      </section>
+      <SpotlightSection />
+
+      <FacultySection />
 
       <section>
         <div className="mb-6 flex items-end justify-between">

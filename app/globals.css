@@ -3,6 +3,8 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  --font-inter: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-space-grotesk: "Segoe UI", "Inter", "Roboto", "Helvetica Neue", Arial, sans-serif;
   --primary: #0066cc;
   --accent-purple: #7c3aed;
   --accent-green: #10b981;
