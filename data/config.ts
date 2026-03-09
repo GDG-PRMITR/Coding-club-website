@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Coding Club",
-  logo: "/logo/logo-coding-club.png",
+  logo: "/Coding-Club.png",
   institution: "PRMITR",
   description:
     "A vibrant community of developers, innovators, and tech enthusiasts dedicated to learning, building, and growing together.",

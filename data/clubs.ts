@@ -27,7 +27,7 @@ export const clubs = {
   mainClub: {
     id: "coding-club",
     name: "PRMITR Coding Club",
-    logo: "/logo/logo-coding-club.png",
+    logo: "/Coding-Club.png",
     description:
       "A vibrant community of developers, innovators, and tech enthusiasts dedicated to learning, building, and growing together.",
     lead: {
