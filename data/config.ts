@@ -1,14 +1,14 @@
 export const siteConfig = {
   name: "Coding Club",
   logo: "/logo/logo-coding-club.png",
-  institution: "PRMITR, Pune",
+  institution: "PRMITR",
   description:
     "A vibrant community of developers, innovators, and tech enthusiasts dedicated to learning, building, and growing together.",
   url: "https://prmitr-coding-club.vercel.app",
   social: {
-    instagram: "https://instagram.com",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
+    instagram: "https://www.instagram.com/gdg_on_campus_prmitr?igsh=aWZldDNvbmJnOHEz",
+    linkedin: "https://www.linkedin.com/company/gdsc-prmitr",
+    github: "https://github.com/GDG-PRMITR/",
   },
   stats: [
     { label: "Members", value: "200+" },

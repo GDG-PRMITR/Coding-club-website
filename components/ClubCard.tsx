@@ -30,7 +30,7 @@ export default function ClubCard({ club }: ClubCardProps) {
           Visit Club →
         </Link>
       ) : (
-        <Link href="/about#sub-clubs" className="mt-4 inline-block text-sm font-semibold text-primary">
+        <Link href="/about#clubs" className="mt-4 inline-block text-sm font-semibold text-primary">
           View Details →
         </Link>
       )}

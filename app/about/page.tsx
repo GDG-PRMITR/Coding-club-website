@@ -7,7 +7,7 @@ import { faculty } from "@/data/teams";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about PRMITR Coding Club, its leadership, domains, and sub-clubs.",
+  description: "Learn about PRMITR Coding Club, its leadership, domains, and clubs.",
 };
 
 export default function AboutPage() {
@@ -39,10 +39,10 @@ export default function AboutPage() {
       <section>
         <h2 className="font-display text-3xl font-bold">Club Structure</h2>
         <div className="mt-6 rounded-2xl border border-black/10 bg-white p-6 text-sm dark:border-white/10 dark:bg-slate-900">
-          <p>Main Club → Sub-Clubs → Domains</p>
+          <p>Clubs → Domains</p>
           <ul className="mt-4 list-disc space-y-1 pl-5 text-slate-600 dark:text-slate-300">
             <li>Main Club: PRMITR Coding Club</li>
-            <li>Sub-Clubs: GDG, GSA, Cisco, NVIDIA</li>
+            <li>Clubs: GDG, GSA, Cisco, NVIDIA</li>
             <li>Domains: Web, AI/ML, App Dev, Cloud, Data Science, DSA, IoT, Placement, Social Media, Community</li>
           </ul>
         </div>
@@ -67,8 +67,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="sub-clubs">
-        <h2 className="font-display text-3xl font-bold">Sub-Clubs</h2>
+      <section id="clubs">
+        <h2 className="font-display text-3xl font-bold">Clubs</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {clubs.subClubs.map((club) => (
             <ClubCard key={club.id} club={club} />

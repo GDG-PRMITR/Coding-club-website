@@ -12,8 +12,11 @@ export default function Hero() {
       <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
           <h1 className="pt-24 font-display text-4xl font-black text-slate-900 dark:text-slate-50 sm:text-5xl lg:pt-16">
-            Code. Create. Collaborate.
+            Learn. Code. Create.
           </h1>
+          <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-primary">
+            Collaborate • Develop • Share • Repeat
+          </p>
           <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
             The official technical community at PRMITR focused on practical skills, collaborative projects,
             and industry-ready development across modern technology domains.
@@ -23,7 +26,7 @@ export default function Hero() {
               Join Us
             </Link>
             <Link
-              href="/about#sub-clubs"
+              href="/about#clubs"
               className="rounded-full border border-slate-300 px-6 py-3 font-semibold text-slate-800 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-800"
             >
               Explore Clubs

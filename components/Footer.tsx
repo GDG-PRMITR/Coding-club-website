@@ -15,7 +15,6 @@ export default function Footer() {
           <p className="mt-3 max-w-md text-sm text-slate-600 dark:text-slate-300">
             {siteConfig.description}
           </p>
-          <p className="mt-4 text-sm text-slate-700 dark:text-slate-300">{siteConfig.institution}</p>
         </div>
 
         <div>

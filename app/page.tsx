@@ -1,15 +1,13 @@
 import Hero from "@/components/Hero";
 import ClubCard from "@/components/ClubCard";
 import EventCard from "@/components/EventCard";
-import NewsletterForm from "@/components/NewsletterForm";
 import StatsSection from "@/components/StatsSection";
 import SpotlightSection from "@/components/SpotlightSection";
 import FacultySection from "@/components/FacultySection";
 import Link from "next/link";
 import { clubs } from "@/data/clubs";
-import { siteConfig } from "@/data/config";
 import { events } from "@/data/events";
-import { GitHubIcon, InstagramIcon, LinkedInIcon } from "@/components/SocialIcons";
+import { GitHubIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon, XIcon } from "@/components/SocialIcons";
 
 export default function Home() {
   const latestEvents = [...events]
@@ -21,14 +19,9 @@ export default function Home() {
       <Hero />
 
       <section className="rounded-3xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <h2 className="font-display text-3xl font-bold">Featured Clubs</h2>
-            <p className="mt-2 text-slate-600 dark:text-slate-300">Explore the four flagship clubs under Coding Club.</p>
-          </div>
-          <Link href="/about#sub-clubs" className="text-sm font-semibold text-primary">
-            View All Clubs →
-          </Link>
+        <div>
+          <h2 className="font-display text-3xl font-bold">Featured Clubs</h2>
+          <p className="mt-2 text-slate-600 dark:text-slate-300">Explore the four flagship clubs under Coding Club.</p>
         </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {clubs.subClubs.map((club) => (
@@ -57,42 +50,73 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="rounded-3xl bg-gradient-to-r from-primary to-accent-purple px-6 py-10 text-white shadow-lg">
-        <h2 className="font-display text-3xl font-bold">Build With Us at {siteConfig.institution}</h2>
-        <p className="mt-2 max-w-2xl text-white/90">
-          Join our newsletter for upcoming workshops, coding challenges, and club announcements.
+      <section className="rounded-3xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
+        <h2 className="font-display text-3xl font-bold">Join the Community</h2>
+        <p className="mt-2 max-w-3xl text-slate-600 dark:text-slate-300">
+          Stay connected with workshops, projects, and campus updates through official Coding Club channels.
         </p>
-        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <NewsletterForm />
-          <div className="flex items-center gap-3 text-sm">
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition hover:bg-white/25"
-              aria-label="Instagram"
-            >
-              <InstagramIcon className="h-5 w-5" />
-            </a>
-            <a
-              href={siteConfig.social.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition hover:bg-white/25"
-              aria-label="LinkedIn"
-            >
-              <LinkedInIcon className="h-5 w-5" />
-            </a>
-            <a
-              href={siteConfig.social.github}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition hover:bg-white/25"
-              aria-label="GitHub"
-            >
-              <GitHubIcon className="h-5 w-5" />
-            </a>
-          </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a
+            href="https://gdg.community.dev/gdg-on-campus-prof-ram-meghe-institute-of-technology-and-research-amravati-india/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition hover:bg-primary/90"
+          >
+            Join GDG Community
+          </a>
+
+        </div>
+
+        <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          <a
+            href="https://chat.whatsapp.com/BcYDw0mLQWWBcg4vdaKQjD"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-black/10 px-3 py-2 text-sm transition hover:bg-slate-50 dark:border-white/10 dark:hover:bg-slate-800"
+          >
+            <WhatsAppIcon className="h-4 w-4" /> WhatsApp Groups
+          </a>
+          <a
+            href="https://www.instagram.com/gdg_on_campus_prmitr?igsh=aWZldDNvbmJnOHEz"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-black/10 px-3 py-2 text-sm transition hover:bg-slate-50 dark:border-white/10 dark:hover:bg-slate-800"
+          >
+            <InstagramIcon className="h-4 w-4" /> Instagram (GDG)
+          </a>
+          <a
+            href="https://www.linkedin.com/company/gdsc-prmitr"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-black/10 px-3 py-2 text-sm transition hover:bg-slate-50 dark:border-white/10 dark:hover:bg-slate-800"
+          >
+            <LinkedInIcon className="h-4 w-4" /> LinkedIn
+          </a>
+          <a
+            href="https://x.com/gdsc_prmitr"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-black/10 px-3 py-2 text-sm transition hover:bg-slate-50 dark:border-white/10 dark:hover:bg-slate-800"
+          >
+            <XIcon className="h-4 w-4" /> X (Twitter)
+          </a>
+          <a
+            href="https://instagram.com/gsac_prmitr"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-black/10 px-3 py-2 text-sm transition hover:bg-slate-50 dark:border-white/10 dark:hover:bg-slate-800"
+          >
+            <InstagramIcon className="h-4 w-4" /> Instagram (GSA)
+          </a>
+          <a
+            href="https://github.com/GDG-PRMITR/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-black/10 px-3 py-2 text-sm transition hover:bg-slate-50 dark:border-white/10 dark:hover:bg-slate-800"
+          >
+            <GitHubIcon className="h-4 w-4" /> GitHub (GDG PRMITR)
+          </a>
         </div>
       </section>
     </div>

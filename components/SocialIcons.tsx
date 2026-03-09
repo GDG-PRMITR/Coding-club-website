@@ -42,3 +42,30 @@ export function MailIcon({ className = "h-4 w-4" }: IconProps) {
     </svg>
   );
 }
+
+export function XIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+      <path d="M5 4H9L19 20H15L5 4Z" fill="currentColor" />
+      <path d="M18.5 4L13.5 9.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M10.5 14.5L5.5 20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function WhatsAppIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+      <path
+        d="M12 3.5C7.3 3.5 3.5 7.2 3.5 11.8C3.5 13.8 4.2 15.6 5.4 17L4.6 20.5L8.2 19.6C9.4 20.3 10.7 20.6 12 20.6C16.7 20.6 20.5 16.9 20.5 12.3C20.5 7.6 16.7 3.5 12 3.5Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.1 9.2C9.3 8.9 9.5 8.9 9.7 8.9C9.9 8.9 10.1 8.9 10.2 9.2L10.8 10.6C10.9 10.8 10.9 11 10.7 11.2L10.2 11.8C10.6 12.6 11.2 13.2 12 13.7L12.6 13.2C12.8 13.1 13 13.1 13.2 13.2L14.6 13.8C14.9 13.9 14.9 14.1 14.9 14.3C14.9 14.5 14.8 15 14.4 15.2C14 15.5 13.5 15.5 13.1 15.4C12.1 15.1 11.2 14.5 10.4 13.8C9.7 13 9.1 12.1 8.8 11.1C8.7 10.7 8.8 10.2 9.1 9.8"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
