@@ -1,13 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
+import { siteConfig } from "@/data/config";
 
 export default function Hero() {
   return (
-    <section className="rounded-3xl border border-black/10 bg-white px-6 py-12 shadow-sm dark:border-white/10 dark:bg-slate-900">
+    <section className="relative rounded-3xl border border-black/10 bg-white px-6 py-12 shadow-sm dark:border-white/10 dark:bg-slate-900">
+      <div className="absolute left-6 top-4 z-10 rounded-2xl px-3 py-2 text-center">
+        <Image src={siteConfig.logo} alt="Coding Club logo" width={56} height={56} className="mx-auto rounded-xl object-contain" />
+        <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-primary">Coding Club</p>
+      </div>
       <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">PRMITR Coding Club</p>
-          <h1 className="font-display text-4xl font-black text-slate-900 dark:text-slate-50 sm:text-5xl">
+          <h1 className="pt-24 font-display text-4xl font-black text-slate-900 dark:text-slate-50 sm:text-5xl lg:pt-16">
             Code. Create. Collaborate.
           </h1>
           <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">

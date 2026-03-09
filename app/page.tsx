@@ -7,7 +7,9 @@ import SpotlightSection from "@/components/SpotlightSection";
 import FacultySection from "@/components/FacultySection";
 import Link from "next/link";
 import { clubs } from "@/data/clubs";
+import { siteConfig } from "@/data/config";
 import { events } from "@/data/events";
+import { GitHubIcon, InstagramIcon, LinkedInIcon } from "@/components/SocialIcons";
 
 export default function Home() {
   const latestEvents = [...events]
@@ -15,12 +17,19 @@ export default function Home() {
     .slice(0, 3);
 
   return (
-    <div className="space-y-14">
+    <div className="space-y-16 pb-6">
       <Hero />
 
-      <section>
-        <h2 className="font-display text-3xl font-bold">Featured Clubs</h2>
-        <p className="mt-2 text-slate-600 dark:text-slate-300">Explore the four flagship clubs under PRMITR Coding Club.</p>
+      <section className="rounded-3xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="font-display text-3xl font-bold">Featured Clubs</h2>
+            <p className="mt-2 text-slate-600 dark:text-slate-300">Explore the four flagship clubs under Coding Club.</p>
+          </div>
+          <Link href="/about#sub-clubs" className="text-sm font-semibold text-primary">
+            View All Clubs →
+          </Link>
+        </div>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {clubs.subClubs.map((club) => (
             <ClubCard key={club.id} club={club} />
@@ -34,7 +43,7 @@ export default function Home() {
 
       <FacultySection />
 
-      <section>
+      <section className="rounded-3xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
         <div className="mb-6 flex items-end justify-between">
           <h2 className="font-display text-3xl font-bold">Latest Updates</h2>
           <Link href="/events" className="text-sm font-semibold text-primary">
@@ -48,20 +57,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="rounded-3xl bg-gradient-to-r from-primary to-accent-purple px-6 py-10 text-white">
-        <h2 className="font-display text-3xl font-bold">Be Part of Our Community</h2>
-        <p className="mt-2 text-white/90">Join our newsletter and stay updated on workshops, hackathons, and opportunities.</p>
+      <section className="rounded-3xl bg-gradient-to-r from-primary to-accent-purple px-6 py-10 text-white shadow-lg">
+        <h2 className="font-display text-3xl font-bold">Build With Us at {siteConfig.institution}</h2>
+        <p className="mt-2 max-w-2xl text-white/90">
+          Join our newsletter for upcoming workshops, coding challenges, and club announcements.
+        </p>
         <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <NewsletterForm />
-          <div className="flex gap-4 text-sm">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer">
-              Instagram
+          <div className="flex items-center gap-3 text-sm">
+            <a
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition hover:bg-white/25"
+              aria-label="Instagram"
+            >
+              <InstagramIcon className="h-5 w-5" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-              LinkedIn
+            <a
+              href={siteConfig.social.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition hover:bg-white/25"
+              aria-label="LinkedIn"
+            >
+              <LinkedInIcon className="h-5 w-5" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noreferrer">
-              GitHub
+            <a
+              href={siteConfig.social.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition hover:bg-white/25"
+              aria-label="GitHub"
+            >
+              <GitHubIcon className="h-5 w-5" />
             </a>
           </div>
         </div>

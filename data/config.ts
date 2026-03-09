@@ -1,5 +1,6 @@
 export const siteConfig = {
-  name: "PRMITR Coding Club",
+  name: "Coding Club",
+  logo: "/logo/logo-coding-club.png",
   institution: "PRMITR, Pune",
   description:
     "A vibrant community of developers, innovators, and tech enthusiasts dedicated to learning, building, and growing together.",
