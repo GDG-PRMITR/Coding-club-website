@@ -764,7 +764,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
           </div>
 
           <p className="footer-credits">
-            Site Created by: <strong>Vedant Mali, Sneha Giri &amp; Antigravity</strong>
+            Site Created by: <strong>Vedant Mali, Sneha Giri, Kartik Shriwas &amp; Antigravity</strong>
           </p>
         </div>
       </footer>
