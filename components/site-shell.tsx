@@ -13,8 +13,8 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const [isNavigating, setIsNavigating] = useState(false);
   const [displayChildren, setDisplayChildren] = useState(children);
   
-  // Don't show header/footer on events page
-  const isEventsPage = pathname.startsWith('/events');
+  // Don't show shared chrome on full-screen standalone pages
+  const isStandalonePage = pathname.startsWith('/events') || pathname.startsWith('/sc2026-help');
 
   useEffect(() => {
     // Show loading state
@@ -32,15 +32,17 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/* Background particles - persists across all pages including events */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <GoogleParticlesCanvas />
-      </div>
+      {!isStandalonePage && (
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <GoogleParticlesCanvas />
+        </div>
+      )}
 
       {/* Page content with fade transition */}
       <div className={`relative z-10 transition-opacity duration-200 ${isNavigating ? 'opacity-50' : 'opacity-100'}`}>
-        {!isEventsPage && <HeaderComponent />}
+        {!isStandalonePage && <HeaderComponent />}
         {displayChildren}
-        {!isEventsPage && <FooterComponent />}
+        {!isStandalonePage && <FooterComponent />}
       </div>
     </>
   );

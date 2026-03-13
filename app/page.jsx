@@ -19,7 +19,7 @@ const cardDetails = [
     link: "#",
     linkText: "Events",
     isRedirectionExist: true,
-    redirectionLink: "/GDG",
+    redirectionLink: "/gdg",
   },
   {
     title: "GSA",
@@ -29,7 +29,7 @@ const cardDetails = [
     link: "#",
     linkText: "Learn More",
     isRedirectionExist: true,
-    redirectionLink: "/GSA",
+    redirectionLink: "/gsa",
   },
   {
     title: "Cisco",

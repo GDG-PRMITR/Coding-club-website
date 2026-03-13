@@ -16,16 +16,6 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     minimumCacheTTL: 60,
     formats: ['image/webp', 'image/avif'],
-  },
-  experimental: {
-    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
-    optimizeCss: true,
-    scrollRestoration: true,
-  },
-  compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
-  images : {
     remotePatterns: [
       {
         protocol: 'https',
@@ -51,7 +41,21 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
+  },
+  experimental: {
+    optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+    optimizeCss: true,
+    scrollRestoration: true,
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
 }
 
