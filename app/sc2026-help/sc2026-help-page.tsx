@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ArrowUpRight, Check, Copy } from 'lucide-react'
+import { ArrowUpRight, Check, Copy, ExternalLink, Maximize, ZoomIn, ZoomOut } from 'lucide-react'
 
 type Sc2026HelpPageProps = {
   fontClassName: string
@@ -103,6 +103,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
   const [copiedKey, setCopiedKey] = useState<string | null>(null)
   const [countdown, setCountdown] = useState<CountdownState>(getCountdownState)
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
+  const [zoom, setZoom] = useState(1)
   const manualNavClickRef = useRef(false)
 
   useEffect(() => {
@@ -159,7 +160,10 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
   }, [])
 
   useEffect(() => {
-    if (!lightbox) return
+    if (!lightbox) {
+      setZoom(1)
+      return
+    }
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -448,7 +452,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                 <div className="flex-text-side">
                   <p className="step-plain-text">
                     Use this referral code during registration so our team can provide <strong>direct support and
-                    guidance</strong> throughout your journey.
+                      guidance</strong> throughout your journey.
                   </p>
                   <p className="step-plain-text">
                     <span className="red-hint">Use it on the next step.</span>
@@ -714,44 +718,88 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
             <h3 className="contact-title">Contact Us</h3>
             <div className="contact-methods">
               <div className="contact-card">
-                <p className="contact-label">Support Email</p>
+                <p className="contact-label">Kartik Akhade</p>
                 <button
                   type="button"
-                  className={`copy-pill${copiedKey === 'support-email' ? ' is-copied' : ''}`}
-                  onClick={() => copyToClipboard('vedantmali05@gmail.com', 'support-email')}
+                  className={`copy-pill${copiedKey === 'kartik-email' ? ' is-copied' : ''}`}
+                  onClick={() => copyToClipboard('kartikakhade12@gmail.com', 'kartik-email')}
                 >
-                  <span className="copy-text">vedantmali05@gmail.com</span>
+                  <span className="copy-text">kartikakhade12@gmail.com</span>
                   <span className="icon-wrapper">
                     <Copy className="copy-icon" size={18} />
                     <Check className="check-icon" size={18} />
                   </span>
                 </button>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=vedantmali05@gmail.com&su=Help%20needed%20for%20Solution%20Challenge%202026"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=kartikakhade12@gmail.com&su=Help%20needed%20for%20Solution%20Challenge%202026"
                   target="_blank"
                   rel="noreferrer"
                   className="contact-action-btn red"
+                  style={{ marginBottom: '8px' }}
                 >
                   Open in Gmail
+                  <ArrowUpRight size={20} strokeWidth={2.5} />
+                </a>
+
+                <button
+                  type="button"
+                  className={`copy-pill${copiedKey === 'kartik-whatsapp' ? ' is-copied' : ''}`}
+                  onClick={() => copyToClipboard('+919284173690', 'kartik-whatsapp')}
+                >
+                  <span className="copy-text">+91 9284173690</span>
+                  <span className="icon-wrapper">
+                    <Copy className="copy-icon" size={18} />
+                    <Check className="check-icon" size={18} />
+                  </span>
+                </button>
+                <a
+                  href="https://wa.me/919284173690?text=Hello%20Kartik%21%20I%20am%20using%20your%20Onboarding%20Guide%20and%20need%20some%20help%20with%20Solution%20Challenge%202026."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="contact-action-btn green"
+                >
+                  Chat on WhatsApp
                   <ArrowUpRight size={20} strokeWidth={2.5} />
                 </a>
               </div>
 
               <div className="contact-card">
-                <p className="contact-label">WhatsApp Support</p>
+                <p className="contact-label">Sampada Deshmukh</p>
                 <button
                   type="button"
-                  className={`copy-pill${copiedKey === 'support-whatsapp' ? ' is-copied' : ''}`}
-                  onClick={() => copyToClipboard('+919623080430', 'support-whatsapp')}
+                  className={`copy-pill${copiedKey === 'sampada-email' ? ' is-copied' : ''}`}
+                  onClick={() => copyToClipboard('sdeshmukh0903@gmail.com', 'sampada-email')}
                 >
-                  <span className="copy-text">+91 9623080430</span>
+                  <span className="copy-text">sdeshmukh0903@gmail.com</span>
                   <span className="icon-wrapper">
                     <Copy className="copy-icon" size={18} />
                     <Check className="check-icon" size={18} />
                   </span>
                 </button>
                 <a
-                  href="https://wa.me/919623080430?text=Hello%21%20I%20am%20using%20your%20Onboarding%20Guide%20and%20need%20some%20help%20with%20Solution%20Challenge%202026."
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=sdeshmukh0903@gmail.com&su=Help%20needed%20for%20Solution%20Challenge%202026"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="contact-action-btn red"
+                  style={{ marginBottom: '8px' }}
+                >
+                  Open in Gmail
+                  <ArrowUpRight size={20} strokeWidth={2.5} />
+                </a>
+
+                <button
+                  type="button"
+                  className={`copy-pill${copiedKey === 'sampada-whatsapp' ? ' is-copied' : ''}`}
+                  onClick={() => copyToClipboard('+918668773592', 'sampada-whatsapp')}
+                >
+                  <span className="copy-text">+91 8668773592</span>
+                  <span className="icon-wrapper">
+                    <Copy className="copy-icon" size={18} />
+                    <Check className="check-icon" size={18} />
+                  </span>
+                </button>
+                <a
+                  href="https://wa.me/918668773592?text=Hello%20Sampada%21%20I%20am%20using%20your%20Onboarding%20Guide%20and%20need%20some%20help%20with%20Solution%20Challenge%202026."
                   target="_blank"
                   rel="noreferrer"
                   className="contact-action-btn green"
@@ -764,17 +812,55 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
           </div>
 
           <p className="footer-credits">
-            Site Created by: <strong>Vedant Mali, Sneha Giri, Kartik Shriwas &amp; Antigravity</strong>
+            Site Created by: <br /> <strong>Vedant Mali, Sneha Giri, Kartik Shriwas, Lavannya Deshpande &amp; Google Antigravity</strong>
           </p>
         </div>
       </footer>
 
       {lightbox ? (
         <div className="image-modal active" onClick={() => setLightbox(null)} role="presentation">
-          <button type="button" className="close-modal" onClick={() => setLightbox(null)} aria-label="Close image preview">
-            ×
-          </button>
-          <img className="modal-content" src={lightbox.src} alt={lightbox.alt} onClick={(event) => event.stopPropagation()} />
+          <div className="modal-controls" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="control-btn"
+              onClick={() => setZoom((z) => Math.min(z + 0.25, 3))}
+              title="Zoom In"
+            >
+              <ZoomIn size={20} />
+            </button>
+            <button
+              type="button"
+              className="control-btn"
+              onClick={() => setZoom((z) => Math.max(z - 0.25, 0.5))}
+              title="Zoom Out"
+            >
+              <ZoomOut size={20} />
+            </button>
+            <button type="button" className="control-btn" onClick={() => setZoom(1)} title="Zoom Reset">
+              <Maximize size={20} />
+            </button>
+            <div className="control-divider" />
+            <a href={lightbox.src} target="_blank" rel="noreferrer" className="control-btn" title="Open in New Tab">
+              <ExternalLink size={20} />
+            </a>
+            <button
+              type="button"
+              className="control-btn close"
+              onClick={() => setLightbox(null)}
+              title="Close"
+            >
+              <span style={{ fontSize: '24px', lineHeight: 1 }}>×</span>
+            </button>
+          </div>
+          <div className="modal-image-container">
+            <img
+              className="modal-content"
+              src={lightbox.src}
+              alt={lightbox.alt}
+              style={{ transform: `scale(${zoom})` }}
+              onClick={(event) => event.stopPropagation()}
+            />
+          </div>
         </div>
       ) : null}
     </main>
