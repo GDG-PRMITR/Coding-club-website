@@ -1,5 +1,19 @@
 import Image from "next/image";
 
+export const metadata = {
+  title: 'About',
+  description: 'Learn about Coding Club PRMITR — a student-led tech community organizing workshops, hackathons, and innovation programs in web, AI, cloud, and more.',
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'About | Coding Club PRMITR',
+    description: 'Learn about Coding Club PRMITR — a student-led tech community organizing workshops, hackathons, and innovation programs.',
+    url: 'https://codingclub.prmitr.in/about',
+    type: 'website',
+  },
+}
+
 export default function AboutPage() {
 const aboutData = {
 	hero: {

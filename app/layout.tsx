@@ -115,9 +115,6 @@ export const metadata: Metadata = {
     template: `%s | ${defaultTitle}`,
   },
   description: defaultDescription,
-  alternates: {
-    canonical: '/',
-  },
   keywords: ['coding', 'club', 'programming', 'development', 'javascript', 'typescript', 'react', 'nextjs', 'nodejs', 'python', 'java', 'c++', 'c#', 'ruby', 'php', 'html', 'css', 'web development', 'mobile development', 'game development', 'data science', 'machine learning', 'artificial intelligence', 'cloud computing', 'devops', 'cybersecurity'],
   creator: 'Coding club web team',
   openGraph: {
