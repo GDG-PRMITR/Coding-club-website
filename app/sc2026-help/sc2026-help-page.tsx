@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowUpRight, Check, Copy, ExternalLink, Maximize, ZoomIn, ZoomOut } from 'lucide-react'
+import { getOutboundPath } from '@/lib/outbound-links'
 
 type Sc2026HelpPageProps = {
   fontClassName: string
@@ -322,10 +323,8 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
             <p>
               To make your journey smoother,{' '}
               <a
-                href="https://gdg.community.dev/gdg-on-campus-prof-ram-meghe-institute-of-technology-and-research-amravati-india/"
+                href={getOutboundPath('gdg-community')}
                 className="link-red-underline"
-                target="_blank"
-                rel="noreferrer"
               >
                 GDG On Campus PRMIT&R
               </a>{' '}
@@ -365,7 +364,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                 To participate in the Solution Challenge 2026, sign up or log in to the <strong>Hack2Skill</strong>{' '}
                 platform. Use the button below to access your account.
               </p>
-              <a href="https://hack2skill.com/login" target="_blank" rel="noreferrer" className="btn-h2s-gradient">
+              <a href={getOutboundPath('hack2skill-login')} className="btn-h2s-gradient">
                 Hack2Skill Account
                 <ArrowUpRight size={18} strokeWidth={2.5} />
               </a>
@@ -380,7 +379,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                       Sign in or create your Google Developer Account
                     </span>
                     <div className="flex-img-side">
-                      <a href="https://developers.google.com/program" target="_blank" rel="noreferrer" className="btn-compact-blue">
+                      <a href={getOutboundPath('gdp-program')} className="btn-compact-blue">
                         GDP Account
                         <ArrowUpRight size={14} strokeWidth={2.5} />
                       </a>
@@ -393,7 +392,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                       Navigate to <strong>My Profile</strong> tab, or click the following link button.
                     </span>
                     <div className="flex-img-side">
-                      <a href="https://developers.google.com/profile/u/" target="_blank" rel="noreferrer" className="btn-compact-blue">
+                      <a href={getOutboundPath('gdp-profile')} className="btn-compact-blue">
                         My Profile
                         <ArrowUpRight size={14} strokeWidth={2.5} />
                       </a>
@@ -490,9 +489,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                     </div>
                     <div className="flex-img-side">
                       <a
-                        href="https://promptwars.in/solutionchallenge2026.html"
-                        target="_blank"
-                        rel="noreferrer"
+                        href={getOutboundPath('solution-challenge')}
                         className="btn-yellow-solid"
                       >
                         Solution Challenge 2026
@@ -573,7 +570,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                         earlier.
                       </span>
                       <div className="action-stack">
-                        <a href="https://developers.google.com/profile/u/me" target="_blank" rel="noreferrer" className="btn-compact-blue">
+                        <a href={getOutboundPath('gdp-profile-me')} className="btn-compact-blue">
                           GDP Profile
                           <ArrowUpRight size={14} strokeWidth={2.5} />
                         </a>
@@ -648,9 +645,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
               created even for a single participant too.
             </p>
             <a
-              href="https://vision.hack2skill.com/event/solution-challenge-2026/dashboard/team-management?utm_source=hack2skill&utm_medium=homepage"
-              target="_blank"
-              rel="noreferrer"
+              href={getOutboundPath('h2s-dashboard')}
               className="btn-h2s-gradient" style={{ marginTop: 0, marginBottom: 24 }}
             >
               Open Dashboard
@@ -731,9 +726,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                   </span>
                 </button>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=kartikakhade12@gmail.com&su=Help%20needed%20for%20Solution%20Challenge%202026"
-                  target="_blank"
-                  rel="noreferrer"
+                  href={getOutboundPath('kartik-gmail')}
                   className="contact-action-btn red"
                   style={{ marginBottom: '8px' }}
                 >
@@ -753,9 +746,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                   </span>
                 </button>
                 <a
-                  href="https://wa.me/919284173690?text=Hello%20Kartik%21%20I%20am%20using%20your%20Onboarding%20Guide%20and%20need%20some%20help%20with%20Solution%20Challenge%202026."
-                  target="_blank"
-                  rel="noreferrer"
+                  href={getOutboundPath('kartik-whatsapp')}
                   className="contact-action-btn green"
                 >
                   Chat on WhatsApp
@@ -777,9 +768,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                   </span>
                 </button>
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=sdeshmukh0903@gmail.com&su=Help%20needed%20for%20Solution%20Challenge%202026"
-                  target="_blank"
-                  rel="noreferrer"
+                  href={getOutboundPath('sampada-gmail')}
                   className="contact-action-btn red"
                   style={{ marginBottom: '8px' }}
                 >
@@ -799,9 +788,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                   </span>
                 </button>
                 <a
-                  href="https://wa.me/918668773592?text=Hello%20Sampada%21%20I%20am%20using%20your%20Onboarding%20Guide%20and%20need%20some%20help%20with%20Solution%20Challenge%202026."
-                  target="_blank"
-                  rel="noreferrer"
+                  href={getOutboundPath('sampada-whatsapp')}
                   className="contact-action-btn green"
                 >
                   Chat on WhatsApp
