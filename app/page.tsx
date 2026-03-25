@@ -1,11 +1,10 @@
 import Hero from "@/components/Hero";
-import ClubCard from "@/components/ClubCard";
+import FeaturedClubs from "@/components/FeaturedClubs";
 import EventCard from "@/components/EventCard";
 import StatsSection from "@/components/StatsSection";
 import SpotlightSection from "@/components/SpotlightSection";
 import FacultySection from "@/components/FacultySection";
 import Link from "next/link";
-import { clubs } from "@/data/clubs";
 import { events } from "@/data/events";
 import { GitHubIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon, XIcon } from "@/components/SocialIcons";
 
@@ -15,20 +14,10 @@ export default function Home() {
     .slice(0, 3);
 
   return (
-    <div className="space-y-16 pb-6">
+    <div className="space-y-14 pb-6">
       <Hero />
 
-      <section className="rounded-3xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
-        <div>
-          <h2 className="font-display text-3xl font-bold">Featured Clubs</h2>
-          <p className="mt-2 text-slate-600 dark:text-slate-300">Explore the four flagship clubs under Coding Club.</p>
-        </div>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {clubs.subClubs.map((club) => (
-            <ClubCard key={club.id} club={club} />
-          ))}
-        </div>
-      </section>
+      <FeaturedClubs />
 
       <StatsSection />
 
@@ -36,21 +25,21 @@ export default function Home() {
 
       <FacultySection />
 
-      <section className="rounded-3xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
+      <section className="section-shell">
         <div className="mb-6 flex items-end justify-between">
           <h2 className="font-display text-3xl font-bold">Latest Updates</h2>
           <Link href="/events" className="text-sm font-semibold text-primary">
             View All Events →
           </Link>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-3">
           {latestEvents.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
         </div>
       </section>
 
-      <section className="rounded-3xl border border-black/10 bg-white p-6 dark:border-white/10 dark:bg-slate-900">
+      <section className="section-shell">
         <h2 className="font-display text-3xl font-bold">Join the Community</h2>
         <p className="mt-2 max-w-3xl text-slate-600 dark:text-slate-300">
           Stay connected with workshops, projects, and campus updates through official Coding Club channels.

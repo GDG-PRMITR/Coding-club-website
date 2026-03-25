@@ -4,46 +4,48 @@ import { siteConfig } from "@/data/config";
 
 export default function Hero() {
   return (
-    <section className="relative rounded-3xl border border-black/10 bg-white px-6 py-12 shadow-sm dark:border-white/10 dark:bg-slate-900">
-      <div className="absolute left-6 top-4 z-10 rounded-2xl px-3 py-2 text-center">
-        <Image src={siteConfig.logo} alt="Coding Club logo" width={56} height={56} className="mx-auto rounded-xl object-contain" />
-        <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-primary">Coding Club</p>
-      </div>
-      <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+    <section className="section-shell relative overflow-hidden">
+      <div className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+      <div className="absolute -bottom-28 -left-16 h-72 w-72 rounded-full bg-accent-purple/10 blur-3xl" />
+      <div className="relative grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
-          <h1 className="pt-24 font-display text-4xl font-black text-slate-900 dark:text-slate-50 sm:text-5xl lg:pt-16">
+          <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-black/10 bg-white/80 px-3 py-2 shadow-sm dark:border-white/10 dark:bg-slate-900/80">
+            <Image src={siteConfig.logo} alt="Coding Club logo" width={30} height={30} className="object-contain" />
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Coding Club</p>
+          </div>
+          <h1 className="font-display text-4xl font-black tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
             Learn. Code. Create.
           </h1>
-          <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-primary">
+          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.15em] text-primary">
             Collaborate • Develop • Share • Repeat
           </p>
-          <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">
+          <p className="mt-5 max-w-2xl text-base text-slate-600 dark:text-slate-300">
             The official technical community at PRMITR focused on practical skills, collaborative projects,
             and industry-ready development across modern technology domains.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/about" className="rounded-full bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary/90">
+            <Link href="/about" className="rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-primary/90">
               Join Us
             </Link>
             <Link
               href="/about#clubs"
-              className="rounded-full border border-slate-300 px-6 py-3 font-semibold text-slate-800 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-800"
+              className="rounded-full border border-slate-300 bg-white/80 px-6 py-3 font-semibold text-slate-800 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-800"
             >
               Explore Clubs
             </Link>
           </div>
         </div>
-        <div className="relative overflow-hidden rounded-2xl bg-slate-100 p-4 dark:bg-slate-800">
-          <div className="relative h-60 w-full overflow-hidden rounded-xl">
+        <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/85 p-4 shadow-sm dark:border-white/10 dark:bg-slate-900/85">
+          <div className="relative h-64 w-full overflow-hidden rounded-2xl">
             <Image src="/gallery/installation-ceremony-main.jpeg" alt="PRMITR Coding Club event" fill className="object-cover" priority />
           </div>
-          <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">Building a culture of technical excellence through events, mentorship, and community learning.</p>
+          <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">Building a culture of technical excellence through events, mentorship, and community learning.</p>
         </div>
       </div>
-      <div className="mt-8 grid gap-3 text-sm sm:grid-cols-3">
-        <p className="rounded-xl bg-slate-50 px-4 py-3 text-slate-700 dark:bg-slate-950 dark:text-slate-300">Hands-on workshops and technical bootcamps</p>
-        <p className="rounded-xl bg-slate-50 px-4 py-3 text-slate-700 dark:bg-slate-950 dark:text-slate-300">Cross-domain mentorship from senior members</p>
-        <p className="rounded-xl bg-slate-50 px-4 py-3 text-slate-700 dark:bg-slate-950 dark:text-slate-300">Industry-aligned learning with active communities</p>
+      <div className="relative mt-8 grid gap-3 text-sm sm:grid-cols-3">
+        <p className="rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-slate-700 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-300">Hands-on workshops and technical bootcamps</p>
+        <p className="rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-slate-700 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-300">Cross-domain mentorship from senior members</p>
+        <p className="rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-slate-700 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-300">Industry-aligned learning with active communities</p>
       </div>
     </section>
   );

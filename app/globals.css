@@ -30,9 +30,27 @@
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(0, 102, 204, 0.08), transparent 38%),
+    radial-gradient(circle at 90% 10%, rgba(124, 58, 237, 0.08), transparent 34%),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.section-shell {
+  border-radius: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+  background: color-mix(in srgb, #ffffff 88%, transparent);
+  padding: 1.5rem;
+  box-shadow: 0 12px 28px -24px rgba(15, 23, 42, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  .section-shell {
+    background: color-mix(in srgb, #0f172a 88%, transparent);
+  }
 }
 
 .animate-fade-in-up {

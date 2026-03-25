@@ -5,14 +5,14 @@ export default function FacultySection() {
   const slidingFaculty = [...faculty, ...faculty];
 
   return (
-    <section>
+    <section className="section-shell">
       <h2 className="font-display text-3xl font-bold">Faculty Advisory</h2>
       <div className="mt-6 overflow-hidden">
         <div className="faculty-track flex w-max gap-4 pr-4">
           {slidingFaculty.map((member, index) => (
           <article
             key={`${member.name}-${index}`}
-            className="w-72 shrink-0 rounded-2xl border border-black/10 bg-white p-4 text-center dark:border-white/10 dark:bg-slate-900"
+            className="w-72 shrink-0 rounded-2xl border border-black/10 bg-white/95 p-4 text-center shadow-sm dark:border-white/10 dark:bg-slate-900/95"
           >
             <div className="relative mx-auto mb-3 aspect-square w-20 overflow-hidden rounded-full bg-slate-100">
               <Image src={member.photo} alt={member.name} fill className="object-cover object-top" unoptimized />

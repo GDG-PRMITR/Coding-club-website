@@ -9,27 +9,27 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur dark:border-white/10 dark:bg-slate-950/90">
-      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
+    <header className="sticky top-0 z-50 border-b border-black/10 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/80">
+      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3.5">
         <Link href="/" className="flex items-center gap-3">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg">
-            <Image src={siteConfig.logo} alt="Coding Club logo" width={28} height={28} className="object-contain" priority />
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/80 shadow-sm ring-1 ring-black/10 dark:bg-slate-900 dark:ring-white/10">
+            <Image src={siteConfig.logo} alt="Coding Club logo" width={30} height={30} className="object-contain" priority />
           </span>
-          <span className="font-display text-lg font-bold text-slate-900 dark:text-slate-50">
+          <span className="font-display text-lg font-extrabold tracking-tight text-slate-900 dark:text-slate-50">
             {siteConfig.name}
           </span>
         </Link>
-        <ul className="flex items-center gap-1 text-sm font-medium">
+        <ul className="flex items-center gap-1 overflow-x-auto rounded-full bg-slate-100/90 p-1 text-sm font-medium dark:bg-slate-800/90">
           {siteConfig.navigation.map((item) => {
             const active = pathname === item.href;
             return (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`inline-flex items-center rounded-md px-3 py-2 transition sm:px-4 ${
+                  className={`inline-flex whitespace-nowrap rounded-full px-3 py-1.5 transition sm:px-4 ${
                     active
-                      ? "bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white"
-                      : "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+                      ? "bg-white text-slate-900 shadow-sm ring-1 ring-black/10 dark:bg-slate-700 dark:text-white dark:ring-white/10"
+                      : "text-slate-700 hover:bg-white/90 dark:text-slate-200 dark:hover:bg-slate-700"
                   }`}
                   aria-current={active ? "page" : undefined}
                 >

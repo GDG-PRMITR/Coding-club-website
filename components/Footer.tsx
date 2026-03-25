@@ -5,11 +5,11 @@ import { GitHubIcon, InstagramIcon, LinkedInIcon } from "@/components/SocialIcon
 
 export default function Footer() {
   return (
-    <footer className="mt-16 border-t border-black/10 bg-slate-100 dark:border-white/10 dark:bg-slate-950">
+    <footer className="mt-16 border-t border-black/10 bg-white/70 backdrop-blur dark:border-white/10 dark:bg-slate-950/70">
       <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
         <div>
           <div className="flex items-center gap-2">
-            <Image src={siteConfig.logo} alt="Coding Club logo" width={32} height={32} className="rounded-md object-contain" />
+            <Image src={siteConfig.logo} alt="Coding Club logo" width={34} height={34} className="rounded-md object-contain" />
             <p className="font-display text-xl font-bold text-primary">{siteConfig.name}</p>
           </div>
           <p className="mt-3 max-w-md text-sm text-slate-600 dark:text-slate-300">

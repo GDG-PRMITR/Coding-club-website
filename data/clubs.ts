@@ -109,9 +109,9 @@ export const clubs = {
       logo: "/logo/logo-nvidia.jpg",
       description: "Dive into AI, GPU computing, and cutting-edge NVIDIA technologies.",
       instructor: {
-        name: "Dr. R.R. Karwa",
+        name: "Dr. Roshan .R. Karwa",
         role: "NVIDIA Instructor & Ambassador",
-        photo: "/images/team/dr-karwa.jpg",
+        photo: "https://mitra.ac.in/images/faculty_profile/CSE/32.jpg",
       },
       teachingAssistants: [
         {
