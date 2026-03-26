@@ -98,7 +98,6 @@ export const clubs = {
       coordinators: [
         { name: "Prof. C.N. Deshmukh", role: "Cisco Coordinator" },
         { name: "Dr. A.A. Chaudhari", role: "Cisco Coordinator" },
-        { name: "Dr. G.R. Bamnote", role: "Cisco Co-Coordinator" },
       ],
       website: "https://cisco.prmitr.in",
       color: "#001A6E",

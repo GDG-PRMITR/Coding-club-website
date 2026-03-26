@@ -99,6 +99,7 @@ export const gdgDomains: DomainGroup[] = [
       { name: "Prathamesh Nistane", role: "Domain Member" },
       { name: "Pratik Ingole", role: "Domain Member" },
       { name: "Rohit Datir", role: "Domain Member" },
+      { name: "Akshay Shinde", role: "Domain Member" },
     ],
   },
   {
@@ -107,7 +108,8 @@ export const gdgDomains: DomainGroup[] = [
     members: [
       { name: "Kartik Akhade", role: "Domain Member" },
       { name: "Smit Pathade", role: "Domain Member" },
-      { name: "Yash Dhobale", role: "Domain Member" },
+      { name: "Yash Dhoble", role: "Domain Member" },
+      { name: "Sampada Deshmukh", role: "Domain Member" },
     ],
   },
   {
@@ -120,18 +122,24 @@ export const gdgDomains: DomainGroup[] = [
       { name: "Tanushka Mathurkar", role: "Domain Member" },
     ],
   },
-];
-
-export const gdgSocialMediaPromotions: Member[] = [
-  { name: "Aditya Rathod", role: "Graphic Designer" },
-  { name: "Arjun Solanke", role: "Graphic Designer" },
-  { name: "Maitreyee Patil", role: "Copy Writer" },
-  { name: "Nirbhay Shende", role: "Photographer" },
-  { name: "Om Charthal", role: "Photographer" },
-  { name: "Mohit Gadling", role: "Social Media & Public Relations" },
-  { name: "Arya Raut", role: "Social Media & Public Relations" },
-  { name: "Shreya Somani", role: "Social Media & Public Relations" },
-  { name: "Vedant Wankhade", role: "Social Media & Public Relations" },
-  { name: "Sudhanshu Khakse", role: "Video Editor" },
-  { name: "Vedant Dange", role: "Video Editor" },
+  {
+    name: "Social Media & Promotions",
+    executives: [
+      { name: "Maitreyee Patil", role: "Copywriting Executive" },
+      { name: "Shreya Somani", role: "Social Media & Public Relations Executive" },
+    ],
+    members: [
+      { name: "Aditya Rathod", role: "Graphic Designing" },
+      { name: "Arjun Solanke", role: "Graphic Designing" },
+      { name: "Rakshita Hanwatkar", role: "Graphic Designing" },
+      { name: "Bhumika Chopda", role: "Graphic Designing" },
+      { name: "Mohit Gadling", role: "Social Media & Public Relations" },
+      { name: "Arya Raut", role: "Social Media & Public Relations" },
+      { name: "Rashmi Varma", role: "Social Media & Public Relations" },
+      { name: "Vedant Dange", role: "Video Editor" },
+      { name: "Nirbhay Shende", role: "Photographer" },
+      { name: "Om Charthal", role: "Photographer" },
+      { name: "Krishna Pandit Kedar", role: "Photographer" },
+    ],
+  },
 ];

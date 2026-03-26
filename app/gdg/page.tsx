@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { gdgCoreTeam, gdgDomains, gdgLeads, gdgSocialMediaPromotions } from "@/data/gdg";
+import { gdgCoreTeam, gdgDomains, gdgLeads } from "@/data/gdg";
 import MemberProfileCard from "@/components/MemberProfileCard";
 
 export const metadata: Metadata = {
@@ -64,14 +64,16 @@ export default function GdgPage() {
           >
             <h3 className="text-center font-display text-2xl font-bold">{domain.name}</h3>
 
-            <div className="mt-4">
-              <p className="text-center text-sm font-semibold uppercase tracking-wide text-primary">Domain Executives</p>
-              <div className="mx-auto mt-3 flex max-w-5xl flex-wrap justify-center gap-4">
-                {domain.executives.map((member) => (
-                  <MemberProfileCard key={`${domain.name}-${member.name}`} name={member.name} role={member.role} />
-                ))}
+            {domain.executives.length > 0 && (
+              <div className="mt-4">
+                <p className="text-center text-sm font-semibold uppercase tracking-wide text-primary">Domain Executives</p>
+                <div className="mx-auto mt-3 flex max-w-5xl flex-wrap justify-center gap-4">
+                  {domain.executives.map((member) => (
+                    <MemberProfileCard key={`${domain.name}-${member.name}`} name={member.name} role={member.role} />
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="mt-5">
               <p className="text-center text-sm font-semibold uppercase tracking-wide text-primary">Domain Members</p>
@@ -85,16 +87,6 @@ export default function GdgPage() {
         ))}
       </section>
 
-      <section>
-        <article className="space-y-5 rounded-3xl border border-black/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900">
-          <h2 className="text-center font-display text-3xl font-bold">Social Media &amp; Promotions</h2>
-          <div className="mx-auto mt-4 flex max-w-5xl flex-wrap justify-center gap-4">
-            {gdgSocialMediaPromotions.map((member) => (
-              <MemberProfileCard key={member.name} name={member.name} role={member.role} />
-            ))}
-          </div>
-        </article>
-      </section>
     </div>
   );
 }
