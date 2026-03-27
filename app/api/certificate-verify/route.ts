@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { getMongoDb } from "@/lib/mongodb";
 
 type CertificateRecord = {
   id: number;
@@ -34,25 +33,6 @@ const inFlightRequests = new Map<string, Promise<CacheEntry>>();
 
 const SUCCESS_CACHE_MS = 30_000;
 const NOT_FOUND_CACHE_MS = 10_000;
-
-async function recordCertificateCheckStat(payload: Record<string, unknown>) {
-  try {
-    const db = await getMongoDb();
-    await db.collection("site_stats").insertOne({
-      eventType: "certificate_check",
-      path: "/api/certificate-verify",
-      title: "Certificate Verify API",
-      referrer: "",
-      metadata: payload,
-      ip: "server",
-      userAgent: "server",
-      host: "",
-      createdAt: new Date(),
-    });
-  } catch {
-    // Never fail verification due to analytics write errors.
-  }
-}
 
 function isValidVerifyId(value: string): boolean {
   return /^[a-zA-Z0-9_-]{4,40}$/.test(value);
@@ -117,19 +97,16 @@ export async function GET(request: Request) {
   const verifyId = searchParams.get("verifyId")?.trim().toLowerCase();
 
   if (!verifyId) {
-    await recordCertificateCheckStat({ outcome: "invalid", reason: "missing_verify_id" });
     return NextResponse.json({ error: "verifyId is required" }, { status: 400 });
   }
 
   if (!isValidVerifyId(verifyId)) {
-    await recordCertificateCheckStat({ outcome: "invalid", verifyId, reason: "invalid_format" });
     return NextResponse.json({ error: "Invalid verify ID format" }, { status: 400 });
   }
 
   const cached = verifyCache.get(verifyId);
   if (cached && cached.expiresAt > now) {
     if (cached.status === "not_found") {
-      await recordCertificateCheckStat({ outcome: "not_found", verifyId, source: "cache" });
       return NextResponse.json(
         { error: "Certificate not found" },
         {
@@ -141,7 +118,6 @@ export async function GET(request: Request) {
       );
     }
 
-    await recordCertificateCheckStat({ outcome: "success", verifyId, source: "cache" });
     return NextResponse.json(
       { certificate: cached.certificate },
       {
@@ -166,7 +142,6 @@ export async function GET(request: Request) {
     verifyCache.set(verifyId, result);
 
     if (result.status === "not_found") {
-      await recordCertificateCheckStat({ outcome: "not_found", verifyId, source: "supabase" });
       return NextResponse.json(
         { error: "Certificate not found" },
         {
@@ -178,8 +153,6 @@ export async function GET(request: Request) {
       );
     }
 
-    await recordCertificateCheckStat({ outcome: "success", verifyId, source: "supabase" });
-
     return NextResponse.json(
       { certificate: result.certificate },
       {
@@ -189,7 +162,6 @@ export async function GET(request: Request) {
       },
     );
   } catch {
-    await recordCertificateCheckStat({ outcome: "error", verifyId, source: "supabase" });
     return NextResponse.json(
       { error: "Unable to verify certificate right now" },
       {
