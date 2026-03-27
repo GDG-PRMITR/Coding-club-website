@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { X } from 'lucide-react';
 import { SubClub } from '@/data/clubs';
 
@@ -25,7 +26,7 @@ export const ClubModal: React.FC<ClubModalProps> = ({ club, isOpen, onClose }) =
         {/* Header */}
         <div className="sticky top-0 flex items-center justify-between p-6 border-b bg-white">
           <div className="flex items-center gap-3">
-            <img src={club.logo} alt={club.name} className="h-10 w-10" />
+            <Image src={club.logo} alt={club.name} className="h-10 w-10" width={40} height={40} />
             <h2 className="text-2xl font-bold text-gray-900">{club.name}</h2>
           </div>
           <button
@@ -46,10 +47,12 @@ export const ClubModal: React.FC<ClubModalProps> = ({ club, isOpen, onClose }) =
               <h3 className="text-lg font-semibold text-gray-900 text-center">Instructor & Ambassador</h3>
               <div className="flex flex-col items-center gap-4 p-4 bg-gray-50 rounded-lg text-center">
                 {club.instructor.photo && (
-                  <img
+                  <Image
                     src={club.instructor.photo}
                     alt={club.instructor.name}
                     className="h-20 w-20 rounded-full object-cover"
+                    width={80}
+                    height={80}
                   />
                 )}
                 <div>
@@ -68,10 +71,12 @@ export const ClubModal: React.FC<ClubModalProps> = ({ club, isOpen, onClose }) =
                 {club.teachingAssistants.map((ta, idx) => (
                   <div key={idx} className="p-4 bg-gray-50 rounded-lg text-center flex flex-col items-center">
                     {ta.photo && (
-                      <img
+                      <Image
                         src={ta.photo}
                         alt={ta.name}
                         className="h-20 w-20 rounded-full object-cover mb-3"
+                        width={80}
+                        height={80}
                       />
                     )}
                     <p className="font-semibold text-gray-900">{ta.name}</p>
@@ -90,10 +95,12 @@ export const ClubModal: React.FC<ClubModalProps> = ({ club, isOpen, onClose }) =
                 {club.coordinators.map((coord, idx) => (
                   <div key={idx} className="p-4 bg-gray-50 rounded-lg text-center flex flex-col items-center">
                     {coord.photo && (
-                      <img
+                      <Image
                         src={coord.photo}
                         alt={coord.name}
                         className="h-16 w-16 rounded-full object-cover mb-2"
+                        width={64}
+                        height={64}
                       />
                     )}
                     <p className="font-semibold text-gray-900">{coord.name}</p>
@@ -115,10 +122,12 @@ export const ClubModal: React.FC<ClubModalProps> = ({ club, isOpen, onClose }) =
                     {team.members.map((member, mIdx) => (
                       <div key={mIdx} className="p-4 bg-gray-50 rounded-lg text-center">
                         {member.photo && (
-                          <img
+                          <Image
                             src={member.photo}
                             alt={member.name}
                             className="h-16 w-16 rounded-full object-cover mx-auto mb-2"
+                            width={64}
+                            height={64}
                           />
                         )}
                         <p className="font-semibold text-gray-900">{member.name}</p>

@@ -10,9 +10,9 @@ export const galleryImages: GalleryImage[] = [
   {
     id: "gal-1",
     src: "/gallery/web-dev-team.jpeg",
-    title: "Web Development Team",
+    title: "Core Team",
     category: "events",
-    domain: "web-dev",
+    domain: "Core",
   },
   {
     id: "gal-2",

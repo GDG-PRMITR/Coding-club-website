@@ -2,17 +2,39 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "Vision, mission, and communities of Coding Club.",
+  title: "About Coding Club PRMITR",
+  description: "Vision, mission, communities, and student tech initiatives at Coding Club PRMITR.",
+  keywords: [
+    "About Coding Club PRMITR",
+    "PRMITR clubs",
+    "GDG On Campus PRMITR",
+    "GSA PRMITR",
+    "Cisco Club PRMITR",
+    "NVIDIA Club PRMITR",
+    "E-Cell PRMITR",
+    "Prof Ram Meghe Institute of Technology and Research",
+  ],
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Coding Club PRMITR",
+    description: "Vision, mission, communities, and student tech initiatives at Coding Club PRMITR.",
+    url: "/about",
+  },
+  icons: {
+    icon: [{ url: "/logo/logo-coding-club.png", type: "image/png" }],
+    apple: [{ url: "/logo/logo-coding-club.png", type: "image/png" }],
+  },
 };
 
 const communities = [
   {
-    id: "cisco",
-    name: "Cisco",
-    logo: "/logo/logo-cisco.jpg",
+    id: "gdg",
+    name: "GDG",
+    logo: "/logo/logo-gdg.png",
     description:
-      "Cisco Networking Academy: Equipping students with networking and cybersecurity skills for the digital age.",
+    "Google Developer Group: Building a collaborative environment for developers to learn and innovate.",
   },
   {
     id: "gsa",
@@ -20,8 +42,8 @@ const communities = [
     logo: "/logo/logo-gsac.png",
     description:
       "Google Student Ambassadors: Connecting students with Google resources and opportunities for growth.",
-  },
-  {
+    },
+    {
     id: "nvidia",
     name: "NVIDIA",
     logo: "/logo/logo-nvidia.jpg",
@@ -29,11 +51,11 @@ const communities = [
       "NVIDIA Community: Fostering AI, ML, and GPU computing skills through events and projects.",
   },
   {
-    id: "gdg",
-    name: "GDG",
-    logo: "/logo/logo-gdg.png",
+    id: "cisco",
+    name: "Cisco",
+    logo: "/logo/logo-cisco.jpg",
     description:
-      "Google Developer Group: Building a collaborative environment for developers to learn and innovate.",
+      "Cisco Networking Academy: Equipping students with networking and cybersecurity skills for the digital age.",
   },
 ];
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
+import Image from 'next/image'
 import { ArrowUpRight, Check, Copy, ExternalLink, Maximize, ZoomIn, ZoomOut } from 'lucide-react'
 import { getOutboundPath } from '@/lib/outbound-links'
 
@@ -152,7 +153,6 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
   }, [])
 
   useEffect(() => {
-    setCountdown(getCountdownState())
     const intervalId = window.setInterval(() => {
       setCountdown(getCountdownState())
     }, 1000)
@@ -161,10 +161,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
   }, [])
 
   useEffect(() => {
-    if (!lightbox) {
-      setZoom(1)
-      return
-    }
+    if (!lightbox) return
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -217,6 +214,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
   }
 
   const lightboxImage = (src: string, alt: string) => {
+    setZoom(1)
     setLightbox({ src, alt })
   }
 
@@ -261,8 +259,8 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
   return (
     <main className={`sc2026-page ${fontClassName}`}>
       <nav className="top-logo-bar theme-dark">
-        <img src="/assets/logos/gdg-on-campus-dark.png" alt="GDG On Campus PRMIT&R" className="top-bar-logo" />
-        <img src="/assets/logos/h2s-dark.png" alt="Hack2Skill" className="top-bar-logo" />
+        <Image src="/assets/logos/gdg-on-campus-dark.png" alt="GDG On Campus PRMIT&R" className="top-bar-logo" width={180} height={32} />
+        <Image src="/assets/logos/h2s-dark.png" alt="Hack2Skill" className="top-bar-logo" width={140} height={32} />
       </nav>
 
       <header className="hero">
@@ -352,7 +350,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                 ))}
               </div>
               <div className="nav-extra-logo">
-                <img src="/assets/logos/build-with-ai.png" alt="Build with AI" className="side-nav-logo" />
+                <Image src="/assets/logos/build-with-ai.png" alt="Build with AI" className="side-nav-logo" width={140} height={54} />
               </div>
             </nav>
           </div>
@@ -410,10 +408,13 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                       </p>
                     </div>
                     <div className="flex-img-side">
-                      <img
+                      <Image
                         src="/assets/screenshots/ss-set-address-button.png"
                         className="step-img-placeholder"
                         alt="Set custom web address screenshot"
+                        width={1280}
+                        height={720}
+                        sizes="(max-width: 992px) 100vw, 40vw"
                         onClick={() => lightboxImage('/assets/screenshots/ss-set-address-button.png', 'Set custom web address screenshot')}
                       />
                     </div>
@@ -433,10 +434,13 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                       </ul>
                     </div>
                     <div className="flex-img-side">
-                      <img
+                      <Image
                         src="/assets/screenshots/ss-gdp-profile-settings.png"
                         className="step-img-placeholder"
                         alt="Accounts settings screenshot"
+                        width={1280}
+                        height={720}
+                        sizes="(max-width: 992px) 100vw, 40vw"
                         onClick={() => lightboxImage('/assets/screenshots/ss-gdp-profile-settings.png', 'Accounts settings screenshot')}
                       />
                     </div>
@@ -577,10 +581,13 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                       </div>
                     </div>
                     <div className="flex-img-side">
-                      <img
+                      <Image
                         src="/assets/screenshots/ss-registration-gdp-url.png"
                         className="step-img-placeholder"
                         alt="GDP URL registration screenshot"
+                        width={1280}
+                        height={720}
+                        sizes="(max-width: 992px) 100vw, 40vw"
                         onClick={() => lightboxImage('/assets/screenshots/ss-registration-gdp-url.png', 'GDP URL registration screenshot')}
                       />
                     </div>
@@ -618,10 +625,13 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                       </div>
                     </div>
                     <div className="flex-img-side">
-                      <img
+                      <Image
                         src="/assets/screenshots/ss-registration-referral.png"
                         className="step-img-placeholder"
                         alt="Referral registration screenshot"
+                        width={1280}
+                        height={720}
+                        sizes="(max-width: 992px) 100vw, 40vw"
                         onClick={() => lightboxImage('/assets/screenshots/ss-registration-referral.png', 'Referral registration screenshot')}
                       />
                     </div>
@@ -673,9 +683,11 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
 
           <div className="showcase-right">
             {showcaseSteps.map((step, index) => (
-              <img
+              <Image
                 key={step.image}
                 src={step.image}
+                fill
+                sizes="(max-width: 992px) 100vw, 45vw"
                 className={`showcase-img${activeShowcase === index ? ' active' : ''}`}
                 alt={step.alt}
                 onClick={() => activeShowcase === index && lightboxImage(step.image, step.alt)}
@@ -687,12 +699,12 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
 
       <section className="good-luck-section">
         <div className="good-luck-row">
-          <img src="/assets/images/good-luck-1.svg" alt="Luck 1" />
-          <img src="/assets/images/good-luck-2.svg" alt="Luck 2" />
-          <img src="/assets/images/good-luck-3.svg" alt="Luck 3" />
+          <Image src="/assets/images/good-luck-1.svg" alt="Luck 1" width={48} height={48} />
+          <Image src="/assets/images/good-luck-2.svg" alt="Luck 2" width={48} height={48} />
+          <Image src="/assets/images/good-luck-3.svg" alt="Luck 3" width={48} height={48} />
           <h2 className="good-luck-text">Good Luck!</h2>
-          <img src="/assets/images/good-luck-4.svg" alt="Luck 4" />
-          <img src="/assets/images/good-luck-5.svg" alt="Luck 5" />
+          <Image src="/assets/images/good-luck-4.svg" alt="Luck 4" width={48} height={48} />
+          <Image src="/assets/images/good-luck-5.svg" alt="Luck 5" width={48} height={48} />
         </div>
       </section>
 
@@ -700,8 +712,8 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
         <div className="footer-container">
           <div className="footer-left">
             <div className="footer-logos">
-              <img src="/assets/logos/gdg-on-campus-dark.png" alt="GDG On Campus PRMIT&R" className="footer-logo" />
-              <img src="/assets/logos/h2s-dark.png" alt="Hack2Skill" className="footer-logo" />
+              <Image src="/assets/logos/gdg-on-campus-dark.png" alt="GDG On Campus PRMIT&R" className="footer-logo" width={180} height={32} />
+              <Image src="/assets/logos/h2s-dark.png" alt="Hack2Skill" className="footer-logo" width={140} height={32} />
             </div>
             <p className="footer-text">
               This is a community onboarding page created by <strong>GDG On Campus PRMIT&R</strong> to help students
@@ -840,10 +852,13 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
             </button>
           </div>
           <div className="modal-image-container">
-            <img
+            <Image
               className="modal-content"
               src={lightbox.src}
               alt={lightbox.alt}
+              width={1600}
+              height={900}
+              sizes="100vw"
               style={{ transform: `scale(${zoom})` }}
               onClick={(event) => event.stopPropagation()}
             />

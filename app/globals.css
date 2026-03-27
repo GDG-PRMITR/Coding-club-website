@@ -43,8 +43,14 @@ body {
   border-radius: 1.5rem;
   border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
   background: color-mix(in srgb, #ffffff 88%, transparent);
-  padding: 1.5rem;
+  padding: 1rem;
   box-shadow: 0 12px 28px -24px rgba(15, 23, 42, 0.45);
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    padding: 1.5rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

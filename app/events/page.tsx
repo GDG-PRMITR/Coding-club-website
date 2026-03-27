@@ -4,6 +4,18 @@ import EventsExplorer from "@/components/EventsExplorer";
 export const metadata: Metadata = {
   title: "Events",
   description: "Browse all PRMITR Coding Club events with search and filters.",
+  alternates: {
+    canonical: "/events",
+  },
+  openGraph: {
+    title: "Coding Club PRMITR Events",
+    description: "Browse all PRMITR Coding Club events with search and filters.",
+    url: "/events",
+  },
+  icons: {
+    icon: [{ url: "/logo/logo-coding-club.png", type: "image/png" }],
+    apple: [{ url: "/logo/logo-coding-club.png", type: "image/png" }],
+  },
 };
 
 export default function EventsPage() {

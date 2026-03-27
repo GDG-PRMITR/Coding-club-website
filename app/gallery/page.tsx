@@ -4,6 +4,18 @@ import GalleryGrid from "@/components/GalleryGrid";
 export const metadata: Metadata = {
   title: "Gallery",
   description: "Explore events, team moments, and achievements from PRMITR Coding Club.",
+  alternates: {
+    canonical: "/gallery",
+  },
+  openGraph: {
+    title: "Coding Club PRMITR Gallery",
+    description: "Explore events, team moments, and achievements from PRMITR Coding Club.",
+    url: "/gallery",
+  },
+  icons: {
+    icon: [{ url: "/logo/logo-coding-club.png", type: "image/png" }],
+    apple: [{ url: "/logo/logo-coding-club.png", type: "image/png" }],
+  },
 };
 
 export default function GalleryPage() {

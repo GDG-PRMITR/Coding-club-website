@@ -115,6 +115,57 @@ export const domains: Domain[] = [
     executives: [{ name: "Parth Deshmukh", role: "Core Committee", photo: "/images/team/parth-deshmukh.jpg" }],
     members: [{ name: "Tanvi Markad", photo: "/images/team/tanvi-markad.jpg" }],
   },
+  {
+    id: "cisco",
+    name: "Cisco Networking Club",
+    description: "Master networking fundamentals, cybersecurity, and enterprise technologies through hands-on labs and certifications.",
+    executives: [
+      { name: "Jay Jadhao", role: "Web Dev Lead", photo: "/images/team/jay-jadhao.jpg" },
+      { name: "Riddhi Akhare", role: "Web Dev Lead", photo: "/images/team/riddhi-akhare.jpg" },
+      { name: "Atharv Borkar", role: "Management Lead", photo: "/images/team/atharv-borkar.jpg" },
+      { name: "Gunjan Pachpohar", role: "AI/Data Science Lead", photo: "/images/team/gunjan-pachpohar.jpg" },
+      { name: "Apurva Kadu", role: "Cybersecurity Lead", photo: "/images/team/apurva-kadu.jpg" },
+      { name: "Rahul Kharap", role: "Networking Lead", photo: "/images/team/rahul-kharap.jpg" },
+      { name: "Lajari Pawanikar", role: "Creative Lead", photo: "/images/team/lajari-pawanikar.jpg" },
+      { name: "Soham Ingole", role: "Creative Lead", photo: "/images/team/soham-ingole.jpg" },
+    ],
+    members: [
+      // Management
+      { name: "Vedavati Joshi", role: "Management", photo: "/images/team/vedavati-joshi.jpg" },
+      { name: "Sameer Mujawar", role: "Management", photo: "/images/team/sameer-mujawar.jpg" },
+      // Web Development
+      { name: "Advaith Hegde", role: "Web Development", photo: "/images/team/advaith-hegde.jpg" },
+      { name: "Kanan Puri", role: "Web Development", photo: "/images/team/kanan-puri.jpg" },
+      { name: "Diya Kadam", role: "Web Development", photo: "/images/team/diya-kadam.jpg" },
+      // AI/Data Science
+      { name: "Yash Phalke", role: "AI/Data Science", photo: "/images/team/yash-phalke.jpg" },
+      { name: "Divya Soni", role: "AI/Data Science", photo: "/images/team/divya-soni.jpg" },
+      { name: "Arjun Nair", role: "AI/Data Science", photo: "/images/team/arjun-nair.jpg" },
+      // Cybersecurity
+      { name: "Anushka Vishwakarma", role: "Cybersecurity", photo: "/images/team/anushka-vishwakarma.jpg" },
+      { name: "Neha Sharma", role: "Cybersecurity", photo: "/images/team/neha-sharma.jpg" },
+      { name: "Rishi Jain", role: "Cybersecurity", photo: "/images/team/rishi-jain.jpg" },
+      { name: "Priya Desai", role: "Cybersecurity", photo: "/images/team/priya-desai.jpg" },
+      // DSA
+      { name: "Arth Gundapure", role: "DSA", photo: "/images/team/arth-gundapure.jpg" },
+      { name: "Harsh Deshmukh", role: "DSA", photo: "/images/team/harsh-deshmukh.jpg" },
+      { name: "Harsh Verma", role: "DSA", photo: "/images/team/harsh-verma.jpg" },
+      { name: "Shreya Patil", role: "DSA", photo: "/images/team/shreya-patil.jpg" },
+      { name: "Amandeep Singh", role: "DSA", photo: "/images/team/amandeep-singh.jpg" },
+      // Networking
+      { name: "Deep Singnapure", role: "Networking", photo: "/images/team/deep-singnapure.jpg" },
+      { name: "Vedant Himte", role: "Networking", photo: "/images/team/vedant-himte.jpg" },
+      { name: "Tanmay Reddy", role: "Networking", photo: "/images/team/tanmay-reddy.jpg" },
+      { name: "Meera Kapoor", role: "Networking", photo: "/images/team/meera-kapoor.jpg" },
+      { name: "Vikas Kumar", role: "Networking", photo: "/images/team/vikas-kumar.jpg" },
+      { name: "Pooja Srivastava", role: "Networking", photo: "/images/team/pooja-srivastava.jpg" },
+      // Creative
+      { name: "Aisha Khan", role: "Creative", photo: "/images/team/aisha-khan.jpg" },
+      { name: "Rohan Mehta", role: "Creative", photo: "/images/team/rohan-mehta.jpg" },
+      { name: "Sneha Gupta", role: "Creative", photo: "/images/team/sneha-gupta.jpg" },
+      { name: "Akshay Rao", role: "Creative", photo: "/images/team/akshay-rao.jpg" },
+    ],
+  },
 ];
 
 export const coreTeam: TeamMember[] = [

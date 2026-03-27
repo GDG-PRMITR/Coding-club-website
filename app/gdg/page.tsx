@@ -3,8 +3,28 @@ import { gdgCoreTeam, gdgDomains, gdgLeads } from "@/data/gdg";
 import MemberProfileCard from "@/components/MemberProfileCard";
 
 export const metadata: Metadata = {
-  title: "GDG",
-  description: "GDG On Campus PRMITR team structure and member directory.",
+  title: "GDG On Campus PRMITR Team",
+  description: "Explore GDG On Campus PRMITR leads, core committee, domain executives, and members.",
+  keywords: [
+    "GDG On Campus PRMITR",
+    "GDGoC PRMITR",
+    "Google Developer Group PRMITR",
+    "Google Student Developer Club PRMITR",
+    "GDSC PRMITR",
+    "GDG team PRMITR",
+  ],
+  alternates: {
+    canonical: "/gdg",
+  },
+  openGraph: {
+    title: "GDG On Campus PRMITR Team",
+    description: "Explore GDG On Campus PRMITR leads, core committee, domain executives, and members.",
+    url: "/gdg",
+  },
+  icons: {
+    icon: [{ url: "/logo/logo-gdg.png", type: "image/png" }],
+    apple: [{ url: "/logo/logo-gdg.png", type: "image/png" }],
+  },
 };
 
 export default function GdgPage() {
@@ -18,9 +38,7 @@ export default function GdgPage() {
       <section className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900">
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">GDG On Campus</p>
         <h1 className="mt-2 font-display text-4xl font-bold">GDG PRMITR Team Directory</h1>
-        <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">
-          Meet the full GDG team, from leadership and core committee to domain experts and social media members.
-        </p>
+   
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl bg-slate-100 p-3 text-sm dark:bg-slate-800">
             <p className="text-slate-500 dark:text-slate-300">Leads + Core</p>

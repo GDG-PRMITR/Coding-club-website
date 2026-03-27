@@ -3,8 +3,26 @@ import { gsaLead, gsaTeams } from "@/data/gsa";
 import MemberProfileCard from "@/components/MemberProfileCard";
 
 export const metadata: Metadata = {
-  title: "GSA",
-  description: "Google Student Ambassador team and member directory.",
+  title: "GSA PRMITR Team",
+  description: "Meet the Google Student Ambassador PRMITR lead and teams across GenAI, WebTech, PR, Social Media, and Graphics.",
+  keywords: [
+    "GSA PRMITR",
+    "Google Student Ambassador PRMITR",
+    "PRMITR ambassador team",
+    "Google ambassador PRMITR",
+  ],
+  alternates: {
+    canonical: "/gsa",
+  },
+  openGraph: {
+    title: "GSA PRMITR Team",
+    description: "Meet the Google Student Ambassador PRMITR lead and teams across GenAI, WebTech, PR, Social Media, and Graphics.",
+    url: "/gsa",
+  },
+  icons: {
+    icon: [{ url: "/logo/logo-gsac.png", type: "image/png" }],
+    apple: [{ url: "/logo/logo-gsac.png", type: "image/png" }],
+  },
 };
 
 export default function GsaPage() {
@@ -15,9 +33,7 @@ export default function GsaPage() {
       <section className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900">
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">Google Student Ambassador</p>
         <h1 className="mt-2 font-display text-4xl font-bold">GSA PRMITR Team Directory</h1>
-        <p className="mt-3 max-w-3xl text-slate-600 dark:text-slate-300">
-          Meet the GSA lead and all working teams across GenAI, WebTech, PR, Social Media, and Graphics.
-        </p>
+
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl bg-slate-100 p-3 text-sm dark:bg-slate-800">
             <p className="text-slate-500 dark:text-slate-300">Lead</p>

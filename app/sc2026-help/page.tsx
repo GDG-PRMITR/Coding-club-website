@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
 import { Sc2026HelpPage } from '@/app/sc2026-help/sc2026-help-page'
+import { getSiteUrl } from '@/lib/seo'
 import './sc2026-help.css'
+
+const siteUrl = getSiteUrl()
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -20,7 +23,7 @@ export const metadata: Metadata = {
     title: 'Solution Challenge 2026 Onboarding',
     description:
       'Step-by-step guide to register for Solution Challenge 2026 and represent GDG On Campus PRMIT&R.',
-    url: 'https://codingclub.prmitr.in/sc2026-help',
+    url: `${siteUrl}/sc2026-help`,
     images: [
       {
         url: '/assets/logos/gdg-on-campus-dark.png',
@@ -34,6 +37,10 @@ export const metadata: Metadata = {
     description:
       'Step-by-step guide to register for Solution Challenge 2026 and represent GDG On Campus PRMIT&R.',
     images: ['/assets/logos/gdg-on-campus-dark.png'],
+  },
+  icons: {
+    icon: [{ url: '/logo/logo-gdg.png', type: 'image/png' }],
+    apple: [{ url: '/logo/logo-gdg.png', type: 'image/png' }],
   },
 }
 

@@ -2,60 +2,150 @@
 
 import { useMemo, useState } from "react";
 import EventCard from "./EventCard";
-import { events, eventTypes } from "@/data/events";
+import { events, eventTypes, type Event } from "@/data/events";
 
-type ViewMode = "grid" | "list";
+type EventStatus = "LIVE" | "UPCOMING" | "PAST";
+
+function parseTimePart(value: string) {
+  const [hours, minutes] = value.trim().split(":").map(Number);
+  if (Number.isNaN(hours) || Number.isNaN(minutes)) {
+    return null;
+  }
+  return { hours, minutes };
+}
+
+function splitTimeRange(value: string) {
+  return value.split(/[\u2013-]/);
+}
+
+function getEventStatus(event: Event): EventStatus {
+  const now = new Date();
+  const endDate = event.endDate ?? event.date;
+
+  // Multi-day events are treated as live for the full date range.
+  if (event.endDate && event.endDate !== event.date) {
+    const startOfRange = new Date(`${event.date}T00:00:00`);
+    const endOfRange = new Date(`${endDate}T23:59:59`);
+
+    if (now < startOfRange) {
+      return "UPCOMING";
+    }
+    if (now <= endOfRange) {
+      return "LIVE";
+    }
+    return "PAST";
+  }
+
+  const parts = splitTimeRange(event.time);
+  const startPart = parseTimePart(parts[0] ?? "");
+  const endPart = parseTimePart(parts[1] ?? "");
+
+  if (!startPart) {
+    const startOfDay = new Date(`${event.date}T00:00:00`);
+    const endOfDay = new Date(`${endDate}T23:59:59`);
+    if (now < startOfDay) {
+      return "UPCOMING";
+    }
+    if (now <= endOfDay) {
+      return "LIVE";
+    }
+    return "PAST";
+  }
+
+  const start = new Date(`${event.date}T00:00:00`);
+  start.setHours(startPart.hours, startPart.minutes, 0, 0);
+
+  const end = new Date(start);
+  if (endPart) {
+    end.setHours(endPart.hours, endPart.minutes, 0, 0);
+  } else {
+    end.setHours(start.getHours() + 2, start.getMinutes(), 0, 0);
+  }
+
+  if (now < start) {
+    return "UPCOMING";
+  }
+  if (now <= end) {
+    return "LIVE";
+  }
+  return "PAST";
+}
+
+function getStartDateTime(event: Event) {
+  const startPart = parseTimePart(splitTimeRange(event.time)[0] ?? "");
+  const start = new Date(`${event.date}T00:00:00`);
+  if (startPart) {
+    start.setHours(startPart.hours, startPart.minutes, 0, 0);
+  }
+  return start;
+}
 
 export default function EventsExplorer() {
   const [query, setQuery] = useState("");
-  const [domain, setDomain] = useState("all");
   const [club, setClub] = useState("all");
   const [type, setType] = useState("all");
-  const [scope, setScope] = useState<"all" | "upcoming" | "past">("all");
-  const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  const [scope, setScope] = useState<"all" | "live" | "upcoming" | "past">("all");
 
-  const domains = Array.from(new Set(events.map((event) => event.domain)));
   const clubs = Array.from(new Set(events.map((event) => event.club)));
+  const scopeOptions: Array<{ key: "all" | "live" | "upcoming" | "past"; label: string }> = [
+    { key: "all", label: "All" },
+    { key: "live", label: "Live" },
+    { key: "upcoming", label: "Upcoming" },
+    { key: "past", label: "Past" },
+  ];
 
   const filtered = useMemo(() => {
-    const now = new Date();
-    return events.filter((event) => {
+    const results = events.filter((event) => {
       const queryMatch =
         event.title.toLowerCase().includes(query.toLowerCase()) ||
         event.description.toLowerCase().includes(query.toLowerCase());
-      const domainMatch = domain === "all" || event.domain === domain;
       const clubMatch = club === "all" || event.club === club;
       const typeMatch = type === "all" || event.eventType === type;
-      const date = new Date(event.date);
+      const status = getEventStatus(event);
       const scopeMatch =
-        scope === "all" || (scope === "upcoming" ? date >= now : date < now);
-      return queryMatch && domainMatch && clubMatch && typeMatch && scopeMatch;
+        scope === "all" ||
+        (scope === "live" && status === "LIVE") ||
+        (scope === "upcoming" && status === "UPCOMING") ||
+        (scope === "past" && status === "PAST");
+      return queryMatch && clubMatch && typeMatch && scopeMatch;
     });
-  }, [query, domain, club, type, scope]);
+
+    const statusPriority: Record<EventStatus, number> = {
+      LIVE: 0,
+      UPCOMING: 1,
+      PAST: 2,
+    };
+
+    return results.sort((a, b) => {
+      const aStatus = getEventStatus(a);
+      const bStatus = getEventStatus(b);
+
+      if (statusPriority[aStatus] !== statusPriority[bStatus]) {
+        return statusPriority[aStatus] - statusPriority[bStatus];
+      }
+
+      const aStart = getStartDateTime(a).getTime();
+      const bStart = getStartDateTime(b).getTime();
+
+      if (aStatus === "PAST") {
+        return bStart - aStart;
+      }
+
+      return aStart - bStart;
+    });
+  }, [query, club, type, scope]);
 
   return (
     <section>
-      <div className="mb-6 grid gap-3 rounded-2xl border border-black/10 bg-white p-4 dark:border-white/10 dark:bg-slate-900 md:grid-cols-3">
+      <div className="mb-6 grid gap-3 rounded-2xl border border-black/10 bg-white p-4 dark:border-white/10 dark:bg-slate-900 md:grid-cols-2 lg:grid-cols-3">
         <input
-          className="rounded-md border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-slate-950"
+          className="h-11 rounded-lg border border-black/10 px-3 text-sm dark:border-white/10 dark:bg-slate-950"
           placeholder="Search events..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <select
-          className="rounded-md border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-slate-950"
-          value={domain}
-          onChange={(e) => setDomain(e.target.value)}
-        >
-          <option value="all">All domains</option>
-          {domains.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
-        </select>
-        <select
-          className="rounded-md border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-slate-950"
+          className="h-11 rounded-lg border border-black/10 px-3 text-sm dark:border-white/10 dark:bg-slate-950"
           value={club}
           onChange={(e) => setClub(e.target.value)}
         >
@@ -67,7 +157,7 @@ export default function EventsExplorer() {
           ))}
         </select>
         <select
-          className="rounded-md border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-slate-950"
+          className="h-11 rounded-lg border border-black/10 px-3 text-sm dark:border-white/10 dark:bg-slate-950"
           value={type}
           onChange={(e) => setType(e.target.value)}
         >
@@ -78,32 +168,25 @@ export default function EventsExplorer() {
             </option>
           ))}
         </select>
-        <select
-          className="rounded-md border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-slate-950"
-          value={scope}
-          onChange={(e) => setScope(e.target.value as "all" | "upcoming" | "past")}
-        >
-          <option value="all">All dates</option>
-          <option value="upcoming">Upcoming</option>
-          <option value="past">Past</option>
-        </select>
-        <div className="flex items-center gap-2">
-          <button
-            className={`rounded-md px-4 py-2 text-sm ${viewMode === "grid" ? "bg-primary text-white" : "bg-slate-100 dark:bg-slate-800"}`}
-            onClick={() => setViewMode("grid")}
-          >
-            Grid
-          </button>
-          <button
-            className={`rounded-md px-4 py-2 text-sm ${viewMode === "list" ? "bg-primary text-white" : "bg-slate-100 dark:bg-slate-800"}`}
-            onClick={() => setViewMode("list")}
-          >
-            List
-          </button>
+        <div className="flex items-center gap-2 overflow-x-auto md:col-span-2 lg:col-span-3">
+          {scopeOptions.map((option) => (
+            <button
+              key={option.key}
+              type="button"
+              onClick={() => setScope(option.key)}
+              className={`h-8 shrink-0 rounded-full border px-3 text-xs font-semibold transition ${
+                scope === option.key
+                  ? "border-primary bg-primary text-white"
+                  : "border-black/10 bg-slate-50 text-slate-700 hover:bg-slate-100 dark:border-white/10 dark:bg-slate-950 dark:text-slate-200 dark:hover:bg-slate-800"
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
         </div>
       </div>
 
-      <div className={viewMode === "grid" ? "grid gap-4 md:grid-cols-2" : "space-y-4"}>
+      <div className="grid gap-4 md:grid-cols-2">
         {filtered.map((event) => (
           <EventCard key={event.id} event={event} />
         ))}

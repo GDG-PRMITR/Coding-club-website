@@ -77,18 +77,30 @@ function SpotlightCard({
   member: (typeof spotlightMembers)[number];
   isWide?: boolean;
 }) {
+  const imageClasses = isWide
+    ? "mx-auto h-24 w-24 md:mx-0"
+    : "mx-auto h-24 w-24";
+
+  const contentClasses = isWide
+    ? "mt-4 text-center md:mt-0 md:text-left"
+    : "mt-4 text-center";
+
+  const headingClasses = isWide
+    ? "font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 md:text-3xl"
+    : "font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 md:text-3xl";
+
   return (
     <article
       className={`rounded-3xl border border-black/10 bg-white/90 p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/90 ${isWide ? "md:flex md:items-center md:gap-6" : ""}`}
     >
-      <div className={`relative overflow-hidden rounded-2xl bg-slate-200 ${isWide ? "h-24 w-24" : "mx-auto h-24 w-24"}`}>
+      <div className={`relative overflow-hidden rounded-2xl bg-slate-200 ${imageClasses}`}>
         <Image src={member.photo} alt={member.name} fill className="object-cover" />
       </div>
-      <div className={isWide ? "mt-0" : "mt-4 text-center"}>
-        <h3 className="font-display text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 md:text-2xl">{member.name}</h3>
+      <div className={contentClasses}>
+        <h3 className={headingClasses}>{member.name}</h3>
         <p className="text-sm font-bold uppercase tracking-wide text-primary">{member.role}</p>
-        <p className="mt-3 max-w-2xl text-base italic text-slate-600 dark:text-slate-300">&ldquo;{member.quote}&rdquo;</p>
-        {member.withLinks ? <div className={isWide ? "" : "flex justify-center"}><LinkChips /></div> : null}
+        <p className="mt-3 max-w-2xl text-sm italic text-slate-600 dark:text-slate-300 md:text-base">&ldquo;{member.quote}&rdquo;</p>
+        {member.withLinks ? <div className={isWide ? "flex justify-center md:block" : "flex justify-center"}><LinkChips /></div> : null}
       </div>
     </article>
   );

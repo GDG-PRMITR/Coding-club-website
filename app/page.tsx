@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import FeaturedClubs from "@/components/FeaturedClubs";
 import EventCard from "@/components/EventCard";
@@ -7,6 +8,40 @@ import FacultySection from "@/components/FacultySection";
 import Link from "next/link";
 import { events } from "@/data/events";
 import { GitHubIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon, XIcon } from "@/components/SocialIcons";
+
+export const metadata: Metadata = {
+  title: "Coding Club PRMITR | Developer Community",
+  description:
+    "Join Coding Club PRMITR for workshops, hackathons, events, and student-led tech communities including GDG and GSA.",
+  keywords: [
+    "Coding Club PRMITR",
+    "PRMITR Coding Club",
+    "GDG On Campus PRMITR",
+    "Google Developer Group PRMITR",
+    "Google Student Developer Club PRMITR",
+    "GDSC PRMITR",
+    "GSA PRMITR",
+    "Cisco Club PRMITR",
+    "E-Cell PRMITR",
+    "Prof Ram Meghe Institute of Technology and Research",
+    "PRMITR",
+    "MITRA",
+    "mitra.ac.in",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Coding Club PRMITR | Developer Community",
+    description:
+      "Join Coding Club PRMITR for workshops, hackathons, events, and student-led tech communities including GDG and GSA.",
+    url: "/",
+  },
+  icons: {
+    icon: [{ url: "/logo/logo-coding-club.png", type: "image/png" }],
+    apple: [{ url: "/logo/logo-coding-club.png", type: "image/png" }],
+  },
+};
 
 export default function Home() {
   const latestEvents = [...events]

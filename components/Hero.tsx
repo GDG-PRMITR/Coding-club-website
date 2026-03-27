@@ -13,7 +13,7 @@ export default function Hero() {
             <Image src={siteConfig.logo} alt="Coding Club logo" width={30} height={30} className="object-contain" />
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Coding Club</p>
           </div>
-          <h1 className="font-display text-4xl font-black tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
+          <h1 className="font-display text-3xl font-black tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
             Learn. Code. Create.
           </h1>
           <p className="mt-3 text-sm font-semibold uppercase tracking-[0.15em] text-primary">
@@ -24,25 +24,25 @@ export default function Hero() {
             and industry-ready development across modern technology domains.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/about" className="rounded-full bg-primary px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-primary/90">
+            <Link href="/about" className="w-full rounded-full bg-primary px-6 py-3 text-center font-semibold text-white shadow-sm transition hover:bg-primary/90 sm:w-auto">
               Join Us
             </Link>
             <Link
               href="/about#clubs"
-              className="rounded-full border border-slate-300 bg-white/80 px-6 py-3 font-semibold text-slate-800 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-800"
+              className="w-full rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-center font-semibold text-slate-800 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-800 sm:w-auto"
             >
               Explore Clubs
             </Link>
           </div>
         </div>
         <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/85 p-4 shadow-sm dark:border-white/10 dark:bg-slate-900/85">
-          <div className="relative h-64 w-full overflow-hidden rounded-2xl">
+          <div className="relative h-52 w-full overflow-hidden rounded-2xl sm:h-64">
             <Image src="/gallery/installation-ceremony-main.jpeg" alt="PRMITR Coding Club event" fill className="object-cover" priority />
           </div>
           <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">Building a culture of technical excellence through events, mentorship, and community learning.</p>
         </div>
       </div>
-      <div className="relative mt-8 grid gap-3 text-sm sm:grid-cols-3">
+      <div className="relative mt-8 grid gap-3 text-sm md:grid-cols-3">
         <p className="rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-slate-700 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-300">Hands-on workshops and technical bootcamps</p>
         <p className="rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-slate-700 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-300">Cross-domain mentorship from senior members</p>
         <p className="rounded-xl border border-black/10 bg-white/80 px-4 py-3 text-slate-700 dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-300">Industry-aligned learning with active communities</p>
