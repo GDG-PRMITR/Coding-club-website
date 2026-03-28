@@ -2,7 +2,11 @@
 
 import { useMemo, useState } from "react";
 import EventCard from "./EventCard";
-import { events, eventTypes, type Event } from "@/data/events";
+import { eventTypes, type Event } from "@/data/events";
+
+type EventsExplorerProps = {
+  events: Event[];
+};
 
 type EventStatus = "LIVE" | "UPCOMING" | "PAST";
 
@@ -80,7 +84,7 @@ function getStartDateTime(event: Event) {
   return start;
 }
 
-export default function EventsExplorer() {
+export default function EventsExplorer({ events }: EventsExplorerProps) {
   const [query, setQuery] = useState("");
   const [club, setClub] = useState("all");
   const [type, setType] = useState("all");
@@ -133,7 +137,7 @@ export default function EventsExplorer() {
 
       return aStart - bStart;
     });
-  }, [query, club, type, scope]);
+  }, [events, query, club, type, scope]);
 
   return (
     <section>

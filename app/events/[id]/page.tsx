@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { events, type Event } from "@/data/events";
+import { type Event } from "@/data/events";
+import { getEvents } from "@/lib/events-store";
 
 type EventDetailProps = {
   params: Promise<{ id: string }>;
@@ -139,6 +140,7 @@ function getRelatedEvents(currentEvent: Event, allEvents: Event[], limit = 2) {
 
 export async function generateMetadata({ params }: EventDetailProps): Promise<Metadata> {
   const { id } = await params;
+  const events = await getEvents();
   const event = events.find((item) => item.id === id);
   if (!event) {
     return {
@@ -200,6 +202,7 @@ export async function generateMetadata({ params }: EventDetailProps): Promise<Me
 
 export default async function EventDetailPage({ params }: EventDetailProps) {
   const { id } = await params;
+  const events = await getEvents();
   const event = events.find((item) => item.id === id);
 
   if (!event) {

@@ -6,7 +6,7 @@ import StatsSection from "@/components/StatsSection";
 import SpotlightSection from "@/components/SpotlightSection";
 import FacultySection from "@/components/FacultySection";
 import Link from "next/link";
-import { events } from "@/data/events";
+import { getEvents } from "@/lib/events-store";
 import { GitHubIcon, InstagramIcon, LinkedInIcon, WhatsAppIcon, XIcon } from "@/components/SocialIcons";
 
 export const metadata: Metadata = {
@@ -43,7 +43,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const events = await getEvents();
   const latestEvents = [...events]
     .sort((first, second) => +new Date(second.date) - +new Date(first.date))
     .slice(0, 3);

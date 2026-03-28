@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
-import { events } from "@/data/events";
 import { getSiteUrl } from "@/lib/seo";
+import { getEventsForSitemap } from "@/lib/events-store";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = getSiteUrl();
   const now = new Date();
+  const events = await getEventsForSitemap();
 
   const staticRoutes = [
     "",

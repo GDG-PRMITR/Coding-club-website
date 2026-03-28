@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import EventsExplorer from "@/components/EventsExplorer";
+import { getEvents } from "@/lib/events-store";
 
 export const metadata: Metadata = {
   title: "Events",
@@ -18,7 +19,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function EventsPage() {
+export default async function EventsPage() {
+  const events = await getEvents();
+
   return (
     <div className="space-y-8">
       <section>
@@ -27,7 +30,7 @@ export default function EventsPage() {
           Discover workshops, meetups, competitions, and community gatherings.
         </p>
       </section>
-      <EventsExplorer />
+      <EventsExplorer events={events} />
     </div>
   );
 }
