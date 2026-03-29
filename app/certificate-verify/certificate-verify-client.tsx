@@ -117,10 +117,10 @@ export default function CertificateVerifyClient({
               <input
                 type="text"
                 value={verifyId}
-                onChange={(event) => setVerifyId(event.target.value)}
+                onChange={(event) => setVerifyId(event.target.value.toUpperCase())}
                 placeholder="e.g. GDA2600005"
-                className="h-full w-full bg-transparent text-[15px] font-medium tracking-wide text-slate-800 outline-none placeholder:font-normal placeholder:tracking-normal placeholder:text-slate-400 dark:text-slate-100"
-                autoCapitalize="none"
+                className="h-full w-full bg-transparent text-[15px] font-medium tracking-wide text-slate-800 outline-none placeholder:font-normal placeholder:tracking-normal placeholder:text-slate-400 dark:text-slate-100 uppercase"
+                autoCapitalize="characters"
                 autoComplete="off"
                 spellCheck={false}
                 autoFocus
@@ -137,10 +137,6 @@ export default function CertificateVerifyClient({
             </button>
           </form>
         </div>
-
-        <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
-          Tip: IDs are case-insensitive (e.g. gda2600005). 
-        </p>
 
         {loading ? (
           <div
