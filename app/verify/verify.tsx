@@ -48,7 +48,7 @@ export default function CertificateVerifyClient({
     setCertificate(null);
 
     try {
-      const response = await fetch(`/api/certificate-verify?verifyId=${encodeURIComponent(trimmed)}`, {
+      const response = await fetch(`/api/verify?id=${encodeURIComponent(trimmed)}`, {
         method: "GET",
         cache: "no-store",
       });

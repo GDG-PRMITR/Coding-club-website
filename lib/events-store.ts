@@ -112,7 +112,7 @@ function applyVisibility(events: Event[], config: EventVisibilityConfig) {
 
 function ensureString(value: unknown, field: string, required = true) {
   if (typeof value !== "string") {
-    if (!required && (value === undefined || value === null || value === "")) {
+    if (!required && (value === undefined || value === null)) {
       return "";
     }
     throw new Error(`Invalid ${field}`);

@@ -17,7 +17,7 @@ Built with Next.js 16, it serves as the central hub for club events, member prof
 | **Gallery** | `/gallery` | Photo grid of past activities |
 | **GDG** | `/gdg` | Google Developer Group chapter details |
 | **GSA** | `/gsa` | Google Student Ambassador information |
-| **Certificate Verify** | `/certificate-verify` | Verify a certificate by ID |
+| **Verify** | `/verify` | Verify a certificate by ID |
 | **Smart Campus 2026 Help** | `/sc2026-help` | Dedicated help page for SC2026 |
 | **Short Links** | `/out/[key]` | Tracked outbound link redirects |
 
@@ -35,7 +35,7 @@ Built with Next.js 16, it serves as the central hub for club events, member prof
 - `PATCH /api/admin/access-requests/[id]` — approve / reject a request
 - `GET /api/admin/users` — list admin users
 - `GET /api/admin/me` — current admin info
-- `GET /api/verify` — verify a certificate
+- `GET /api/verify` — verify a certificate using `id` parameter
 - `GET /api/auth/[...nextauth]` — NextAuth handler
 
 ---
@@ -120,7 +120,7 @@ Coding-club-website/
 ├── app/                     # Next.js App Router pages & API routes
 │   ├── admin/               # Admin dashboard & login
 │   ├── api/                 # API route handlers
-│   ├── certificate-verify/  # Certificate verification page
+│   ├── verify/              # Certificate verification page and client component
 │   ├── events/              # Events listing & detail pages
 │   ├── gallery/             # Photo gallery
 │   ├── gdg/                 # GDG chapter page
@@ -128,7 +128,6 @@ Coding-club-website/
 │   ├── out/[key]/           # Outbound link tracker
 │   ├── sc2026-help/         # Smart Campus 2026 help page
 │   ├── about/               # About the club
-│   ├── verify/              # Certificate verify (alias)
 │   └── page.tsx             # Home page
 ├── components/              # Reusable React components
 │   ├── admin/               # Admin-specific components

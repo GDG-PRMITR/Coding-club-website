@@ -94,14 +94,15 @@ export async function GET(request: Request) {
   pruneExpiredMaps(now);
 
   const { searchParams } = new URL(request.url);
-  const verifyId = searchParams.get("verifyId")?.trim().toLowerCase();
+  // Support both 'id' and 'verifyId' for backward compatibility during transition, but 'id' is preferred
+  const verifyId = (searchParams.get("id") || searchParams.get("verifyId"))?.trim().toLowerCase();
 
   if (!verifyId) {
-    return NextResponse.json({ error: "verifyId is required" }, { status: 400 });
+    return NextResponse.json({ error: "id is required" }, { status: 400 });
   }
 
   if (!isValidVerifyId(verifyId)) {
-    return NextResponse.json({ error: "Invalid verify ID format" }, { status: 400 });
+    return NextResponse.json({ error: "Invalid ID format" }, { status: 400 });
   }
 
   const cached = verifyCache.get(verifyId);
