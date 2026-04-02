@@ -109,6 +109,7 @@ export default async function VerifyPage({ searchParams }: VerifyPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        key="jsonld-verify"
       />
       <div className="mx-auto max-w-5xl px-4 py-8">
         <CertificateVerifyClient initialVerifyId={initialVerifyId} />

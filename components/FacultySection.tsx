@@ -15,7 +15,7 @@ export default function FacultySection() {
             className="w-72 shrink-0 rounded-2xl border border-black/10 bg-white/95 p-4 text-center shadow-sm dark:border-white/10 dark:bg-slate-900/95"
           >
             <div className="relative mx-auto mb-3 aspect-square w-20 overflow-hidden rounded-full bg-slate-100">
-              <Image src={member.photo} alt={member.name} fill className="object-cover object-top" unoptimized />
+              <Image src={member.photo} alt={member.name} fill sizes="80px" className="object-cover object-top" unoptimized />
             </div>
             <h3 className="font-semibold text-slate-900 dark:text-slate-100">{member.name}</h3>
             <p className="mt-1 line-clamp-2 text-sm text-slate-600 dark:text-slate-300">{member.role}</p>

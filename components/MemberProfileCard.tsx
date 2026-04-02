@@ -27,7 +27,7 @@ export default function MemberProfileCard({ name, role }: { name: string; role: 
     <article className="group m-1 flex min-h-[15.75rem] w-full max-w-[17.75rem] flex-col items-center rounded-2xl border border-slate-200/90 bg-white/95 p-5 text-center shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-slate-900/95">
       <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full border-4 border-slate-100 bg-slate-100 shadow-sm ring-2 ring-primary/30 dark:border-slate-800 dark:ring-primary/40">
         {profile.photo ? (
-          <Image src={profile.photo} alt={name} fill className="object-cover object-top" unoptimized />
+          <Image src={profile.photo} alt={name} fill sizes="96px" className="object-cover object-top" unoptimized />
         ) : (
           <Initials name={name} />
         )}

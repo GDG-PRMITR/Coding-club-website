@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
         <div>
           <div className="flex items-center gap-2">
-            <Image src={siteConfig.logo} alt="Coding Club logo" width={34} height={34} className="rounded-md object-contain" />
+            <Image src={siteConfig.logo} alt="Coding Club logo" width={350} height={214} style={{ width: "34px", height: "auto" }} className="rounded-md object-contain" />
             <p className="font-display text-xl font-bold text-primary">{siteConfig.name}</p>
           </div>
           <p className="mt-3 max-w-md text-sm text-slate-600 dark:text-slate-300">

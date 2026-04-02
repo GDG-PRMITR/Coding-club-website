@@ -18,7 +18,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between gap-3">
           <Link href="/" className="flex min-w-0 items-center gap-3">
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/80 shadow-sm ring-1 ring-black/10 dark:bg-slate-900 dark:ring-white/10">
-              <Image src={siteConfig.logo} alt="Coding Club logo" width={30} height={30} className="object-contain" priority />
+              <Image src={siteConfig.logo} alt="Coding Club logo" width={350} height={214} style={{ width: "30px", height: "auto" }} className="object-contain" priority />
             </span>
             <span className="max-w-[62vw] truncate font-display text-base font-extrabold tracking-tight text-slate-900 dark:text-slate-50 sm:max-w-none sm:text-lg">
               {siteConfig.name}

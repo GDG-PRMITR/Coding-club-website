@@ -94,7 +94,7 @@ function SpotlightCard({
       className={`rounded-3xl border border-black/10 bg-white/90 p-6 shadow-sm dark:border-white/10 dark:bg-slate-900/90 ${isWide ? "md:flex md:items-center md:gap-6" : ""}`}
     >
       <div className={`relative overflow-hidden rounded-2xl bg-slate-200 ${imageClasses}`}>
-        <Image src={member.photo} alt={member.name} fill className="object-cover" />
+        <Image src={member.photo} alt={member.name} fill sizes="96px" className="object-cover" />
       </div>
       <div className={contentClasses}>
         <h3 className={headingClasses}>{member.name}</h3>

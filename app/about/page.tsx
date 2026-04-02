@@ -64,7 +64,7 @@ export default function AboutPage() {
     <div className="space-y-10">
       <section className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-slate-900">
         <div className="flex items-center gap-3">
-          <Image src="/Coding-Club.png" alt="Coding Club Logo" width={44} height={44} className="object-contain" />
+          <Image src="/Coding-Club.png" alt="Coding Club Logo" width={350} height={214} style={{ width: "44px", height: "auto" }} className="object-contain" />
           <h1 className="font-display text-4xl font-bold">Coding Club</h1>
         </div>
         <p className="mt-4 max-w-3xl text-slate-600 dark:text-slate-300">
@@ -103,7 +103,7 @@ export default function AboutPage() {
               className="rounded-2xl border border-black/10 bg-slate-50 p-5 transition hover:-translate-y-0.5 dark:border-white/10 dark:bg-slate-950"
             >
               <div className="relative mb-4 h-14 w-14 overflow-hidden rounded-xl bg-white p-1 dark:bg-slate-900">
-                <Image src={community.logo} alt={`${community.name} Logo`} fill className="object-contain" />
+                <Image src={community.logo} alt={`${community.name} Logo`} fill sizes="56px" className="object-contain" />
               </div>
               <h3 className="font-display text-xl font-bold">{community.name}</h3>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{community.description}</p>

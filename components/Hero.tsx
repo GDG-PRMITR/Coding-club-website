@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="relative grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
           <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-black/10 bg-white/80 px-3 py-2 shadow-sm dark:border-white/10 dark:bg-slate-900/80">
-            <Image src={siteConfig.logo} alt="Coding Club logo" width={30} height={30} className="object-contain" />
+            <Image src={siteConfig.logo} alt="Coding Club logo" width={350} height={214} style={{ width: "30px", height: "auto" }} className="object-contain" />
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Coding Club</p>
           </div>
           <h1 className="font-display text-3xl font-black tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
@@ -37,7 +37,7 @@ export default function Hero() {
         </div>
         <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/85 p-4 shadow-sm dark:border-white/10 dark:bg-slate-900/85">
           <div className="relative h-52 w-full overflow-hidden rounded-2xl sm:h-64">
-            <Image src="/gallery/installation-ceremony-main.jpeg" alt="PRMITR Coding Club event" fill className="object-cover" priority />
+            <Image src="/gallery/installation-ceremony-main.jpeg" alt="PRMITR Coding Club event" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" priority />
           </div>
           <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">Building a culture of technical excellence through events, mentorship, and community learning.</p>
         </div>

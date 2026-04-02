@@ -106,7 +106,12 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
   const [countdown, setCountdown] = useState<CountdownState>(getCountdownState)
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
   const [zoom, setZoom] = useState(1)
+  const [hasMounted, setHasMounted] = useState(false)
   const manualNavClickRef = useRef(false)
+
+  useEffect(() => {
+    setHasMounted(true)
+  }, [])
 
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll<HTMLElement>('.step-plain'))
@@ -259,18 +264,22 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
   return (
     <main className={`sc2026-page ${fontClassName}`}>
       <nav className="top-logo-bar theme-dark">
-        <Image src="/assets/logos/gdg-on-campus-dark.png" alt="GDG On Campus PRMIT&R" className="top-bar-logo" width={180} height={32} />
-        <Image src="/assets/logos/h2s-dark.png" alt="Hack2Skill" className="top-bar-logo" width={140} height={32} />
+        <Image src="/assets/logos/gdg-on-campus-dark.png" alt="GDG On Campus PRMIT&R" className="top-bar-logo" width={1718} height={220} style={{ height: "32px", width: "auto" }} priority />
+        <Image src="/assets/logos/h2s-dark.png" alt="Hack2Skill" className="top-bar-logo" width={1355} height={510} style={{ height: "32px", width: "auto" }} priority />
       </nav>
 
       <header className="hero">
         <div className="video-container">
-          <video autoPlay muted loop playsInline className="hero-video-full web-video">
-            <source src="/assets/videos/heroweb.mp4.mp4" type="video/mp4" />
-          </video>
-          <video autoPlay muted loop playsInline className="hero-video-full mobile-video">
-            <source src="/assets/videos/heromobile.mp4.mp4" type="video/mp4" />
-          </video>
+          {hasMounted && (
+            <>
+              <video autoPlay muted loop playsInline className="hero-video-full web-video" suppressHydrationWarning>
+                <source src="/assets/videos/heroweb.mp4.mp4" type="video/mp4" />
+              </video>
+              <video autoPlay muted loop playsInline className="hero-video-full mobile-video" suppressHydrationWarning>
+                <source src="/assets/videos/heromobile.mp4.mp4" type="video/mp4" />
+              </video>
+            </>
+          )}
         </div>
       </header>
 
@@ -350,7 +359,7 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
                 ))}
               </div>
               <div className="nav-extra-logo">
-                <Image src="/assets/logos/build-with-ai.png" alt="Build with AI" className="side-nav-logo" width={140} height={54} />
+                <Image src="/assets/logos/build-with-ai.png" alt="Build with AI" className="side-nav-logo" width={1096} height={388} style={{ width: "140px", height: "auto" }} priority />
               </div>
             </nav>
           </div>
@@ -712,8 +721,8 @@ export function Sc2026HelpPage({ fontClassName }: Sc2026HelpPageProps) {
         <div className="footer-container">
           <div className="footer-left">
             <div className="footer-logos">
-              <Image src="/assets/logos/gdg-on-campus-dark.png" alt="GDG On Campus PRMIT&R" className="footer-logo" width={180} height={32} />
-              <Image src="/assets/logos/h2s-dark.png" alt="Hack2Skill" className="footer-logo" width={140} height={32} />
+              <Image src="/assets/logos/gdg-on-campus-dark.png" alt="GDG On Campus PRMIT&R" className="footer-logo" width={1718} height={220} style={{ height: "36px", width: "auto" }} />
+              <Image src="/assets/logos/h2s-dark.png" alt="Hack2Skill" className="footer-logo" width={1355} height={510} style={{ height: "36px", width: "auto" }} />
             </div>
             <p className="footer-text">
               This is a community onboarding page created by <strong>GDG On Campus PRMIT&R</strong> to help students

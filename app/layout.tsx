@@ -125,7 +125,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen antialiased">
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -138,6 +138,8 @@ export default function RootLayout({
             __html: JSON.stringify(websiteJsonLd),
           }}
         />
+      </head>
+      <body className="min-h-screen antialiased" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <RootLayoutClient>{children}</RootLayoutClient>
         </ThemeProvider>
