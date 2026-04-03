@@ -94,6 +94,11 @@ AUTH_GITHUB_SECRET=<your-github-client-secret>
 # Google OAuth
 AUTH_GOOGLE_ID=<your-google-client-id>
 AUTH_GOOGLE_SECRET=<your-google-client-secret>
+
+# Microsoft OAuth
+AUTH_MICROSOFT_ENTRA_ID_ID=<your-microsoft-client-id>
+AUTH_MICROSOFT_ENTRA_ID_SECRET=<your-microsoft-client-secret>
+AUTH_MICROSOFT_ENTRA_ID_ISSUER=<your-microsoft-id-issuer>
 ```
 
 ### 4. Run the development server
