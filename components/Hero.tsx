@@ -36,8 +36,8 @@ export default function Hero() {
           </div>
         </div>
         <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/85 p-4 shadow-sm dark:border-white/10 dark:bg-slate-900/85">
-          <div className="relative h-52 w-full overflow-hidden rounded-2xl sm:h-64">
-            <Image src="/gallery/installation-ceremony-main.jpeg" alt="PRMITR Coding Club event" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" priority />
+          <div className="relative aspect-[1599/704] w-full overflow-hidden rounded-2xl">
+            <Image src="/gallery/installation-ceremony-main.jpeg" alt="PRMITR Coding Club event" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" priority />
           </div>
           <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">Building a culture of technical excellence through events, mentorship, and community learning.</p>
         </div>
