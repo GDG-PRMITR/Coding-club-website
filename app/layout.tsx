@@ -107,6 +107,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/Coding-Club.png"],
   },
+  verification: {
+    google: 'UfcNu_lP-vFHNt4pQtU4A9_2Qaezu_WbEZvzN30OKMM',
+  },
   icons: {
     icon: [
       { url: "/icon.png", type: "image/png" },
